@@ -243,12 +243,12 @@
     </div>
 </section>
 
-<!-- ================= NAVA NARASIMHA (9 FORMS) SECTION ================= -->
+<!-- ================= NAVA NARASIMHA (9 FORMS) WITH IMAGES ================= -->
 <style>
     /* 1. Base Section Styles */
     .nava-section {
         padding: 80px 5%;
-        background-color: #111111; /* హిస్టరీ సెక్షన్ కంటే కొద్దిగా డార్క్ గా ఉంటే బాగుంటుంది */
+        background-color: #111111; 
         border-top: 1px solid #333;
     }
     
@@ -271,12 +271,12 @@
         margin: 0 auto;
     }
 
-    /* 3. Card Design */
+    /* 3. Updated Card Design for Images */
     .nava-card {
         background-color: #1e1e1e; 
         border: 1px solid #333; 
         border-radius: 12px;
-        padding: 30px 25px; 
+        overflow: hidden; /* ఇమేజ్ ఎడ్జెస్ బయటకు రాకుండా */
         text-align: center; 
         transition: all 0.3s ease;
     }
@@ -287,30 +287,46 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
 
-    /* 4. Icon Circle */
-    .nava-icon {
-        width: 65px; height: 65px; 
-        background-color: rgba(223, 177, 96, 0.1);
-        color: #dfb160; 
-        font-size: 28px; 
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%;
-        margin: 0 auto 20px auto; 
-        border: 1px dashed #dfb160;
+    /* 4. Image Box & Hover Effect (UPDATED) */
+    .nava-img-box {
+        width: 100%;
+        height: 250px; /* ఫోటోలు ఇంకా స్పష్టంగా కనిపించడానికి కొద్దిగా హైట్ పెంచాను */
+        overflow: hidden;
+        border-bottom: 2px solid #dfb160;
+        background-color: #0a0a0a; /* ఇమేజ్ చుట్టూ ఖాళీ ఉంటే ఈ డార్క్ కలర్ లో కలిసిపోతుంది */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nava-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* cover బదులు contain పెట్టాను, దీనివల్ల ఇమేజ్ అస్సలు కట్ అవ్వదు */
+        transition: transform 0.4s ease;
+    }
+
+    .nava-card:hover .nava-img-box img {
+        transform: scale(1.1); /* మౌస్ పెట్టినప్పుడు స్మూత్ జూమ్ అవుతుంది */
     }
 
     /* 5. Typography */
-    .nava-card h3 {
+    .nava-content {
+        padding: 25px 20px;
+    }
+
+    .nava-content h3 {
         color: #ffffff; 
         font-size: 22px; 
         margin-bottom: 15px; 
         font-family: 'Playfair Display', serif;
     }
     
-    .nava-card p {
+    .nava-content p {
         color: #b3b3b3; 
         font-size: 14.5px; 
         line-height: 1.6;
+        margin: 0;
     }
 </style>
 
@@ -322,65 +338,101 @@
         
         <!-- 1. Jwala Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-            <h3>1. Jwala Narasimha</h3>
-            <p>The fiercest form of the Lord. This is the exact spot where He emerged with intense anger (Jwala) and tore the demon king Hiranyakashipu apart.</p>
+            <div class="nava-img-box">
+                <img src="temples/jwala.jpg" alt="Jwala Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>1. Jwala Narasimha</h3>
+                <p>The fiercest form of the Lord. This is the exact spot where He emerged with intense anger (Jwala) and tore the demon king Hiranyakashipu apart.</p>
+            </div>
         </div>
 
         <!-- 2. Ahobila (Ugra) Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-om"></i></div>
-            <h3>2. Ahobila Narasimha</h3>
-            <p>Also known as Ugra Narasimha. This is the main presiding deity of Upper Ahobilam. He appears fierce but grants profound peace to His true devotees.</p>
+            <div class="nava-img-box">
+                <img src="temples/ahobila.jpg" alt="Ahobila Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>2. Ahobila Narasimha</h3>
+                <p>Also known as Ugra Narasimha. This is the main presiding deity of Upper Ahobilam. He appears fierce but grants profound peace to His true devotees.</p>
+            </div>
         </div>
 
         <!-- 3. Malola Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-brands fa-pagelines"></i></div>
-            <h3>3. Malola Narasimha</h3>
-            <p>A peaceful and beloved form. 'Ma' means Goddess Lakshmi and 'Lola' means beloved. Here, the Lord is seen gracefully seated with Mother Lakshmi.</p>
+            <div class="nava-img-box">
+                <img src="temples/MALOLA IDOL.jpg" alt="Malola Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>3. Malola Narasimha</h3>
+                <p>A peaceful and beloved form. 'Ma' means Goddess Lakshmi and 'Lola' means beloved. Here, the Lord is seen gracefully seated with Mother Lakshmi.</p>
+            </div>
         </div>
 
         <!-- 4. Kroda (Varaha) Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-            <h3>4. Kroda Narasimha</h3>
-            <p>Also called Varaha Narasimha. In this highly unique form, the Lord features the face of a wild boar (Varaha) along with His Narasimha attributes.</p>
+            <div class="nava-img-box">
+                <img src="temples/VARAHA IDOL.jpg" alt="Kroda Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>4. Kroda Narasimha</h3>
+                <p>Also called Varaha Narasimha. In this highly unique form, the Lord features the face of a wild boar (Varaha) along with His Narasimha attributes.</p>
+            </div>
         </div>
 
         <!-- 5. Karanja Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-tree"></i></div>
-            <h3>5. Karanja Narasimha</h3>
-            <p>The Lord holds a bow and arrow in this form. He appeared under a Karanja tree to bless Lord Hanuman, proving He is non-different from Lord Rama.</p>
+            <div class="nava-img-box">
+                <img src="temples/KARANJA IDOL.jpg" alt="Karanja Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>5. Karanja Narasimha</h3>
+                <p>The Lord holds a bow and arrow in this form. He appeared under a Karanja tree to bless Lord Hanuman, proving He is non-different from Lord Rama.</p>
+            </div>
         </div>
 
         <!-- 6. Bhargava Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-hands-praying"></i></div>
-            <h3>6. Bhargava Narasimha</h3>
-            <p>Located near a sacred pond. It is believed that Lord Parasurama (Bhargava) performed intense penance at this exact spot to seek His divine blessings.</p>
+            <div class="nava-img-box">
+                <img src="temples/BHARGAVA IDOL.jpg" alt="Bhargava Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>6. Bhargava Narasimha</h3>
+                <p>Located near a sacred pond. It is believed that Lord Parasurama (Bhargava) performed intense penance at this exact spot to seek His divine blessings.</p>
+            </div>
         </div>
 
         <!-- 7. Yogananda Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-person-praying"></i></div>
-            <h3>7. Yogananda Narasimha</h3>
-            <p>After slaying the demon, the Lord calmed down and taught the great principles of Yoga to His beloved devotee Prahlada in this deeply meditative form.</p>
+            <div class="nava-img-box">
+                <img src="temples/Yogananda.jpg" alt="Yogananda Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>7. Yogananda Narasimha</h3>
+                <p>After slaying the demon, the Lord calmed down and taught the great principles of Yoga to His beloved devotee Prahlada in this deeply meditative form.</p>
+            </div>
         </div>
 
         <!-- 8. Chatravata Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-music"></i></div>
-            <h3>8. Chatravata Narasimha</h3>
-            <p>Seated under a Peepal tree (Chatravata). He is smiling and is believed to be enjoying the classical music and hymns sung by the Gandharvas.</p>
+            <div class="nava-img-box">
+                <img src="temples/CHATRAVATA IDOL.jpg" alt="Chatravata Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>8. Chatravata Narasimha</h3>
+                <p>Seated under a Peepal tree (Chatravata). He is smiling and is believed to be enjoying the classical music and hymns sung by the Gandharvas.</p>
+            </div>
         </div>
 
         <!-- 9. Pavana Narasimha -->
         <div class="nava-card">
-            <div class="nava-icon"><i class="fa-solid fa-wind"></i></div>
-            <h3>9. Pavana Narasimha</h3>
-            <p>Located deep within the dense forest. 'Pavana' means the purifier. It is strongly believed that worshipping this form absolves devotees of all their past sins.</p>
+            <div class="nava-img-box">
+                <img src="temples/PAVANA IDOL_0.jpg" alt="Pavana Narasimha">
+            </div>
+            <div class="nava-content">
+                <h3>9. Pavana Narasimha</h3>
+                <p>Located deep within the dense forest. 'Pavana' means the purifier. It is strongly believed that worshipping this form absolves devotees of all their past sins.</p>
+            </div>
         </div>
 
     </div>
