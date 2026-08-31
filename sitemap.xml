@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- rooms Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/rooms.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- contact Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/contact.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Madam Rajeswari Complex Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/madam-rajeswari-complex.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Veerabadhra Complex Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/veerabadhra-complex.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
