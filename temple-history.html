@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple History - Ahobilam</title>
+    <!-- CSS లింక్ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ఫాంట్స్ కోసం Google Fonts లింక్ -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- ఐకాన్స్ కోసం FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <!-- ఇక్కడ ఓం ఐకాన్ తీసేసి మీ లోగో ఇమేజ్ పెట్టాం -->
+                <img src="logo.png" alt="Madam Rajeswari Logo" class="custom-logo">
+            </div>
+            <div class="logo-text">
+                <h1>Madam Rajeswari</h1>
+                <p>COMPLEX</p>
+            </div>
+        </div>
+
+        <!-- నావిగేషన్ లింక్స్ -->
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="temple-history.html">Temple History</a>
+            <a href="contact.html">Contact</a>
+            <!-- మొబైల్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
+            <button class="book-now-btn mobile-only">
+                <i class="fa-solid fa-phone"></i> Book Now
+            </button>
+        </nav>
+
+        <div class="right-section">
+            <!-- సిస్టమ్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
+            <button class="book-now-btn desktop-only">
+                <i class="fa-solid fa-phone"></i> Book Now
+            </button>
+            
+            <!-- మొబైల్ మెనూ ఐకాన్ (Hamburger) -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+<!-- మొబైల్ మెనూ కోసం అప్‌డేటెడ్ జావాస్క్రిప్ట్ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+            
+            if(mobileMenu && navLinks) {
+                const icon = mobileMenu.querySelector('i');
+                
+                mobileMenu.addEventListener('click', function() {
+                    // మెనూ ని ఓపెన్/క్లోజ్ చేయడం
+                    navLinks.classList.toggle('active');
+                    
+                    // ఐకాన్ ని (మూడు గీతలు <-> X) కి మార్చడం
+                    if(navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    } else {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- ================= TEMPLE HISTORY & TIMINGS SECTION ================= -->
+<style>
+    /* 1. History Section Base */
+    .history-section {
+        padding: 90px 5%;
+        background-color: #1e1e1e; /* డార్క్ థీమ్ */
+        border-top: 1px solid #333;
+    }
+
+    /* 2. Titles and Description */
+    .history-title {
+        text-align: center; 
+        color: #dfb160; 
+        font-size: 38px; 
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+    }
+    .history-desc {
+        max-width: 900px; 
+        margin: 0 auto 50px auto; 
+        color: #b3b3b3; 
+        font-size: 16px; 
+        line-height: 1.8; 
+        text-align: center;
+    }
+    .history-desc strong {
+        color: #ffffff;
+    }
+
+    /* 3. Timings Grid (Side by Side) */
+    .timings-container {
+        display: flex; 
+        gap: 30px; 
+        max-width: 1000px; 
+        margin: 0 auto;
+    }
+
+    /* 4. Timing Card Design */
+    .timing-card {
+        flex: 1; 
+        background-color: #2a2a2a; 
+        border-radius: 12px; 
+        border: 1px solid #444; 
+        padding: 35px 30px;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .timing-card:hover { 
+        border-color: #dfb160; 
+        transform: translateY(-5px); 
+    }
+    
+    .timing-card h3 {
+        color: #dfb160; 
+        font-size: 24px; 
+        margin-bottom: 25px; 
+        text-align: center; 
+        font-family: 'Playfair Display', serif; 
+        border-bottom: 1px dashed #444; 
+        padding-bottom: 15px;
+    }
+
+    /* 5. Time Slots */
+    .time-slot {
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        margin-bottom: 20px; 
+        background-color: #1e1e1e;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+    .session { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        color: #ffffff; 
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .session i { 
+        color: #dfb160; 
+        font-size: 22px; 
+    }
+    .time {
+        color: #dfb160;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    /* అటవీ ప్రాంతం కాబట్టి ఎగువ అహోబిలం అలర్ట్ */
+    .forest-alert {
+        text-align: center;
+        color: #ff4d4d;
+        font-size: 13px;
+        margin-top: 20px;
+        font-style: italic;
+    }
+
+    /* 6. Mobile Responsiveness */
+    @media screen and (max-width: 800px) {
+        .timings-container { flex-direction: column; }
+        .history-title { font-size: 32px; }
+    }
+</style>
+
+<!-- HTML CONTENT -->
+<section id="history" class="history-section">
+    
+    <!-- చరిత్ర వివరణ -->
+    <h2 class="history-title">The Sacred Land of Nava Narasimha</h2>
+    <p class="history-desc">
+        Ahobilam is the only place where all <strong>nine forms of Lord Narasimha</strong> (Nava Narasimha) are worshipped. It is the holy abode where the Lord emerged from the pillar to bless His devotee Prahlada and slay the demon Hiranyakashipu. The temple complex is naturally divided into two parts: <strong>Lower Ahobilam</strong> (Diguva Ahobilam), which is at the foot of the hills, and <strong>Upper Ahobilam</strong> (Eguva Ahobilam), which is located amidst the dense Nallamala forests.
+    </p>
+
+    <!-- గుడి టైమింగ్స్ -->
+    <div class="timings-container">
+        
+        <!-- Lower Ahobilam Timings -->
+        <div class="timing-card">
+            <h3>Lower Ahobilam (Diguva)</h3>
+            <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Prahlada Varada Swamy Temple</p>
+            
+            <div class="time-slot">
+                <div class="session">
+                    <i class="fa-solid fa-sun"></i> Morning Darshan
+                </div>
+                <div class="time">6:30 AM - 1:00 PM</div>
+            </div>
+            
+            <div class="time-slot">
+                <div class="session">
+                    <i class="fa-solid fa-moon"></i> Evening Darshan
+                </div>
+                <div class="time">3:00 PM - 8:00 PM</div>
+            </div>
+        </div>
+
+        <!-- Upper Ahobilam Timings -->
+        <div class="timing-card">
+            <h3>Upper Ahobilam (Eguva)</h3>
+            <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Ahobila Ugra Narasimha Swamy Temple</p>
+            
+            <div class="time-slot">
+                <div class="session">
+                    <i class="fa-solid fa-sun"></i> Morning Darshan
+                </div>
+                <div class="time">7:00 AM - 1:00 PM</div>
+            </div>
+            
+            <div class="time-slot">
+                <div class="session">
+                    <i class="fa-solid fa-cloud-sun"></i> Evening Darshan
+                </div>
+                <div class="time">2:00 PM - 7:00 PM</div>
+            </div>
+
+            <div class="forest-alert">
+                <i class="fa-solid fa-circle-info"></i> Upper Ahobilam closes early as it is located in a dense forest area. Visitors are advised to return before dark.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= NAVA NARASIMHA (9 FORMS) SECTION ================= -->
+<style>
+    /* 1. Base Section Styles */
+    .nava-section {
+        padding: 80px 5%;
+        background-color: #111111; /* హిస్టరీ సెక్షన్ కంటే కొద్దిగా డార్క్ గా ఉంటే బాగుంటుంది */
+        border-top: 1px solid #333;
+    }
+    
+    .nava-title {
+        text-align: center; color: #dfb160; font-size: 36px; margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .nava-subtitle {
+        text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 50px;
+        max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;
+    }
+
+    /* 2. Grid Layout for 9 Cards */
+    .nava-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 30px;
+        max-width: 1200px; 
+        margin: 0 auto;
+    }
+
+    /* 3. Card Design */
+    .nava-card {
+        background-color: #1e1e1e; 
+        border: 1px solid #333; 
+        border-radius: 12px;
+        padding: 30px 25px; 
+        text-align: center; 
+        transition: all 0.3s ease;
+    }
+    
+    .nava-card:hover {
+        border-color: #dfb160; 
+        transform: translateY(-8px); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* 4. Icon Circle */
+    .nava-icon {
+        width: 65px; height: 65px; 
+        background-color: rgba(223, 177, 96, 0.1);
+        color: #dfb160; 
+        font-size: 28px; 
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%;
+        margin: 0 auto 20px auto; 
+        border: 1px dashed #dfb160;
+    }
+
+    /* 5. Typography */
+    .nava-card h3 {
+        color: #ffffff; 
+        font-size: 22px; 
+        margin-bottom: 15px; 
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .nava-card p {
+        color: #b3b3b3; 
+        font-size: 14.5px; 
+        line-height: 1.6;
+    }
+</style>
+
+<section id="nava-narasimha" class="nava-section">
+    <h2 class="nava-title">The Nava Narasimhas</h2>
+    <p class="nava-subtitle">Ahobilam is the only place in the world where Lord Vishnu is worshipped in nine terrifying and peaceful forms of Narasimha.</p>
+
+    <div class="nava-grid">
+        
+        <!-- 1. Jwala Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <h3>1. Jwala Narasimha</h3>
+            <p>The fiercest form of the Lord. This is the exact spot where He emerged with intense anger (Jwala) and tore the demon king Hiranyakashipu apart.</p>
+        </div>
+
+        <!-- 2. Ahobila (Ugra) Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-om"></i></div>
+            <h3>2. Ahobila Narasimha</h3>
+            <p>Also known as Ugra Narasimha. This is the main presiding deity of Upper Ahobilam. He appears fierce but grants profound peace to His true devotees.</p>
+        </div>
+
+        <!-- 3. Malola Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-brands fa-pagelines"></i></div>
+            <h3>3. Malola Narasimha</h3>
+            <p>A peaceful and beloved form. 'Ma' means Goddess Lakshmi and 'Lola' means beloved. Here, the Lord is seen gracefully seated with Mother Lakshmi.</p>
+        </div>
+
+        <!-- 4. Kroda (Varaha) Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+            <h3>4. Kroda Narasimha</h3>
+            <p>Also called Varaha Narasimha. In this highly unique form, the Lord features the face of a wild boar (Varaha) along with His Narasimha attributes.</p>
+        </div>
+
+        <!-- 5. Karanja Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-tree"></i></div>
+            <h3>5. Karanja Narasimha</h3>
+            <p>The Lord holds a bow and arrow in this form. He appeared under a Karanja tree to bless Lord Hanuman, proving He is non-different from Lord Rama.</p>
+        </div>
+
+        <!-- 6. Bhargava Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-hands-praying"></i></div>
+            <h3>6. Bhargava Narasimha</h3>
+            <p>Located near a sacred pond. It is believed that Lord Parasurama (Bhargava) performed intense penance at this exact spot to seek His divine blessings.</p>
+        </div>
+
+        <!-- 7. Yogananda Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-person-praying"></i></div>
+            <h3>7. Yogananda Narasimha</h3>
+            <p>After slaying the demon, the Lord calmed down and taught the great principles of Yoga to His beloved devotee Prahlada in this deeply meditative form.</p>
+        </div>
+
+        <!-- 8. Chatravata Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-music"></i></div>
+            <h3>8. Chatravata Narasimha</h3>
+            <p>Seated under a Peepal tree (Chatravata). He is smiling and is believed to be enjoying the classical music and hymns sung by the Gandharvas.</p>
+        </div>
+
+        <!-- 9. Pavana Narasimha -->
+        <div class="nava-card">
+            <div class="nava-icon"><i class="fa-solid fa-wind"></i></div>
+            <h3>9. Pavana Narasimha</h3>
+            <p>Located deep within the dense forest. 'Pavana' means the purifier. It is strongly believed that worshipping this form absolves devotees of all their past sins.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FESTIVALS & NEARBY PLACES SECTION ================= -->
+<style>
+    /* 1. Common Section Styles */
+    .info-section {
+        padding: 80px 5%;
+        background-color: #1e1e1e;
+        border-top: 1px solid #333;
+    }
+    
+    .info-section.darker {
+        background-color: #111111; /* ఆల్టర్నేట్ బ్యాక్ గ్రౌండ్ కోసం */
+    }
+
+    .section-heading {
+        text-align: center; color: #dfb160; font-size: 36px; margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .section-subheading {
+        text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 50px;
+        max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;
+    }
+
+    /* 2. Grid Layout */
+    .info-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 30px;
+        max-width: 1100px; 
+        margin: 0 auto;
+    }
+
+    /* 3. Card Design */
+    .info-card {
+        background-color: #2a2a2a; 
+        border: 1px solid #444; 
+        border-radius: 12px;
+        padding: 30px; 
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .info-card:hover {
+        border-color: #dfb160; 
+        transform: translateY(-5px); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .card-icon {
+        color: #dfb160; 
+        font-size: 35px; 
+        margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+        color: #ffffff; 
+        font-size: 22px; 
+        margin-bottom: 15px; 
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .info-card p {
+        color: #b3b3b3; 
+        font-size: 15px; 
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .distance-tag {
+        display: inline-block;
+        background-color: rgba(223, 177, 96, 0.1);
+        color: #dfb160;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+        border: 1px solid #dfb160;
+        font-weight: bold;
+    }
+
+</style>
+
+<!-- ================= 1. FESTIVALS SECTION ================= -->
+<section id="festivals" class="info-section">
+    <h2 class="section-heading">Festivals & Special Days</h2>
+    <p class="section-subheading">Plan your visit during these auspicious days to experience the grand celebrations at Ahobilam.</p>
+
+    <div class="info-grid">
+        
+        <!-- Festival 1 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-om"></i></div>
+            <h3>Ahobilam Brahmotsavams</h3>
+            <p>The biggest annual festival celebrated for 9 days usually in February/March (Phalguna month). The Lord is taken on different Vahanas (chariots) in grand processions.</p>
+        </div>
+
+        <!-- Festival 2 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-hands-praying"></i></div>
+            <h3>Narasimha Jayanthi</h3>
+            <p>Celebrated in May (Vaisakha month) to mark the divine appearance of Lord Narasimha. Special poojas, abhishekam, and kalyanotsavam are performed.</p>
+        </div>
+
+        <!-- Festival 3 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Monthly Swathi Nakshatram</h3>
+            <p>Swathi is the birth star of Lord Narasimha. On this day every month, special Thirumanjanam (abhishekam) is performed to all the Nava Narasimhas.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= 2. NEARBY PLACES SECTION ================= -->
+<section id="nearby-places" class="info-section darker">
+    <h2 class="section-heading">Explore Nearby Places</h2>
+    <p class="section-subheading">Extend your trip and visit these historical and highly revered places located near Ahobilam.</p>
+
+    <div class="info-grid">
+        
+        <!-- Place 1 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-water"></i></div>
+            <h3>Mahanandi Temple</h3>
+            <p>A beautiful ancient temple dedicated to Lord Shiva, famous for its crystal clear water pools (Pushkarini) where the water source remains a mystery.</p>
+            <div class="distance-tag"><i class="fa-solid fa-car"></i> Approx. 65 KM</div>
+        </div>
+
+        <!-- Place 2 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-monument"></i></div>
+            <h3>Yaganti Temple</h3>
+            <p>Famous for the growing Nandi idol and the stunning natural caves (Agastya, Venkateswara caves) where sages performed penance.</p>
+            <div class="distance-tag"><i class="fa-solid fa-car"></i> Approx. 85 KM</div>
+        </div>
+
+        <!-- Place 3 -->
+        <div class="info-card">
+            <div class="card-icon"><i class="fa-solid fa-dungeon"></i></div>
+            <h3>Belum Caves</h3>
+            <p>The largest and longest cave system open to the public in India, known for its speleothems and historical Buddhist connections.</p>
+            <div class="distance-tag"><i class="fa-solid fa-car"></i> Approx. 110 KM</div>
+        </div>
+
+    </div>
+</section>
+   
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <!-- కాలమ్ 1: అడ్రస్ / అబౌట్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Madam Rajeswari Complex</h3>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
+            </div>
+
+            <!-- కాలమ్ 2: క్విక్ లింక్స్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- కాలమ్ 3: కాంటాక్ట్ డీటెయిల్స్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> Ahobilam, Kurnool District, Andhra Pradesh, India</li>
+                    <!-- స్క్రీన్ షాట్ లో ఉన్న నెంబర్ ఇచ్చాను -->
+                    <li><i class="fa-solid fa-phone"></i> +91 76759 62840</li>
+                    <li><i class="fa-solid fa-envelope"></i>madhamvenkatasubbaiah363@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Madam Rajeswari Complex. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

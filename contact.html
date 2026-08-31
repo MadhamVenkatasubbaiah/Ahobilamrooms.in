@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madam Rajeswari Complex - Ahobilam</title>
+    <!-- CSS లింక్ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ఫాంట్స్ కోసం Google Fonts లింక్ -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- ఐకాన్స్ కోసం FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <!-- ఇక్కడ ఓం ఐకాన్ తీసేసి మీ లోగో ఇమేజ్ పెట్టాం -->
+                <img src="logo.png" alt="Madam Rajeswari Logo" class="custom-logo">
+            </div>
+            <div class="logo-text">
+                <h1>Madam Rajeswari</h1>
+                <p>COMPLEX</p>
+            </div>
+        </div>
+
+        <!-- నావిగేషన్ లింక్స్ -->
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="temple-history.html">Temple History</a>
+            <a href="contact.html">Contact</a>
+            <!-- మొబైల్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
+            <button class="book-now-btn mobile-only">
+                <i class="fa-solid fa-phone"></i> Book Now
+            </button>
+        </nav>
+
+        <div class="right-section">
+            <!-- సిస్టమ్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
+            <button class="book-now-btn desktop-only">
+                <i class="fa-solid fa-phone"></i> Book Now
+            </button>
+            
+            <!-- మొబైల్ మెనూ ఐకాన్ (Hamburger) -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+<!-- మొబైల్ మెనూ కోసం అప్‌డేటెడ్ జావాస్క్రిప్ట్ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+            
+            if(mobileMenu && navLinks) {
+                const icon = mobileMenu.querySelector('i');
+                
+                mobileMenu.addEventListener('click', function() {
+                    // మెనూ ని ఓపెన్/క్లోజ్ చేయడం
+                    navLinks.classList.toggle('active');
+                    
+                    // ఐకాన్ ని (మూడు గీతలు <-> X) కి మార్చడం
+                    if(navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    } else {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+
+<!-- ================= CONTACT US SECTION ================= -->
+<style>
+    /* 1. Contact Section Base */
+    .contact-section {
+        padding: 90px 5%;
+        background-color: #1e1e1e; /* డార్క్ థీమ్ */
+        border-top: 1px solid #333;
+    }
+
+    .contact-title {
+        text-align: center; color: #dfb160; font-size: 38px; margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .contact-subtitle {
+        text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 50px;
+        max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;
+    }
+
+    /* 2. Layout Grid (Info + Form) */
+    .contact-container {
+        display: flex; flex-wrap: wrap; gap: 40px;
+        max-width: 1100px; margin: 0 auto;
+    }
+
+    /* 3. Contact Info (Left Side) */
+    .contact-info {
+        flex: 1; min-width: 300px;
+        background-color: #2a2a2a; border-radius: 12px;
+        padding: 40px; border: 1px solid #444;
+    }
+
+    .contact-info h3 {
+        color: #ffffff; font-size: 24px; margin-bottom: 25px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .info-item {
+        display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px;
+    }
+
+    .info-icon {
+        width: 45px; height: 45px; background-color: rgba(223, 177, 96, 0.1);
+        color: #dfb160; font-size: 20px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        border: 1px dashed #dfb160; flex-shrink: 0;
+    }
+
+    .info-details h4 { color: #dfb160; font-size: 16px; margin-bottom: 5px; }
+    .info-details p { color: #b3b3b3; font-size: 15px; line-height: 1.5; }
+    .info-details a { color: #b3b3b3; text-decoration: none; transition: 0.3s; }
+    .info-details a:hover { color: #dfb160; }
+
+    /* 4. Contact Form (Right Side) */
+    .contact-form-box {
+        flex: 1.5; min-width: 300px;
+        background-color: #2a2a2a; border-radius: 12px;
+        padding: 40px; border: 1px solid #444;
+    }
+
+    .c-form-group { margin-bottom: 20px; }
+    .c-form-group label { display: block; color: #b3b3b3; margin-bottom: 8px; font-size: 14px; }
+    .c-form-group input, .c-form-group textarea {
+        width: 100%; padding: 12px 15px; background-color: #1e1e1e;
+        border: 1px solid #444; color: #fff; border-radius: 6px;
+        font-size: 15px; font-family: inherit; transition: 0.3s;
+    }
+    .c-form-group input:focus, .c-form-group textarea:focus {
+        outline: none; border-color: #dfb160;
+    }
+    .c-form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit-contact {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        background-color: #dfb160; color: #111; border: none;
+        padding: 14px 30px; font-size: 16px; font-weight: bold; border-radius: 6px;
+        cursor: pointer; transition: 0.3s; width: 100%;
+    }
+    .btn-submit-contact:hover {
+        background-color: #c99c4d; transform: translateY(-3px);
+    }
+
+    @media screen and (max-width: 768px) {
+        .contact-info, .contact-form-box { padding: 30px 20px; }
+    }
+</style>
+
+<section id="contact" class="contact-section">
+    <h2 class="contact-title">Get In Touch</h2>
+    <p class="contact-subtitle">Have questions about your stay, temple timings, or transport? Feel free to contact us.</p>
+
+    <div class="contact-container">
+        
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact Details</h3>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-details">
+                    <h4>Location</h4>
+                    <p>Kashi Reddy Nayana Road,<br>Ahobilam, Andhra Pradesh 518543</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="info-details">
+                    <h4>Phone / WhatsApp</h4>
+                    <p><a href="tel:+917675962840">+91 76759 62840</a></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="info-details">
+                    <h4>Email Us</h4>
+                    <!-- మీ ఈమెయిల్ ఐడీ ఇక్కడ మార్చుకోండి -->
+                    <p><a href="mailto:info@ahobilamstays.com">info@ahobilamstays.com</a></p>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="info-details">
+                    <h4>Working Hours</h4>
+                    <p>24/7 Service Available for Devotees.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form (Goes to WhatsApp) -->
+        <div class="contact-form-box">
+            <form id="contactForm" onsubmit="sendContactWhatsApp(event)">
+                <div class="c-form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="c_name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="c-form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="c_phone" placeholder="Enter your WhatsApp number" required>
+                </div>
+
+                <div class="c-form-group">
+                    <label>Your Message / Inquiry</label>
+                    <textarea id="c_message" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-contact">
+                    <i class="fa-regular fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CONTACT FORM JAVASCRIPT ================= -->
+<script>
+    function sendContactWhatsApp(e) {
+        e.preventDefault(); // ఫామ్ రీలోడ్ అవ్వకుండా ఆపుతుంది
+
+        const name = document.getElementById('c_name').value;
+        const phone = document.getElementById('c_phone').value;
+        const message = document.getElementById('c_message').value;
+
+        // వాట్సాప్ కి వెళ్ళే మెసేజ్ ఫార్మాట్
+        const waMessage = `*NEW ENQUIRY (Website)* 📩\n\n` +
+                          `*Name:* ${name}\n` +
+                          `*Phone:* ${phone}\n` +
+                          `*Message:* ${message}`;
+
+        // మీ వాట్సాప్ నెంబర్ తో లింక్
+        const waLink = `https://wa.me/917675962840?text=${encodeURIComponent(waMessage)}`;
+        
+        // కొత్త ట్యాబ్ లో వాట్సాప్ ఓపెన్ అవుతుంది
+        window.open(waLink, '_blank');
+        
+        // ఫామ్ పంపిన తర్వాత బాక్సులను ఖాళీ చేయడం
+        document.getElementById('contactForm').reset();
+    }
+</script>
+<!-- ================= TERMS & CONDITIONS SECTION ================= -->
+<style>
+    /* 1. T&C Section Base */
+    .tc-section {
+        padding: 70px 5%;
+        background-color: #111111; /* వేరుగా కనిపించడానికి కొంచెం డార్క్ బ్యాక్ గ్రౌండ్ */
+        border-top: 1px dashed #333;
+    }
+    
+    .tc-title {
+        text-align: center; color: #dfb160; font-size: 32px; margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .tc-subtitle {
+        text-align: center; color: #b3b3b3; font-size: 15px; margin-bottom: 40px;
+    }
+
+    /* 2. Container Design */
+    .tc-container {
+        max-width: 900px; margin: 0 auto;
+        background-color: #1e1e1e; border: 1px solid #333;
+        border-radius: 10px; padding: 35px 40px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* 3. List Styles */
+    .tc-list {
+        list-style: none; padding: 0; margin: 0;
+    }
+    
+    .tc-list li {
+        position: relative; padding-left: 45px; margin-bottom: 30px;
+    }
+    
+    .tc-list li:last-child {
+        margin-bottom: 0;
+    }
+    
+    .tc-list li i {
+        position: absolute; left: 0; top: 3px;
+        color: #dfb160; font-size: 24px;
+    }
+    
+    .tc-list li h4 {
+        color: #ffffff; font-size: 18px; margin-bottom: 8px; font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    .tc-list li p {
+        color: #b3b3b3; font-size: 14.5px; line-height: 1.6; margin: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        .tc-container { padding: 25px 20px; }
+        .tc-list li { padding-left: 35px; }
+        .tc-list li i { font-size: 20px; }
+    }
+</style>
+
+<section id="terms" class="tc-section">
+    <h2 class="tc-title">Terms & Guidelines</h2>
+    <p class="tc-subtitle">Please read our house rules and booking policies before confirming your stay.</p>
+
+    <div class="tc-container">
+        <ul class="tc-list">
+            
+            <!-- Rule 1 -->
+            <li>
+                <i class="fa-solid fa-clock"></i>
+                <h4>Check-in & Check-out</h4>
+                <p>Standard Check-in time is <b>12:00 PM</b> and Check-out time is <b>11:00 AM</b>. Early check-in or late check-out is subject to room availability and may incur additional charges.</p>
+            </li>
+            
+            <!-- Rule 2 -->
+            <li>
+                <i class="fa-solid fa-id-card"></i>
+                <h4>Mandatory ID Proof</h4>
+                <p>All adult guests must present a valid Government-issued ID card (Aadhaar, Voter ID, Driving License, or Passport) at the time of check-in. PAN cards are not accepted as valid address proof.</p>
+            </li>
+            
+            <!-- Rule 3 (Most Important for Temple Town) -->
+            <li>
+                <i class="fa-solid fa-ban"></i>
+                <h4>Sacred Town Guidelines (Strictly Followed)</h4>
+                <p>As Ahobilam is a sacred pilgrimage destination, the consumption of <b>alcohol, non-vegetarian food, and smoking are strictly prohibited</b> inside the rooms and within the property premises.</p>
+            </li>
+            
+            <!-- Rule 4 -->
+            <li>
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h4>Booking & Cancellation</h4>
+                <p>An advance payment is required to confirm your booking. Cancellations made 48 hours prior to the check-in date will be fully refunded. Late cancellations or no-shows are non-refundable.</p>
+            </li>
+            
+            <!-- Rule 5 -->
+            <li>
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>Property Damage & Liability</h4>
+                <p>Guests will be held responsible for any loss or damage to hotel property caused by themselves or their visitors. The management is not responsible for the loss of any personal valuables left in the rooms.</p>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+    
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <!-- కాలమ్ 1: అడ్రస్ / అబౌట్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Madam Rajeswari Complex</h3>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
+            </div>
+
+            <!-- కాలమ్ 2: క్విక్ లింక్స్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- కాలమ్ 3: కాంటాక్ట్ డీటెయిల్స్ -->
+            <div class="footer-col">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> Ahobilam, Kurnool District, Andhra Pradesh, India</li>
+                    <!-- స్క్రీన్ షాట్ లో ఉన్న నెంబర్ ఇచ్చాను -->
+                    <li><i class="fa-solid fa-phone"></i> +91 76759 62840</li>
+                    <li><i class="fa-solid fa-envelope"></i>madhamvenkatasubbaiah363@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Madam Rajeswari Complex. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
