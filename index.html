@@ -17,7 +17,7 @@
     <header class="navbar">
         <div class="logo-section">
             <div class="logo-icon">
-                <!-- ఇక్కడ ఓం ఐకాన్ తీసేసి మీ లోగో ఇమేజ్ పెట్టాం -->
+                <!-- మీ లోగో ఇమేజ్ -->
                 <img src="logo.png" alt="Madham Rajeswari Logo" class="custom-logo">
             </div>
             <div class="logo-text">
@@ -33,14 +33,14 @@
             <a href="temple-history.html">Temple History</a>
             <a href="contact.html">Contact</a>
             <!-- మొబైల్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
-            <button class="book-now-btn mobile-only">
+            <button class="book-now-btn mobile-only" onclick="openBookingModal()">
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
         </nav>
 
         <div class="right-section">
             <!-- సిస్టమ్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
-            <button class="book-now-btn desktop-only">
+            <button class="book-now-btn desktop-only" onclick="openBookingModal()">
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
             
@@ -51,7 +51,7 @@
         </div>
     </header>
 
-<!-- మొబైల్ మెనూ కోసం అప్‌డేటెడ్ జావాస్క్రిప్ట్ -->
+    <!-- మొబైల్ మెనూ కోసం జావాస్క్రిప్ట్ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -61,10 +61,8 @@
                 const icon = mobileMenu.querySelector('i');
                 
                 mobileMenu.addEventListener('click', function() {
-                    // మెనూ ని ఓపెన్/క్లోజ్ చేయడం
                     navLinks.classList.toggle('active');
                     
-                    // ఐకాన్ ని (మూడు గీతలు <-> X) కి మార్చడం
                     if(navLinks.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-xmark');
@@ -77,9 +75,9 @@
         });
     </script>
 
-<!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-overlay"></div> <!-- ఫోటో మీద నల్లటి షేడ్ కోసం -->
+        <div class="hero-overlay"></div>
         
         <div class="hero-content">
             <p class="welcome-text">WELCOME TO</p>
@@ -88,7 +86,6 @@
             <p class="hero-tagline">Your divine stay near the sacred Narasimha temples</p>
             
             <div class="hero-buttons">
-                <!-- వాట్సాప్ లింక్ ని ఈ href లో తర్వాత యాడ్ చేసుకోవచ్చు -->
                 <a href="#" class="btn-whatsapp" onclick="openBookingModal(); return false;">Book via WhatsApp</a>
                 <a href="rooms.html" class="btn-outline">View Rooms</a>
             </div>
@@ -102,25 +99,20 @@
         <div class="hotels-container">
             <!-- Hotel 1 Card -->
             <div class="hotel-card">
-                <!-- మొదటి హోటల్ ఫోటో -->
                 <img src="main-view.jpeg" alt="Madham Rajeswari Complex">
                 <div class="hotel-info">
                     <h3>Madham Rajeswari Complex</h3>
                     <p>Experience comfortable stay with premium amenities near the sacred Ahobilam temples.</p>
-                    <!-- దీని మీద క్లిక్ చేస్తే hotel1.html పేజీ ఓపెన్ అవుతుంది -->
                     <a href="Madham-rajeswari-complex.html" class="btn-explore">Explore Complex</a>
                 </div>
             </div>
 
             <!-- Hotel 2 Card -->
             <div class="hotel-card">
-                <!-- రెండో హోటల్ ఫోటో -->
                 <img src="WhatsApp Image .jpeg" alt="Veerabadhra Complex">
                 <div class="hotel-info">
-                    <!-- మీ రెండో హోటల్ పేరు ఇక్కడ మార్చుకోండి -->
                     <h3>Veerabadhra Complex</h3> 
                     <p>Your perfect base for a spiritual journey with excellent hospitality and care.</p>
-                    <!-- దీని మీద క్లిక్ చేస్తే hotel2.html పేజీ ఓపెన్ అవుతుంది -->
                     <a href="veerabadhra-complex.html" class="btn-explore">Explore Hotel</a>
                 </div>
             </div>
@@ -132,28 +124,24 @@
         <h2 class="section-title">Our Amenities</h2>
         
         <div class="amenities-container">
-            <!-- Amenity 1 -->
             <div class="amenity-card">
                 <i class="fa-solid fa-wind amenity-icon"></i>
                 <h3>Air Conditioned</h3>
                 <p>All rooms are fully air conditioned</p>
             </div>
 
-            <!-- Amenity 2 -->
             <div class="amenity-card">
                 <i class="fa-regular fa-star amenity-icon"></i>
                 <h3>King Size Beds</h3>
                 <p>Premium king size beds for comfort</p>
             </div>
 
-            <!-- Amenity 3 (దీనికి active-amenity అని ఇచ్చాం కాబట్టి గోల్డ్ బార్డర్ వస్తుంది) -->
             <div class="amenity-card active-amenity">
                 <i class="fa-solid fa-wifi amenity-icon"></i>
                 <h3>Free Wi-Fi</h3>
                 <p>Complimentary high-speed internet</p>
             </div>
 
-            <!-- Amenity 4 -->
             <div class="amenity-card">
                 <i class="fa-solid fa-shield-halved amenity-icon"></i>
                 <h3>24/7 Security</h3>
@@ -161,13 +149,10 @@
             </div>
         </div>
     </section>
- 
+
     <!-- Discover Ahobilam Section -->
     <section id="history" class="discover-section">
         <div class="discover-container">
-            
-            <!-- ఎడమ వైపు టెక్స్ట్ -->
-           <!-- ఎడమ వైపు టెక్స్ట్ -->
             <div class="discover-content">
                 <span class="sub-heading">DISCOVER</span>
                 <h2 class="discover-title">Ahobilam – The Sacred Abode</h2>
@@ -180,205 +165,174 @@
                 </a>
             </div>
 
-            <!-- కుడి వైపు ఇమేజ్ -->
             <div class="discover-image">
-                <!-- ఇక్కడ మీ టెంపుల్ ఇమేజ్ వస్తుంది -->
                 <img src="abm.jpg" alt="Ahobilam Temple Landscape">
             </div>
-
         </div>
     </section>
 
     <!-- ================= FAQS SECTION ================= -->
-<style>
-    /* 1. FAQ Section Base */
-    .faq-section {
-        padding: 80px 5%;
-        background-color: #1e1e1e; /* డార్క్ థీమ్ */
-        border-top: 1px solid #333;
-    }
-    
-    .faq-title {
-        text-align: center; color: #dfb160; font-size: 36px; margin-bottom: 10px;
-        font-family: 'Playfair Display', serif;
-    }
-    
-    .faq-subtitle {
-        text-align: center; color: #b3b3b3; font-size: 15px; margin-bottom: 40px;
-    }
+    <style>
+        .faq-section {
+            padding: 80px 5%;
+            background-color: #1e1e1e;
+            border-top: 1px solid #333;
+        }
+        .faq-title {
+            text-align: center; color: #dfb160; font-size: 36px; margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        .faq-subtitle {
+            text-align: center; color: #b3b3b3; font-size: 15px; margin-bottom: 40px;
+        }
+        .faq-container {
+            max-width: 850px; 
+            margin: 0 auto;
+        }
+        .faq-item {
+            background-color: #2a2a2a; 
+            border: 1px solid #444; 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .faq-question {
+            padding: 20px 25px; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            color: #ffffff; 
+            font-size: 16.5px; 
+            font-weight: 500; 
+            transition: background-color 0.3s;
+        }
+        .faq-question:hover {
+            background-color: #333333;
+        }
+        .faq-question i {
+            color: #dfb160; 
+            font-size: 20px; 
+            transition: transform 0.4s ease;
+        }
+        .faq-answer {
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.4s ease-out; 
+            background-color: #1e1e1e;
+        }
+        .faq-answer p {
+            padding: 20px 25px; 
+            margin: 0; 
+            color: #b3b3b3; 
+            font-size: 15px; 
+            line-height: 1.7;
+            border-top: 1px dashed #333;
+        }
+        .faq-item.active {
+            border-color: #dfb160;
+        }
+        .faq-item.active .faq-question {
+            color: #dfb160;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
 
-    /* 2. Container Design */
-    .faq-container {
-        max-width: 850px; 
-        margin: 0 auto;
-    }
+    <section id="faqs" class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <p class="faq-subtitle">Find answers to common questions about visiting Ahobilam and staying with us.</p>
 
-    /* 3. FAQ Item Design */
-    .faq-item {
-        background-color: #2a2a2a; 
-        border: 1px solid #444; 
-        border-radius: 8px; 
-        margin-bottom: 15px; 
-        overflow: hidden;
-        transition: 0.3s;
-    }
-
-    /* 4. Question Box */
-    .faq-question {
-        padding: 20px 25px; 
-        cursor: pointer; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        color: #ffffff; 
-        font-size: 16.5px; 
-        font-weight: 500; 
-        transition: background-color 0.3s;
-    }
-    
-    .faq-question:hover {
-        background-color: #333333;
-    }
-
-    .faq-question i {
-        color: #dfb160; 
-        font-size: 20px; 
-        transition: transform 0.4s ease;
-    }
-
-    /* 5. Answer Box */
-    .faq-answer {
-        max-height: 0; 
-        overflow: hidden; 
-        transition: max-height 0.4s ease-out; 
-        background-color: #1e1e1e;
-    }
-    
-    .faq-answer p {
-        padding: 20px 25px; 
-        margin: 0; 
-        color: #b3b3b3; 
-        font-size: 15px; 
-        line-height: 1.7;
-        border-top: 1px dashed #333;
-    }
-
-    /* 6. Active State (When Opened) */
-    .faq-item.active {
-        border-color: #dfb160;
-    }
-    .faq-item.active .faq-question {
-        color: #dfb160;
-    }
-    .faq-item.active .faq-question i {
-        transform: rotate(180deg); /* ఐకాన్ తిరుగుతుంది */
-    }
-</style>
-
-<section id="faqs" class="faq-section">
-    <h2 class="faq-title">Frequently Asked Questions</h2>
-    <p class="faq-subtitle">Find answers to common questions about visiting Ahobilam and staying with us.</p>
-
-    <div class="faq-container">
-        
-        <!-- Question 1 -->
-        <div class="faq-item">
-            <div class="faq-question">
-                1. How much time does it take to visit all Nava Narasimha temples?
-                <i class="fa-solid fa-chevron-down"></i>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    1. How much time does it take to visit all Nava Narasimha temples?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>It typically takes <b>2 full days</b> to complete the darshan of all 9 temples. Day 1 is usually dedicated to Lower Ahobilam and nearby accessible temples, while Day 2 requires trekking in Upper Ahobilam to visit Ugra Stambham, Jwala, and Pavana Narasimha temples.</p>
+                </div>
             </div>
-            <div class="faq-answer">
-                <p>It typically takes <b>2 full days</b> to complete the darshan of all 9 temples. Day 1 is usually dedicated to Lower Ahobilam and nearby accessible temples, while Day 2 requires trekking in Upper Ahobilam to visit Ugra Stambham, Jwala, and Pavana Narasimha temples.</p>
-            </div>
-        </div>
 
-        <!-- Question 2 -->
-        <div class="faq-item">
-            <div class="faq-question">
-                2. Is trekking required? Can elders and children do it?
-                <i class="fa-solid fa-chevron-down"></i>
+            <div class="faq-item">
+                <div class="faq-question">
+                    2. Is trekking required? Can elders and children do it?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, trekking is mandatory for a few temples in Upper Ahobilam. Lower Ahobilam temples are easily accessible by road. For difficult treks like Ugra Stambham and Jwala Narasimha, it might be tough for elders and young children. However, local <b>Doli services (palanquins)</b> are available for hire.</p>
+                </div>
             </div>
-            <div class="faq-answer">
-                <p>Yes, trekking is mandatory for a few temples in Upper Ahobilam. Lower Ahobilam temples are easily accessible by road. For difficult treks like Ugra Stambham and Jwala Narasimha, it might be tough for elders and young children. However, local <b>Doli services (palanquins)</b> are available for hire.</p>
-            </div>
-        </div>
 
-        <!-- Question 3 -->
-        <div class="faq-item">
-            <div class="faq-question">
-                3. Which mobile networks work best in Ahobilam?
-                <i class="fa-solid fa-chevron-down"></i>
+            <div class="faq-item">
+                <div class="faq-question">
+                    3. Which mobile networks work best in Ahobilam?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ahobilam is situated in a dense forest area (Nallamala hills). Currently, <b>BSNL and Jio</b> networks work reasonably well. Other networks like Airtel and Vi may have poor or no connectivity, especially in Upper Ahobilam.</p>
+                </div>
             </div>
-            <div class="faq-answer">
-                <p>Ahobilam is situated in a dense forest area (Nallamala hills). Currently, <b>BSNL and Jio</b> networks work reasonably well. Other networks like Airtel and Vi may have poor or no connectivity, especially in Upper Ahobilam.</p>
-            </div>
-        </div>
 
-        <!-- Question 4 -->
-        <div class="faq-item">
-            <div class="faq-question">
-                4. Are local transport and food facilities available?
-                <i class="fa-solid fa-chevron-down"></i>
+            <div class="faq-item">
+                <div class="faq-question">
+                    4. Are local transport and food facilities available?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Local <b>Mahindra Jeeps</b> are available for hire to reach temples located deep in the forest (like Pavana and Bhargava Narasimha). For food, basic vegetarian meals are available at local eateries, and <b>Nitya Annadanam</b> (free meals) is provided by the Devasthanam and local Mutts.</p>
+                </div>
             </div>
-            <div class="faq-answer">
-                <p>Yes. Local <b>Mahindra Jeeps</b> are available for hire to reach temples located deep in the forest (like Pavana and Bhargava Narasimha). For food, basic vegetarian meals are available at local eateries, and <b>Nitya Annadanam</b> (free meals) is provided by the Devasthanam and local Mutts.</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    5. Do the rooms have AC and hot water facilities?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Both our properties (Madham Rajeswari Complex & Veerabadhra Complex) offer both AC and Non-AC room options. All rooms are equipped with attached bathrooms and <b>geysers for 24/7 hot water</b> to ensure a comfortable stay after your trekking.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Question 5 -->
-        <div class="faq-item">
-            <div class="faq-question">
-                5. Do the rooms have AC and hot water facilities?
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Yes! Both our properties (Madham Rajeswari Complex & Veerabadhra Complex) offer both AC and Non-AC room options. All rooms are equipped with attached bathrooms and <b>geysers for 24/7 hot water</b> to ensure a comfortable stay after your trekking.</p>
-            </div>
-        </div>
+    <!-- FAQ JavaScript -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
 
-    </div>
-</section>
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
 
-<!-- ================= FAQ JAVASCRIPT ================= -->
-<script>
-    // క్లిక్ చేసినప్పుడు బాక్స్ ఓపెన్ అవ్వడానికి లాజిక్
-    const faqItems = document.querySelectorAll('.faq-item');
+            question.addEventListener('click', () => {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
-        question.addEventListener('click', () => {
-            // ఇదివరకే ఓపెన్ అయినవి క్లోజ్ చేయడానికి (ఆప్షనల్)
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                item.classList.toggle('active');
+                
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
                 }
             });
-
-            // క్లిక్ చేసిన దాన్ని ఓపెన్/క్లోజ్ చేయడం
-            item.classList.toggle('active');
-            
-            if (item.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            } else {
-                answer.style.maxHeight = null;
-            }
         });
-    });
-</script>
+    </script>
 
     <!-- Footer Section -->
     <footer id="contact" class="footer">
         <div class="footer-container">
-            <!-- కాలమ్ 1: అడ్రస్ / అబౌట్ -->
             <div class="footer-col">
                 <h3 class="footer-title">Madham Rajeswari Complex</h3>
                 <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
             </div>
 
-            <!-- కాలమ్ 2: క్విక్ లింక్స్ -->
             <div class="footer-col">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
@@ -389,14 +343,12 @@
                 </ul>
             </div>
 
-            <!-- కాలమ్ 3: కాంటాక్ట్ డీటెయిల్స్ -->
             <div class="footer-col">
                 <h3 class="footer-title">Contact Info</h3>
                 <ul class="footer-contact">
                     <li><i class="fa-solid fa-location-dot"></i> Ahobilam, Kurnool District, Andhra Pradesh, India</li>
-                    <!-- స్క్రీన్ షాట్ లో ఉన్న నెంబర్ ఇచ్చాను -->
                     <li><i class="fa-solid fa-phone"></i> +91 76759 62840</li>
-                    <li><i class="fa-solid fa-envelope"></i>madhamvenkatasubbaiah363@gmail.com</li>
+                    <li><i class="fa-solid fa-envelope"></i> madhamvenkatasubbaiah363@gmail.com</li>
                 </ul>
             </div>
         </div>
@@ -408,7 +360,6 @@
 
     <!-- ================= BOOKING FORM MODAL STYLES ================= -->
     <style>
-        /* ఫామ్ పాప్-అప్ డిజైన్ */
         .booking-modal {
             display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
@@ -417,7 +368,7 @@
             background-color: #1e1e1e; margin: 5vh auto; padding: 30px;
             border: 1px solid #dfb160; width: 90%; max-width: 500px;
             border-radius: 12px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            max-height: 90vh; overflow-y: auto; /* స్క్రీన్ చిన్నగా ఉంటే స్క్రోల్ అవ్వడానికి */
+            max-height: 90vh; overflow-y: auto;
         }
         .close-booking {
             position: absolute; right: 20px; top: 15px; color: #b3b3b3;
@@ -429,7 +380,6 @@
             font-family: 'Playfair Display', serif; font-size: 26px; border-bottom: 1px dashed #444; padding-bottom: 10px;
         }
         
-        /* ఫామ్ ఫీల్డ్స్ డిజైన్ */
         .form-group { margin-bottom: 18px; }
         .form-group label { display: block; color: #b3b3b3; margin-bottom: 6px; font-size: 14px; font-weight: 500;}
         .form-group input, .form-group select {
@@ -443,7 +393,6 @@
         .date-group { display: flex; gap: 15px; }
         .date-group .form-group { width: 50%; }
         
-        /* వాట్సాప్ కి పంపే బటన్ */
         .submit-wa-btn {
             width: 100%; background-color: #25d366; color: #fff; border: none;
             padding: 14px; font-size: 16px; font-weight: bold; border-radius: 6px;
@@ -451,8 +400,6 @@
             margin-top: 10px; transition: 0.3s;
         }
         .submit-wa-btn:hover { background-color: #1ebd57; transform: translateY(-2px); }
-        
-        /* క్యాలెండర్ ఐకాన్ డార్క్ థీమ్ లో కనిపించడానికి */
         ::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
     </style>
 
@@ -463,7 +410,6 @@
             <h3>Book Your Stay</h3>
             
             <form id="whatsappBookingForm" onsubmit="sendWhatsApp(event)">
-                
                 <div class="form-group">
                     <label>Full Name *</label>
                     <input type="text" id="b_name" placeholder="Enter your name" required>
@@ -512,12 +458,10 @@
 
     <!-- ================= BOOKING FORM JAVASCRIPT ================= -->
     <script>
-        // ఈరోజు కంటే పాత డేట్స్ సెలెక్ట్ చేసుకోకుండా సెట్ చేయడం
         const today = new Date().toISOString().split('T')[0];
         document.getElementById("b_checkin").setAttribute('min', today);
         document.getElementById("b_checkout").setAttribute('min', today);
 
-        // ఫామ్ ఓపెన్/క్లోజ్ ఫంక్షన్స్
         function openBookingModal() {
             document.getElementById('bookingModal').style.display = 'block';
         }
@@ -526,11 +470,9 @@
             document.getElementById('bookingModal').style.display = 'none';
         }
 
-        // ఫామ్ ఫిల్ చేసి సబ్మిట్ కొట్టగానే వాట్సాప్ కి వెళ్ళే లాజిక్
         function sendWhatsApp(e) {
-            e.preventDefault(); // పేజీ రీలోడ్ అవ్వకుండా ఆపుతుంది
+            e.preventDefault();
 
-            // ఫామ్ లో ఇచ్చిన డీటెయిల్స్ తీసుకోవడం
             const name = document.getElementById('b_name').value;
             const hotel = document.getElementById('b_hotel').value;
             const checkin = document.getElementById('b_checkin').value;
@@ -538,18 +480,14 @@
             const persons = document.getElementById('b_persons').value;
             const roomType = document.getElementById('b_roomtype').value;
 
-            // వాట్సాప్ కి వెళ్ళే మెసేజ్ ఫార్మాట్
-            const message = `*NEW BOOKING REQUEST* 🔔\n\n*Name:* ${name}\n*Hotel:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and let me know the advance amount._`;
+            const message = `Om Namo Narasimhaya! 🔔\n\n*NEW BOOKING REQUEST*\n*Name:* ${name}\n*Hotel:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and let me know the details._`;
 
-            // మీ ఫోన్ నెంబర్ కు మెసేజ్ వెళ్ళేలా లింక్ క్రియేట్ చేయడం
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
             
-            // వాట్సాప్ ఓపెన్ చేసి, ఫామ్ క్లోజ్ చేయడం
             window.open(whatsappUrl, '_blank');
             closeBookingModal();
         }
 
-        // పాప్-అప్ బయట క్లిక్ చేస్తే ఫామ్ క్లోజ్ అవ్వడానికి
         window.onclick = function(event) {
             let modal = document.getElementById('bookingModal');
             if (event.target == modal) {
@@ -557,6 +495,46 @@
             }
         }
     </script>
+
+    <!-- ================= FLOATING CUSTOMER SUPPORT CHAT BUTTON ================= -->
+    <style>
+        .float-support-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .float-support-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            color: #ffffff;
+        }
+
+        .float-support-btn i {
+            font-size: 22px;
+        }
+    </style>
+
+    <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20have%20a%20query%20regarding%20room%20booking%20and%20Ahobilam%20stay." 
+       class="float-support-btn" 
+       target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Need Help? Chat with Us</span>
+    </a>
 
 </body>
 </html>
