@@ -516,45 +516,63 @@
         </div>
     </div>
 
-    <!-- ================= BOOKING FORM JAVASCRIPT ================= -->
-    <script>
+
+
+    <!-- ================= BOOKING FORM JAVASCRIPT (UPDATED) ================= -->
+<script>
+    // HTML పూర్తిగా లోడ్ అయిన తర్వాత మాత్రమే Date limits సెట్ అవుతాయి (Error రాకుండా నిరోధిస్తుంది)
+    document.addEventListener('DOMContentLoaded', function() {
         const today = new Date().toISOString().split('T')[0];
-        document.getElementById("b_checkin").setAttribute('min', today);
-        document.getElementById("b_checkout").setAttribute('min', today);
+        const checkinInput = document.getElementById("b_checkin");
+        const checkoutInput = document.getElementById("b_checkout");
 
-        function openBookingModal() {
-            document.getElementById('bookingModal').style.display = 'block';
+        if (checkinInput) checkinInput.setAttribute('min', today);
+        if (checkoutInput) checkoutInput.setAttribute('min', today);
+    });
+
+    // Header లో బటన్ క్లిక్ చేసినప్పుడు Modal ఓపెన్ అయ్యే ఫంక్షన్
+    function openBookingModal() {
+        const modal = document.getElementById('bookingModal');
+        if (modal) {
+            modal.style.setProperty('display', 'block', 'important');
         }
+    }
 
-        function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
+    // Modal క్లోజ్ చేసే ఫంక్షన్
+    function closeBookingModal() {
+        const modal = document.getElementById('bookingModal');
+        if (modal) {
+            modal.style.display = 'none';
         }
+    }
 
-        function sendWhatsApp(e) {
-            e.preventDefault();
+    // WhatsApp బుకింగ్ ఫార్మాట్ ఫంక్షన్
+    function sendWhatsApp(e) {
+        e.preventDefault();
 
-            const name = document.getElementById('b_name').value;
-            const hotel = document.getElementById('b_hotel').value;
-            const checkin = document.getElementById('b_checkin').value;
-            const checkout = document.getElementById('b_checkout').value;
-            const persons = document.getElementById('b_persons').value;
-            const roomType = document.getElementById('b_roomtype').value;
+        const name = document.getElementById('b_name').value;
+        const hotel = document.getElementById('b_hotel').value;
+        const checkin = document.getElementById('b_checkin').value;
+        const checkout = document.getElementById('b_checkout').value;
+        const persons = document.getElementById('b_persons').value;
+        const roomType = document.getElementById('b_roomtype').value;
 
-            const message = `Om Namo Narasimhaya! 🔔\n\n*NEW BOOKING REQUEST*\n*Name:* ${name}\n*Hotel:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and let me know the details._`;
+        const message = `Om Namo Narasimhaya! 🔔\n\n*NEW BOOKING REQUEST*\n*Name:* ${name}\n*Hotel:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and let me know the details._`;
 
-            const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
+        const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+        closeBookingModal();
+    }
+
+    // Modal బయట క్లిక్ చేస్తే క్లోజ్ అయ్యేలా చేయడం
+    window.onclick = function(event) {
+        let modal = document.getElementById('bookingModal');
+        if (event.target == modal) {
             closeBookingModal();
         }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('bookingModal');
-            if (event.target == modal) {
-                closeBookingModal();
-            }
-        }
-    </script>
+    }
+</script>
 
     <!-- ================= FLOATING CUSTOMER SUPPORT CHAT BUTTON ================= -->
     <style>
