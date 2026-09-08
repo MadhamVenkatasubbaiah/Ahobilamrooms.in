@@ -282,7 +282,13 @@
             'room2': [
                 { src: 'MRC/MR_3bed.jpeg', caption: '3 Sharing - Room' },
                 { src: 'MRC/MR_3bed.1.jpeg', caption: '3 Sharing - Room' }, 
-                { src: 'MRC/MR_washroom.1.jpeg', caption: '3 Sharing - Bathroom
+                { src: 'MRC/MR_washroom.1.jpeg', caption: '3 Sharing - Bathroom' } 
+            ]
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+        
         function openGallery(galleryKey, startIndex) {
             currentGallery = allGalleries[galleryKey];
             currentIndex = startIndex;
