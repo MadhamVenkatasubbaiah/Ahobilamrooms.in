@@ -39,14 +39,14 @@
             <a href="temple-history.html">Temple History</a>
             <a href="contact.html">Contact</a>
             <!-- మొబైల్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
-            <button class="book-now-btn mobile-only">
+            <button class="book-now-btn mobile-only" onclick="openBookingModal()">
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
         </nav>
 
         <div class="right-section">
             <!-- సిస్టమ్ లో మాత్రమే కనిపించే బుక్ బటన్ -->
-            <button class="book-now-btn desktop-only">
+            <button class="book-now-btn desktop-only" onclick="openBookingModal()">
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
             
@@ -551,6 +551,105 @@
         .float-support-btn i {
             font-size: 22px;
         }
+
+        /* Booking Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            border: 1px solid #dfb160;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: #b3b3b3;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #dfb160;
+        }
+
+        .modal-title {
+            color: #dfb160;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booking-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .booking-form label {
+            display: block;
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 5px;
+        }
+
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .booking-form input:focus, .booking-form select:focus {
+            outline: none;
+            border-color: #dfb160;
+        }
+
+        .btn-submit-booking {
+            width: 100%;
+            background-color: #dfb160;
+            color: #000;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit-booking:hover {
+            background-color: #c49950;
+        }
     </style>
 
     <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20have%20a%20query%20regarding%20room%20booking%20and%20Ahobilam%20stay." 
@@ -559,5 +658,70 @@
         <i class="fa-brands fa-whatsapp"></i>
         <span>Need Help? Chat with Us</span>
     </a>
+
+    <!-- BOOKING MODAL POPUP -->
+    <div id="bookingModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeBookingModal()">&times;</span>
+            <h3 class="modal-title">Book Your Stay</h3>
+            <form class="booking-form" onsubmit="sendBookingWhatsApp(event)">
+                <div class="form-group">
+                    <label for="guestName">Full Name *</label>
+                    <input type="text" id="guestName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="checkInDate">Check-in Date *</label>
+                    <input type="date" id="checkInDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestsCount">Number of Guests *</label>
+                    <input type="number" id="guestsCount" min="1" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Select Room / Complex *</label>
+                    <select id="roomType" required>
+                        <option value="Madam Rajeswari Complex">Madam Rajeswari Complex</option>
+                        <option value="VBC & Home Food">VBC & Home Food</option>
+                        <option value="LDG & Home Food">LDG & Home Food</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Send Booking Query
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- BOOKING MODAL JAVASCRIPT -->
+    <script>
+        function openBookingModal() {
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        });
+
+        function sendBookingWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('guestName').value;
+            const checkIn = document.getElementById('checkInDate').value;
+            const guests = document.getElementById('guestsCount').value;
+            const room = document.getElementById('roomType').value;
+
+            const phone = "917675962840";
+            const message = `Om Namo Narasimhaya!%0A*New Room Booking Enquiry*%0A- *Name:* ${encodeURIComponent(name)}%0A- *Check-in Date:* ${encodeURIComponent(checkIn)}%0A- *Guests:* ${encodeURIComponent(guests)}%0A- *Property:* ${encodeURIComponent(room)}`;
+
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            closeBookingModal();
+        }
+    </script>
 </body>
 </html>
