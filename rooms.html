@@ -96,8 +96,9 @@
             text-align: center; color: #b3b3b3; font-size: 15px; margin-bottom: 50px;
         }
 
+        /* కార్డ్ విడ్త్ పెంచబడింది */
         .stay-list {
-            display: flex; flex-direction: column; gap: 40px; max-width: 1050px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 45px; max-width: 1150px; margin: 0 auto;
         }
 
         /* కార్డ్ డిజైన్ */
@@ -111,7 +112,8 @@
             border-color: #dfb160; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
-        .stay-img-box { width: 40%; min-width: 320px; position: relative; }
+        /* ఇమేజ్ సైజు పెంచబడింది */
+        .stay-img-box { width: 44%; min-width: 360px; position: relative; min-height: 280px; }
         .stay-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
         
         .stay-badge {
@@ -119,13 +121,13 @@
             padding: 5px 12px; font-size: 12px; font-weight: 700; border-radius: 4px; text-transform: uppercase;
         }
 
-        .stay-details { width: 60%; padding: 35px 30px; display: flex; flex-direction: column; justify-content: center; }
+        .stay-details { width: 56%; padding: 35px 35px; display: flex; flex-direction: column; justify-content: center; }
         
         .stay-header-flex {
             display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;
         }
 
-        .stay-name { color: #dfb160; font-size: 24px; font-family: 'Playfair Display', serif; margin: 0; }
+        .stay-name { color: #dfb160; font-size: 25px; font-family: 'Playfair Display', serif; margin: 0; }
         
         .stay-price-tag {
             background-color: rgba(223, 177, 96, 0.15); border: 1px solid #dfb160; color: #dfb160;
@@ -140,16 +142,18 @@
         .tag { display: flex; align-items: center; gap: 8px; border: 1px solid #444; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-size: 12.5px; background-color: #222; }
         .tag i { color: #25d366; }
 
-        .stay-timing { color: #b3b3b3; font-size: 13px; border-top: 1px dashed #444; padding-top: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .stay-timing { color: #b3b3b3; font-size: 13px; border-top: 1px dashed #444; padding-top: 15px; margin-bottom: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
         .card-action-btns {
             display: flex; gap: 15px; flex-wrap: wrap;
         }
 
+        /* బటన్ సైజు బాగుండేలా అడ్జస్ట్ చేయబడింది */
         .btn-select-room {
-            display: inline-block; background-color: #dfb160; color: #000; text-decoration: none; 
-            padding: 12px 28px; font-size: 14px; font-weight: 600; border-radius: 6px; 
-            transition: all 0.3s ease; text-align: center; width: 100%; box-sizing: border-box;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background-color: #dfb160; color: #000; text-decoration: none; 
+            padding: 10px 22px; font-size: 14px; font-weight: 600; border-radius: 6px; 
+            transition: all 0.3s ease; text-align: center; width: fit-content;
         }
         .btn-select-room:hover { background-color: #c49950; transform: translateY(-2px); }
 
@@ -157,7 +161,8 @@
         @media screen and (max-width: 850px) {
             .stay-horizontal-card { flex-direction: column; }
             .stay-img-box, .stay-details { width: 100%; }
-            .stay-img-box { height: 230px; min-width: 100%; }
+            .stay-img-box { height: 240px; min-width: 100%; min-height: auto; }
+            .btn-select-room { width: 100%; box-sizing: border-box; }
         }
     </style>
 
