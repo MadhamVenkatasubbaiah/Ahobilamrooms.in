@@ -425,19 +425,9 @@
                         <input type="date" id="checkOutDate" required>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group" style="flex:1;">
-                        <label>Number of Guests *</label>
-                        <input type="number" id="guestCount" min="1" value="2" required>
-                    </div>
-                    <div class="form-group" style="flex:1;">
-                        <label>Pickup Location *</label>
-                        <select id="pickupLocation" required>
-                            <option value="Ahobilam Bus Stand">Ahobilam Bus Stand</option>
-                            <option value="Allagadda Bus Stand">Allagadda Bus Stand</option>
-                            <option value="Nandyal Railway Station">Nandyal Railway Station</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label>Number of Guests *</label>
+                    <input type="number" id="guestCount" min="1" value="2" required>
                 </div>
                 
                 <button type="submit" class="btn-submit-booking">
@@ -560,12 +550,14 @@
             const checkIn = document.getElementById('checkInDate').value;
             const checkOut = document.getElementById('checkOutDate').value;
             const guests = document.getElementById('guestCount').value;
-            const pickup = document.getElementById('pickupLocation').value;
             const room = document.getElementById('modalRoomCategory').value;
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
+            
+            // ఇక్కడ మీ ఎగ్జాక్ట్ లొకేషన్ గూగుల్ మ్యాప్ లింక్ ఇవ్వండి
+            const exactLocationLink = "https://maps.app.goo.gl/YourExactLocationLinkHere";
 
-            const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Pickup Location: ${pickup}\n- Room Category: ${room}\n- Price per Night: ${price}\n- Preferred Property: ${property}`;
+            const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Price per Night: ${price}\n- Preferred Property: ${property}\n\n📍 Exact Location to Reach:\n${exactLocationLink}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
