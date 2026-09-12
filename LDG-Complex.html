@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veerabadhra Swamy Guest House & Home Food - Ahobilam</title>
+    <title>LDG Guest House & Home Food - Ahobilam</title>
     <!-- CSS లింక్ -->
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -164,7 +164,7 @@
     <header class="navbar">
         <div class="logo-section">
             <div class="logo-icon">
-                <img src="logo.png" alt="Logo" class="custom-logo">
+                <img src="logo.png" alt="VBS Guest House Logo" class="custom-logo">
             </div>
             <div class="logo-text">
                 <h1>Ahobilam Rooms</h1>
@@ -195,21 +195,29 @@
 
     <!-- మెయిన్ కంటెంట్ -->
     <main class="property-section">
-        <h2 class="property-title">Veerabadhra Swamy Guest House & Home Food</h2>
+        <h2 class="property-title">LDG Guest House & Home Food</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-        <!-- 1. హోటల్ గ్యాలరీ -->
+        <!-- 1. హోటల్ వ్యూ కోసం స్టార్టింగ్ 3 ఫోటోలు (పాప్-అప్ తో) -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
-                <img src="VBC/vbc_mainview.jpeg" alt="Hotel View 1">
+                <img src="LDG/LDG_mainview.jpeg" alt="Hotel View 1">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 1)">
-                <img src="VBC/vbc_reception.jpeg" alt="Hotel View 2">
+                <img src="LDG/LDG_reception.jpg" alt="Hotel View 2">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 2)">
-                <img src="VBC/vbc_corridor.jpeg" alt="Hotel View 3">
+                <img src="LDG/LDG_corridor.jpeg" alt="Hotel View 3">
+                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            </div>
+            <div class="gallery-item" onclick="openGallery('hotelViews', 3)">
+                <img src="LDG/LDG_corridor.1.jpeg" alt="Hotel View 4">
+                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            </div>   
+            <div class="gallery-item" onclick="openGallery('hotelViews', 4)">
+                <img src="LDG/LDG_corridor.2.jpeg" alt="Hotel View 5">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
         </div>
@@ -229,7 +237,7 @@
             <!-- ROOM 1: 2-Sharing -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room2bed', 0)">
-                    <img src="VBC/VBC_2bed.jpeg" alt="2 Sharing Room">
+                    <img src="LDG/LDG_3bed.1.jpeg" alt="2 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -241,13 +249,13 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20Non-AC%20Room%20(Rs.1000)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
+                            <div class="price-amount">₹1400 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20AC%20Room%20(Rs.1400)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
                         </div>
                     </div>
                 </div>
@@ -256,7 +264,7 @@
             <!-- ROOM 2: 3-Sharing -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room3bed', 0)">
-                    <img src="VBC/vbc_3bed.jpeg" alt="3 Sharing Room">
+                    <img src="LDG/LDG_3bed.jpeg" alt="3 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -268,13 +276,13 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
+                            <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20Non-AC%20Room%20(Rs.1200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '3-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20AC%20Room%20(Rs.1500)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
                         </div>
                     </div>
                 </div>
@@ -283,7 +291,7 @@
             <!-- ROOM 3: 4-Sharing -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room4bed', 0)">
-                    <img src="VBC/vbc_4bed.jpeg" alt="4 Sharing Room">
+                    <img src="LDG/LDG_4bed.jpeg" alt="4 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -295,13 +303,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20Non-AC%20Room%20(Rs.1500)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '4-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹2000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20AC%20Room%20(Rs.2000)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
                         </div>
                     </div>
                 </div>
@@ -310,7 +320,7 @@
             <!-- ROOM 4: 5-Sharing -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room5bed', 0)">
-                    <img src="VBC/vbc_5bed.jpeg" alt="5 Sharing Room">
+                    <img src="LDG/LDG_6bed.1.jpeg" alt="5 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -322,13 +332,44 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20Non-AC%20Room%20(Rs.1800)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20AC%20Room%20(Rs.2200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- ROOM 5: 6-Sharing -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room6bed', 0)">
+                    <img src="LDG/LDG_6bed.jpeg" alt="6 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>6-Sharing Family Room</h3>
+                    <p class="room-desc">
+                        <i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>
+                        Our biggest room option! Perfectly accommodates 6 people comfortably. Perfect for groups visiting the temple.
+                    </p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*6-Sharing%20Non-AC%20Room%20(Rs.2200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
+                            <div class="price-amount">₹2600 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*6-Sharing%20AC%20Room%20(Rs.2650)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
                         </div>
                     </div>
                 </div>
@@ -346,7 +387,7 @@
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <p class="loc-address">
-                <i class="fa-solid fa-location-dot"></i> VBC Complex, Ahobilam, Andhra Pradesh
+                <i class="fa-solid fa-location-dot"></i> LDG Guest House & Home Food, Ahobilam, Andhra Pradesh
             </p>
         </div>
     </section>
@@ -430,8 +471,7 @@
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
-                <!-- ఇక్కడ ప్రాపర్టీ పేరు అప్‌డేట్ చేయబడింది -->
-                <input type="hidden" id="modalPropertyName" value="Veerabadhra Swamy Guest House & Home Food">
+                <input type="hidden" id="modalPropertyName" value="LDG Guest House & Home Food">
 
                 <div class="form-group">
                     <label>Guest Name *</label>
@@ -600,7 +640,7 @@
             const room = document.getElementById('modalRoomCategory').value;
             const property = document.getElementById('modalPropertyName').value;
 
-            // వాట్సాప్ మెసేజ్ ఫార్మాట్ (మీరు కోరిన విధంగా ప్రాపర్టీ పేరుతో సహా)
+            // వాట్సాప్ మెసేజ్ ఫార్మాట్
             const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Preferred Property: ${property}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
