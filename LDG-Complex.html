@@ -198,14 +198,15 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'Non-AC')">
+                            <!-- ఇక్కడ ధర యాడ్ చేయబడింది -->
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'Non-AC', '₹1000')">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1400 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'AC', '₹1400')">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -229,14 +230,14 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'Non-AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'Non-AC', '₹1200')">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'AC', '₹1500')">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -260,14 +261,14 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'Non-AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'Non-AC', '₹1500')">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'AC', '₹2000')">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -291,14 +292,14 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'Non-AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'Non-AC', '₹1800')">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'AC', '₹2200')">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -322,14 +323,14 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'Non-AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'Non-AC', '₹2200')">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2600 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'AC')">
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'AC', '₹2600')">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -404,6 +405,8 @@
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
+                <!-- కొత్తగా Price స్టోర్ చేయడానికి ఫీల్డ్ -->
+                <input type="hidden" id="modalRoomPrice"> 
                 <input type="hidden" id="modalPropertyName" value="LDG Guest House & Home Food">
                 
                 <div class="form-group">
@@ -524,15 +527,15 @@
             updateModalContent();
         }
 
-        // ఇమేజ్ అప్‌డేట్ చేసే ఫంక్షన్ (మీ స్క్రీన్ షాట్ నుండి)
         function updateModalContent() {
             document.getElementById('modalimage').src = currentGallery[currentIndex].src;
             document.getElementById('modal-caption').innerText = currentGallery[currentIndex].caption;
         }
 
-        // BOOKING FORM LOGIC (మీ స్క్రీన్ షాట్ నుండి)
-        function openBookingModal(category, type) {
+        // ఇక్కడ price పరామీటర్ కూడా తీసుకునేలా మార్చాను
+        function openBookingModal(category, type, price) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
+            document.getElementById('modalRoomPrice').value = price; // ప్రైస్ వాల్యూ సెట్ చేస్తున్నాం
             document.getElementById('bookingForm').style.display = 'block';
             document.getElementById('confirmationNotice').style.display = 'none';
             document.getElementById('bookingModal').style.display = 'block';
@@ -551,10 +554,11 @@
             const checkOut = document.getElementById('checkOutDate').value;
             const guests = document.getElementById('guestCount').value;
             const room = document.getElementById('modalRoomCategory').value;
+            const price = document.getElementById('modalRoomPrice').value; // ప్రైస్ గెట్ చేస్తున్నాం
             const property = document.getElementById('modalPropertyName').value;
 
-            // వాట్సాప్ మెసేజ్ ఫార్మాట్
-            const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Preferred Property: ${property}`;
+            // వాట్సాప్ మెసేజ్‌లో Price per Night: ${price} యాడ్ చేశాను
+            const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Price per Night: ${price}\n- Preferred Property: ${property}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
