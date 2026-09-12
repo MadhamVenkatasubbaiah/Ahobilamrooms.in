@@ -69,7 +69,7 @@
         .form-row { display: flex; gap: 15px; }
         .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background 0.3s; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
-        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 13px; font-weight: bold; margin-top: 8px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
+        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-size: 13.5px; font-weight: bold; margin-top: 8px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
         .btn-phonepe-pay:hover { background-color: #4b1d7d; }
         .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
         .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
@@ -309,13 +309,13 @@
                     <input type="number" id="guestCount" min="1" max="10" value="2" required>
                 </div>
 
-                <!-- 50% Advance & PhonePe Payment Option -->
+                <!-- 50% Advance & Dynamic PhonePe Payment Option -->
                 <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 15px;">
                     <p style="color: #dfb160; font-size: 13.5px; font-weight: 600; margin-bottom: 8px;">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Payment required to confirm booking.
                     </p>
-                    <a href="upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&cu=INR" class="btn-phonepe-pay">
-                        <i class="fa-solid fa-wallet"></i> Pay 50% Advance via PhonePe / UPI
+                    <a href="#" id="phonepePayLink" class="btn-phonepe-pay">
+                        <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / UPI</span>
                     </a>
                 </div>
 
@@ -411,11 +411,20 @@
             document.getElementById('modal-caption').innerText = item.caption;
         }
 
-        // Booking Form Modal Functions
+        // Booking Form Modal Functions (Dynamic 50% Calculation)
         function openBookingModal(category, type, price) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
             document.getElementById('modalRoomPrice').value = price;
             
+            // ధర నుంచి నంబర్ వెలికితీసి 50% లెక్కించడం (ఉదా: ₹1100 -> 550)
+            const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
+            const advanceAmount = numericPrice / 2;
+
+            // PhonePe UPI లింక్ మరియు బటన్ టెక్స్ట్ డైనమిక్‌గా మార్చడం
+            const upiUrl = `upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&am=${advanceAmount}&cu=INR`;
+            document.getElementById('phonepePayLink').href = upiUrl;
+            document.getElementById('phonepePayText').innerText = `Pay 50% Advance (₹${advanceAmount}) via PhonePe / UPI`;
+
             document.getElementById('bookingForm').style.display = 'block';
             document.getElementById('confirmationNotice').style.display = 'none';
             document.getElementById('bookingModal').style.display = "block";
@@ -437,9 +446,12 @@
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
             
+            const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
+            const advanceAmount = numericPrice / 2;
+            
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}\n- Payment Term: 50% Advance via PhonePe/UPI (dhanunjayamadham@ybl)\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}\n- Payment Term: 50% Advance ₹${advanceAmount} via PhonePe/UPI (dhanunjayamadham@ybl)\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
 
             const whatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(message)}`;
 
