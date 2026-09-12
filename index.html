@@ -117,7 +117,7 @@
             <div class="hotel-card">
                 <img src="MRC/MR_mainview.jpeg" alt="Madham Rajeshwari Complex">
                 <div class="hotel-info">
-                    <h3>Option 1 - Madham Rajeshwari Complex</h3>
+                    <h3>Madham Rajeshwari Complex</h3>
                     <p>Experience comfortable stay with premium amenities near the sacred Ahobilam temples.</p>
                     <a href="MRC.html" class="btn-explore">Explore Details</a>
                 </div>
@@ -127,7 +127,7 @@
             <div class="hotel-card">
                 <img src="VBC/vbc_mainview.jpeg" alt="VBS Guest House & Home Food">
                 <div class="hotel-info">
-                    <h3>Option 2 - VBS Guest House & Home Food</h3> 
+                    <h3>VBS Guest House & Home Food</h3> 
                     <p>Your perfect base for a spiritual journey with excellent hospitality and care.</p>
                     <a href="veerabadhra-complex.html" class="btn-explore">Explore Details</a>
                 </div>
@@ -137,7 +137,7 @@
             <div class="hotel-card">
                 <img src="LDG/LDG_mainview.jpeg" alt="LDG Guest House & Home Food">
                 <div class="hotel-info">
-                    <h3>Option 3 - LDG Guest House & Home Food</h3> 
+                    <h3>LDG Guest House & Home Food</h3> 
                     <p>Your perfect base for a spiritual journey with excellent hospitality and care.</p>
                     <a href="LDG-Complex.html" class="btn-explore">Explore Details</a>
                 </div>
@@ -349,7 +349,7 @@
                 </div>
                 <div>
                     <strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong>
-                    Guests must produce valid original Govt. ID proof (Aadhaar/Voter ID) at check-in as per local guidelines.
+                    Guests must produce valid original Govt. ID proof at check-in as per local guidelines.
                 </div>
             </div>
         </div>
@@ -475,12 +475,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Select Preferred Option *</label>
+                    <label>Select Preferred Hotel *</label>
                     <select id="b_hotel" required>
-                        <option value="">-- Choose Option --</option>
-                        <option value="Option 1 - Madham Rajeshwari Complex">Option 1 - Madham Rajeshwari Complex</option>
-                        <option value="Option 2 - VBS Guest House & Home Food">Option 2 - VBS Guest House & Home Food</option>
-                        <option value="Option 3 - LDG Guest House & Home Food">Option 3 - LDG Guest House & Home Food</option>
+                        <option value="">-- Choose Hotel / Guest House --</option>
+                        <option value="Madham Rajeshwari Complex">Madham Rajeshwari Complex</option>
+                        <option value="VBS Guest House & Home Food">VBS Guest House & Home Food</option>
+                        <option value="LDG Guest House & Home Food">LDG Guest House & Home Food</option>
                     </select>
                 </div>
 
@@ -553,7 +553,7 @@
         const persons = document.getElementById('b_persons').value;
         const roomType = document.getElementById('b_roomtype').value;
 
-        const message = `Om Namo Narasimhaya! 🔔\n\n*NEW BOOKING REQUEST*\n*Name:* ${name}\n*Selected Option:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and share property details._`;
+        const message = `Om Namo Narasimhaya! 🔔\n\n*NEW BOOKING REQUEST*\n*Name:* ${name}\n*Selected Hotel:* ${hotel}\n*Check-in:* ${checkin}\n*Check-out:* ${checkout}\n*Persons:* ${persons}\n*Type:* ${roomType}\n\n_Please confirm availability and share property details._`;
 
         const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
         
