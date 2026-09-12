@@ -59,17 +59,29 @@
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
         /* BOOKING FORM MODAL STYLES */
-        .modal-form-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #b3b3b3; font-size: 14px; }
-        .form-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
+        .modal-form-content { background-color: #2a2a2a; margin: 4% auto; padding: 25px 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 460px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; color: #b3b3b3; font-size: 13.5px; }
+        .form-group input { width: 100%; padding: 9px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
         .form-group input[type="date"] { cursor: pointer; }
         .form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 18px; }
         .form-group input:focus { border-color: #dfb160; outline: none; }
         .form-row { display: flex; gap: 15px; }
-        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background 0.3s; }
+        
+        /* TICKET STYLE POLICY BOX */
+        .ticket-policy-box { background-color: #1a1a1a; border: 1px dashed #dfb160; border-radius: 8px; padding: 12px 15px; margin-bottom: 15px; position: relative; }
+        .ticket-policy-box::before, .ticket-policy-box::after { content: ''; position: absolute; width: 10px; height: 10px; background-color: #2a2a2a; border-radius: 50%; border: 1px solid #dfb160; }
+        .ticket-policy-box::before { left: -6px; top: 50%; transform: translateY(-50%); }
+        .ticket-policy-box::after { right: -6px; top: 50%; transform: translateY(-50%); }
+        .ticket-header { color: #dfb160; font-size: 13px; font-weight: bold; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; border-bottom: 1px dashed #444; padding-bottom: 4px; }
+        .ticket-terms-list { list-style: none; padding: 0; margin: 0; font-size: 12px; color: #ccc; line-height: 1.5; }
+        .ticket-terms-list li { margin-bottom: 3px; display: flex; gap: 6px; align-items: flex-start; }
+        .ticket-terms-list li i { color: #dfb160; margin-top: 2px; font-size: 11px; }
+        .ticket-terms-list li span { color: #dfb160; font-weight: 600; }
+
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 8px; transition: background 0.3s; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
-        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-size: 13.5px; font-weight: bold; margin-top: 8px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
+        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 9px 12px; border-radius: 5px; font-size: 13px; font-weight: bold; margin-top: 6px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
         .btn-phonepe-pay:hover { background-color: #4b1d7d; }
         .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
         .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
@@ -279,7 +291,7 @@
     <div id="bookingModal" class="modal">
         <div class="modal-form-content">
             <span class="close-btn" onclick="closeBookingModal()">&times;</span>
-            <h3 style="color: #dfb160; margin-bottom: 20px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
+            <h3 style="color: #dfb160; margin-bottom: 15px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
@@ -309,9 +321,20 @@
                     <input type="number" id="guestCount" min="1" max="10" value="2" required>
                 </div>
 
+                <!-- TICKET STYLE TERMS & CANCELLATION POLICY BOX -->
+                <div class="ticket-policy-box">
+                    <div class="ticket-header">
+                        <i class="fa-solid fa-ticket"></i> Booking & Cancellation Policy
+                    </div>
+                    <ul class="ticket-terms-list">
+                        <li><i class="fa-solid fa-circle-xmark"></i> <span>Non-Refundable:</span> చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు.</li>
+                        <li><i class="fa-solid fa-clock"></i> <span>Cancellation Rule:</span> బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు (No cancellation allowed after 10 hours of booking).</li>
+                    </ul>
+                </div>
+
                 <!-- 50% Advance & Dynamic PhonePe Payment Option -->
-                <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 15px;">
-                    <p style="color: #dfb160; font-size: 13.5px; font-weight: 600; margin-bottom: 8px;">
+                <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 10px; border-radius: 6px; text-align: center; margin-bottom: 12px;">
+                    <p style="color: #dfb160; font-size: 13px; font-weight: 600; margin-bottom: 6px;">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Payment required to confirm booking.
                     </p>
                     <a href="#" id="phonepePayLink" class="btn-phonepe-pay">
@@ -416,7 +439,7 @@
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
             document.getElementById('modalRoomPrice').value = price;
             
-            // ధర నుంచి నంబర్ వెలికితీసి 50% లెక్కించడం (ఉదా: ₹1100 -> 550)
+            // ధర నుంచి నంబర్ వెలికితీసి 50% లెక్కించడం
             const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
             const advanceAmount = numericPrice / 2;
 
@@ -451,7 +474,7 @@
             
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}\n- Payment Term: 50% Advance ₹${advanceAmount} via PhonePe/UPI (dhanunjayamadham@ybl)\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Advance Paid/Due: ₹${advanceAmount} (50%)\n- Payment UPI: dhanunjayamadham@ybl\n\n⚠️ *Terms & Policy:* Amount is Non-Refundable. Cancellation not allowed after 10 hours of booking.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
 
             const whatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(message)}`;
 
