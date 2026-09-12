@@ -75,13 +75,24 @@
         .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
 
         /* LOCATION SECTION */
-        .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; }
-        .loc-title { text-align: center; color: #dfb160; font-size: 28px; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
-        .map-wrapper { max-width: 900px; margin: 0 auto; background-color: #2a2a2a; padding: 15px; border-radius: 12px; border: 1px solid #444; transition: 0.3s ease; }
-        .map-wrapper:hover { border-color: #dfb160; }
-        .map-iframe-box { border-radius: 8px; overflow: hidden; height: 380px; border: 1px solid #333; }
-        .loc-address { margin-top: 15px; color: #b3b3b3; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; }
-        .loc-address i { color: #ff4d4d; }
+        .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
+        .loc-title { color: #dfb160; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        .loc-card { max-width: 700px; margin: 0 auto; background-color: #2a2a2a; padding: 30px; border-radius: 12px; border: 1px solid #444; }
+        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
+        .loc-address i { color: #ff4d4d; margin-right: 8px; }
+
+        /* GUIDELINES & DISCLAIMER SECTION */
+        .guidelines-section { background-color: #181818; padding: 50px 5%; border-top: 1px solid #333; color: #ccc; }
+        .guidelines-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .guidelines-box { background-color: #232323; padding: 25px; border-radius: 10px; border: 1px solid #333; }
+        .guidelines-box h3 { color: #dfb160; font-size: 20px; margin-bottom: 15px; font-family: 'Playfair Display', serif; display: flex; align-items: center; gap: 10px; }
+        .guidelines-box ul { padding-left: 20px; font-size: 14px; line-height: 1.7; }
+        .guidelines-box p { font-size: 14px; line-height: 1.7; }
+
+        /* FOOTER */
+        .site-footer { background-color: #141414; color: #888; text-align: center; padding: 30px 5%; border-top: 1px solid #222; font-size: 14px; }
+        .site-footer p { margin-bottom: 10px; }
+        .site-footer span { color: #dfb160; }
 
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -98,10 +109,7 @@
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
             .form-row { flex-direction: column; gap: 0; }
-        }
-        @media screen and (max-width: 600px) {
-            .map-iframe-box { height: 280px; }
-            .loc-title { font-size: 24px; }
+            .guidelines-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -280,18 +288,41 @@
         </div>
     </main>
 
-    <!-- LOCATION SECTION -->
+    <!-- LOCATION SECTION (మ్యాప్ పూర్తిగా దాచబడింది, కేవలం అడ్రస్ మాత్రమే) -->
     <section class="single-location-section">
         <h3 class="loc-title">Our Location</h3>
-        <div class="map-wrapper">
-            <div class="map-iframe-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.755499256247!2d78.730125!3d15.132847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5a7a1c4b78583%3A0x8e833486c944f2d7!2sLower%20Ahobilam%2C%20Ahobilam%2C%20Andhra%20Pradesh%20518543!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        <div class="loc-card">
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
+            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత మీ వాట్సాప్ చాట్‌లోకి నేరుగా గూగుల్ మ్యాప్స్ లొకేషన్ పంపబడుతుంది)</p>
         </div>
     </section>
+
+    <!-- IMPORTANT PILGRIM GUIDELINES & DISCLAIMER -->
+    <section class="guidelines-section">
+        <div class="guidelines-container">
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Important Pilgrim Guidelines</h3>
+                <ul>
+                    <li>Please carry valid ID proof for all guests during check-in.</li>
+                    <li>Eco-friendly practices are encouraged; do not litter plastic around the temple premises.</li>
+                    <li>Upper Ahobilam trekking timings are subject to forest department rules.</li>
+                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                </ul>
+            </div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>&copy; 2026 <span>VBS Guest House & Home Food</span>, Ahobilam. All Rights Reserved.</p>
+        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
+    </footer>
 
     <!-- FLOATING WHATSAPP SUPPORT -->
     <a href="https://wa.me/917675962840" target="_blank" class="float-support-btn">
@@ -339,7 +370,7 @@
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
                 <h4>Booking Request Prepared!</h4>
-                <p>Redirecting you to WhatsApp to complete your reservation with the room amount details...</p>
+                <p>Redirecting you to WhatsApp with room details and location directions...</p>
             </div>
         </div>
     </div>
@@ -430,7 +461,7 @@
             document.getElementById('modal-caption').innerText = item.caption;
         }
 
-        // Booking Form Modal Functions (With Price Support)
+        // Booking Form Modal Functions
         function openBookingModal(category, type, price) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
             document.getElementById('modalRoomPrice').value = price;
@@ -455,9 +486,12 @@
             const room = document.getElementById('modalRoomCategory').value;
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
+            
+            // మీరు ఇచ్చిన ఖచ్చితమైన గూగుల్ మ్యాప్ లొకేషన్ లింక్
+            const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            // WhatsApp Message with Price Included
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}`;
+            // బుకింగ్ చేసుకున్న తర్వాత వాట్సాప్ మెసేజ్‌లో లొకేషన్ వెళ్లేలా సెట్ చేయడం
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
