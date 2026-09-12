@@ -148,29 +148,20 @@
 
         .btn-select-room {
             display: inline-block; background-color: #dfb160; color: #000; text-decoration: none; 
-            padding: 10px 24px; font-size: 14px; font-weight: 600; border-radius: 6px; 
-            transition: all 0.3s ease; text-align: center;
+            padding: 12px 28px; font-size: 14px; font-weight: 600; border-radius: 6px; 
+            transition: all 0.3s ease; text-align: center; width: 100%; box-sizing: border-box;
         }
         .btn-select-room:hover { background-color: #c49950; transform: translateY(-2px); }
-
-        .btn-direct-book {
-            display: inline-block; background-color: transparent; border: 1px solid #dfb160; color: #dfb160; text-decoration: none; 
-            padding: 10px 20px; font-size: 14px; font-weight: 600; border-radius: 6px; 
-            transition: all 0.3s ease; text-align: center; cursor: pointer;
-        }
-        .btn-direct-book:hover { background-color: #dfb160; color: #000; }
 
         /* మొబైల్ రెస్పాన్సివ్ */
         @media screen and (max-width: 850px) {
             .stay-horizontal-card { flex-direction: column; }
             .stay-img-box, .stay-details { width: 100%; }
             .stay-img-box { height: 230px; min-width: 100%; }
-            .card-action-btns { flex-direction: column; }
-            .btn-select-room, .btn-direct-book { width: 100%; box-sizing: border-box; }
         }
     </style>
 
-    <!-- ================= 메యిన్ కోడ్ ================= -->
+    <!-- ================= మెయిన్ కోడ్ ================= -->
     <main class="choose-stay-section">
         <h2 class="page-title">Choose Your Stay in Ahobilam</h2>
         <p class="page-subtitle">Clean, comfortable, and peaceful accommodation options for pilgrims with modern amenities.</p>
@@ -205,7 +196,6 @@
 
                     <div class="card-action-btns">
                         <a href="MRC.html" class="btn-select-room"><i class="fa-solid fa-eye"></i> View Rooms & Pricing</a>
-                        <button class="btn-direct-book" onclick="openBookingModal('Madam Rajeswari Complex')"><i class="fa-solid fa-calendar-check"></i> Book This Complex</button>
                     </div>
                 </div>
             </div>
@@ -238,7 +228,6 @@
 
                     <div class="card-action-btns">
                         <a href="veerabadhra-complex.html" class="btn-select-room"><i class="fa-solid fa-eye"></i> View Rooms & Pricing</a>
-                        <button class="btn-direct-book" onclick="openBookingModal('VBS Guest House & Home Food')"><i class="fa-solid fa-calendar-check"></i> Book This Complex</button>
                     </div>
                 </div>
             </div>
@@ -271,7 +260,6 @@
 
                     <div class="card-action-btns">
                         <a href="LDG-Complex.html" class="btn-select-room"><i class="fa-solid fa-eye"></i> View Rooms & Pricing</a>
-                        <button class="btn-direct-book" onclick="openBookingModal('LDG Guest House & Home Food')"><i class="fa-solid fa-calendar-check"></i> Book This Complex</button>
                     </div>
                 </div>
             </div>
@@ -477,7 +465,7 @@
                 </div>
                 <div>
                     <strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong>
-                    Guests must produce valid original Govt. ID proof (Aadhaar/Voter ID) at check-in as per local guidelines.
+                    Guests must produce valid original Govt. ID proof at check-in as per local guidelines.
                 </div>
             </div>
         </div>
@@ -691,7 +679,7 @@
         <span>Need Help? Chat with Us</span>
     </a>
 
-    <!-- BOOKING MODAL POPUP (FULL DETAILS) -->
+    <!-- BOOKING MODAL POPUP -->
     <div id="bookingModal" class="modal-overlay">
         <div class="modal-content">
             <span class="modal-close" onclick="closeBookingModal()">&times;</span>
@@ -723,22 +711,24 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="guestsCount"><i class="fa-solid fa-users"></i> Guests *</label>
-                        <input type="number" id="guestsCount" min="1" value="2" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="roomCategory"><i class="fa-solid fa-snowflake"></i> Room Type *</label>
-                        <select id="roomCategory" required>
+                        <label for="roomType"><i class="fa-solid fa-bed"></i> Room Type *</label>
+                        <select id="roomType" required>
+                            <option value="" disabled selected>Select Room Type</option>
                             <option value="AC Room">AC Room</option>
                             <option value="Non-AC Room">Non-AC Room</option>
-                            <option value="Deluxe / Family Suite">Deluxe / Family Suite</option>
+                            <option value="Family Suite">Family Suite</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numGuests"><i class="fa-solid fa-users"></i> Guests *</label>
+                        <input type="number" id="numGuests" min="1" max="20" placeholder="No. of guests" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="roomType"><i class="fa-solid fa-hotel"></i> Select Complex / Guest House *</label>
-                    <select id="roomType" required>
+                    <label for="selectComplex"><i class="fa-solid fa-hotel"></i> Select Complex *</label>
+                    <select id="selectComplex" required>
+                        <option value="" disabled selected>Choose Stay / Complex</option>
                         <option value="Madam Rajeswari Complex">Madam Rajeswari Complex</option>
                         <option value="VBS Guest House & Home Food">VBS Guest House & Home Food</option>
                         <option value="LDG Guest House & Home Food">LDG Guest House & Home Food</option>
@@ -746,7 +736,7 @@
                 </div>
 
                 <button type="submit" class="btn-submit-booking">
-                    <i class="fa-brands fa-whatsapp"></i> Send Booking Request on WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> Confirm & Book via WhatsApp
                 </button>
             </form>
         </div>
@@ -754,42 +744,52 @@
 
     <!-- BOOKING MODAL JAVASCRIPT -->
     <script>
-        function openBookingModal(defaultComplex) {
-            document.getElementById('bookingModal').style.display = 'flex';
-            if(defaultComplex) {
-                document.getElementById('roomType').value = defaultComplex;
+        function openBookingModal(complexName = '') {
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                if (complexName) {
+                    const selectComplex = document.getElementById('selectComplex');
+                    if (selectComplex) selectComplex.value = complexName;
+                }
             }
         }
 
         function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
-        }
-
-        window.addEventListener('click', function(event) {
             const modal = document.getElementById('bookingModal');
-            if (event.target === modal) {
-                closeBookingModal();
+            if (modal) {
+                modal.style.display = 'none';
             }
-        });
+        }
 
         function sendBookingWhatsApp(event) {
             event.preventDefault();
-            
             const name = document.getElementById('guestName').value;
-            const phoneGuest = document.getElementById('guestPhone').value;
+            const phone = document.getElementById('guestPhone').value;
             const checkIn = document.getElementById('checkInDate').value;
             const checkOut = document.getElementById('checkOutDate').value;
-            const guests = document.getElementById('guestsCount').value;
-            const roomCategory = document.getElementById('roomCategory').value;
-            const property = document.getElementById('roomType').value;
+            const roomType = document.getElementById('roomType').value;
+            const guests = document.getElementById('numGuests').value;
+            const complex = document.getElementById('selectComplex').value;
 
-            const targetPhone = "917675962840";
-            
-            const message = `Om Namo Narasimhaya!%0A*New Ahobilam Room Booking Enquiry*%0A----------------------------------%0A- *Guest Name:* ${encodeURIComponent(name)}%0A- *Mobile:* ${encodeURIComponent(phoneGuest)}%0A- *Check-in Date:* ${encodeURIComponent(checkIn)}%0A- *Check-out Date:* ${encodeURIComponent(checkOut)}%0A- *Number of Guests:* ${encodeURIComponent(guests)}%0A- *Room Category:* ${encodeURIComponent(roomCategory)}%0A- *Preferred Property:* ${encodeURIComponent(property)}%0A----------------------------------%0APlease confirm availability and pricing details.`;
+            const message = `*Room Booking Request - Ahobilam Rooms*%0A%0A` +
+                            `*Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Complex:* ${encodeURIComponent(complex)}%0A` +
+                            `*Room Type:* ${encodeURIComponent(roomType)}%0A` +
+                            `*Guests:* ${encodeURIComponent(guests)}%0A` +
+                            `*Check-in:* ${encodeURIComponent(checkIn)}%0A` +
+                            `*Check-out:* ${encodeURIComponent(checkOut)}`;
 
-            window.open(`https://wa.me/${targetPhone}?text=${message}`, '_blank');
-            closeBookingModal();
+            window.open(`https://wa.me/917675962840?text=${message}`, '_blank');
         }
+
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('bookingModal');
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
     </script>
 </body>
 </html>
