@@ -74,12 +74,25 @@
         .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
         .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
 
-        /* LOCATION SECTION (మ్యాప్ పూర్తిగా తీసివేయబడింది, కేవలం అడ్రస్ & బటన్ మాత్రమే) */
+        /* LOCATION SECTION */
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
         .loc-title { color: #dfb160; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
         .loc-card { max-width: 700px; margin: 0 auto; background-color: #2a2a2a; padding: 30px; border-radius: 12px; border: 1px solid #444; }
         .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
         .loc-address i { color: #ff4d4d; margin-right: 8px; }
+
+        /* GUIDELINES & DISCLAIMER SECTION */
+        .guidelines-section { background-color: #181818; padding: 50px 5%; border-top: 1px solid #333; color: #ccc; }
+        .guidelines-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .guidelines-box { background-color: #232323; padding: 25px; border-radius: 10px; border: 1px solid #333; }
+        .guidelines-box h3 { color: #dfb160; font-size: 20px; margin-bottom: 15px; font-family: 'Playfair Display', serif; display: flex; align-items: center; gap: 10px; }
+        .guidelines-box ul { padding-left: 20px; font-size: 14px; line-height: 1.7; }
+        .guidelines-box p { font-size: 14px; line-height: 1.7; }
+
+        /* FOOTER */
+        .site-footer { background-color: #141414; color: #888; text-align: center; padding: 30px 5%; border-top: 1px solid #222; font-size: 14px; }
+        .site-footer p { margin-bottom: 10px; }
+        .site-footer span { color: #dfb160; }
 
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -96,6 +109,7 @@
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
             .form-row { flex-direction: column; gap: 0; }
+            .guidelines-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -284,6 +298,31 @@
             <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత మీ వాట్సాప్ చాట్‌లోకి నేరుగా గూగుల్ మ్యాప్స్ లొకేషన్ పంపబడుతుంది)</p>
         </div>
     </section>
+
+    <!-- IMPORTANT PILGRIM GUIDELINES & DISCLAIMER -->
+    <section class="guidelines-section">
+        <div class="guidelines-container">
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Important Pilgrim Guidelines</h3>
+                <ul>
+                    <li>Please carry valid ID proof for all guests during check-in.</li>
+                    <li>Eco-friendly practices are encouraged; do not litter plastic around the temple premises.</li>
+                    <li>Upper Ahobilam trekking timings are subject to forest department rules.</li>
+                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                </ul>
+            </div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>&copy; 2026 <span>VBS Guest House & Home Food</span>, Ahobilam. All Rights Reserved.</p>
+        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
+    </footer>
 
     <!-- FLOATING WHATSAPP SUPPORT -->
     <a href="https://wa.me/917675962840" target="_blank" class="float-support-btn">
