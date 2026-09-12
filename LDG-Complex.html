@@ -11,54 +11,29 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- CSS స్టైల్స్ -->
     <style>
-        .property-section {
-            padding: 130px 5% 80px;
-            min-height: 100vh;
-            background-color: #1e1e1e;
-        }
-        
-        .property-title {
-            text-align: center; color: #dfb160; font-size: 38px; margin-bottom: 10px; font-family: 'Playfair Display', serif;
-        }
-        .property-subtitle {
-            text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 40px;
-        }
+        .property-section { padding: 130px 5% 80px; min-height: 100vh; background-color: #1e1e1e; }
+        .property-title { text-align: center; color: #dfb160; font-size: 38px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .property-subtitle { text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 40px; }
 
         /* హోటల్ ఇమేజ్ గ్యాలరీ */
-        .hotel-gallery {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 40px auto;
-        }
-        .gallery-item {
-            position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; border: 2px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .gallery-item img {
-            width: 100%; height: 220px; object-fit: cover; display: block;
-        }
-        .img-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); color: #dfb160;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease; font-size: 18px; font-weight: bold;
-        }
+        .hotel-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 40px auto; }
+        .gallery-item { position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; border: 2px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .img-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); color: #dfb160; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; font-size: 18px; font-weight: bold; }
         .img-overlay i { font-size: 30px; margin-bottom: 10px; color: #fff; }
         .gallery-item:hover .img-overlay, .room-image-box:hover .img-overlay { opacity: 1; }
 
         /* కామన్ వసతులు */
-        .global-amenities {
-            background-color: #2a2a2a; border: 1px solid #444; border-radius: 10px; padding: 25px; max-width: 1100px; margin: 0 auto 50px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
-        }
+        .global-amenities { background-color: #2a2a2a; border: 1px solid #444; border-radius: 10px; padding: 25px; max-width: 1100px; margin: 0 auto 50px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .amenity-item { display: flex; align-items: center; gap: 10px; color: #ffffff; font-size: 15px; }
         .amenity-item i { color: #dfb160; font-size: 20px; }
 
         /* రూమ్ కార్డ్స్ */
         .rooms-list { display: flex; flex-direction: column; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .room-card { display: flex; background-color: #2a2a2a; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
-        
         .room-image-box { width: 40%; position: relative; cursor: pointer; }
         .room-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
         .room-details-box { width: 60%; padding: 30px; }
         .room-details-box h3 { color: #dfb160; font-size: 26px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
         .room-desc { color: #b3b3b3; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
@@ -68,8 +43,9 @@
         .price-box { background-color: #1e1e1e; border: 1px solid #444; border-radius: 8px; padding: 20px; width: 50%; text-align: center; }
         .price-box h4 { color: #ffffff; font-size: 18px; margin-bottom: 5px; }
         .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 15px; }
-        .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; }
-        .btn-whatsapp-book:hover { background-color: #1ebd57; }
+        
+        .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; font-family: 'Inter', sans-serif;}
+        .btn-whatsapp-book:hover { background-color: #1cbd57; }
 
         /* POPUP GALLERY & MODAL */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
@@ -84,40 +60,17 @@
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
         /* BOOKING FORM MODAL STYLES */
-        .modal-form-content {
-            background-color: #2a2a2a; margin: 5% auto; padding: 30px; border-radius: 12px;
-            border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.8);
-        }
+        .modal-form-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; color: #b3b3b3; font-size: 14px; }
-        .form-group input { 
-            width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #444; 
-            background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px;
-        }
-        
-        /* క్యాలెండర్ ఐకాన్ & ఫీల్డ్ స్టైలింగ్ */
-        .form-group input[type="date"] {
-            cursor: pointer;
-        }
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg);
-            cursor: pointer;
-            font-size: 18px;
-        }
-
+        .form-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
+        .form-group input[type="date"] { cursor: pointer; }
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 18px; }
         .form-group input:focus { border-color: #dfb160; outline: none; }
         .form-row { display: flex; gap: 15px; }
-        .btn-submit-booking {
-            width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px;
-            border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px;
-            transition: background 0.3s;
-        }
-        .btn-submit-booking:hover { background-color: #1ebd57; }
-        .confirmation-box {
-            text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px;
-            border: 1px solid #25d366; margin-top: 10px; color: #25d366;
-        }
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background 0.3s; }
+        .btn-submit-booking:hover { background-color: #1cbd57; }
+        .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
         .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
         .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
         .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
@@ -127,17 +80,12 @@
         .loc-title { text-align: center; color: #dfb160; font-size: 28px; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
         .map-wrapper { max-width: 900px; margin: 0 auto; background-color: #2a2a2a; padding: 15px; border-radius: 12px; border: 1px solid #444; transition: 0.3s ease; }
         .map-wrapper:hover { border-color: #dfb160; }
-        .map-iframe-box { border-radius: 8px; overflow: hidden; height: 350px; border: 1px solid #333; }
+        .map-iframe-box { border-radius: 8px; overflow: hidden; height: 350px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .loc-address { margin-top: 15px; color: #b3b3b3; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .loc-address i { color: #ff4d4d; }
 
         /* FLOATING SUPPORT BUTTON */
-        .float-support-btn {
-            position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff;
-            border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); text-decoration: none; z-index: 9999;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); color: #ffffff; }
         .float-support-btn i { font-size: 22px; }
 
@@ -171,8 +119,7 @@
                 <p>Hotels & Services</p>
             </div>
         </div>
-
-        <!-- నావిగేషన్ లింక్స్ -->
+        
         <nav class="nav-links" id="nav-links">
             <a href="index.html" class="active">Home</a>
             <a href="rooms.html">Rooms</a>
@@ -182,14 +129,15 @@
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
         </nav>
-
-        <div class="right-section">
-            <button class="book-now-btn desktop-only">
+        
+        <div class="right-section desktop-only">
+            <button class="book-now-btn">
                 <i class="fa-solid fa-phone"></i> Book Now
             </button>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
         </div>
     </header>
 
@@ -198,7 +146,7 @@
         <h2 class="property-title">LDG Guest House & Home Food</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-    <!-- 1. హోటల్ వ్యూ కోసం స్టార్టింగ్ 3 ఫోటోలు (పాప్-అప్ తో) -->
+        <!-- హోటల్ వ్యూ ఫోటోలు -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
                 <img src="LDG/LDG_mainview.jpeg" alt="Hotel View 1">
@@ -215,14 +163,14 @@
             <div class="gallery-item" onclick="openGallery('hotelViews', 3)">
                 <img src="LDG/LDG_corridor.1.jpeg" alt="Hotel View 4">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
-            </div>   
+            </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 4)">
                 <img src="LDG/LDG_corridor.2.jpeg" alt="Hotel View 5">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
         </div>
 
-        <!-- 2. హోటల్ వసతులు -->
+        <!-- హోటల్ వసతులు -->
         <div class="global-amenities">
             <div class="amenity-item"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</div>
             <div class="amenity-item"><i class="fa-solid fa-car"></i> Parking Space</div>
@@ -231,10 +179,10 @@
             <div class="amenity-item"><i class="fa-solid fa-snowflake"></i> AC & Non-AC Available</div>
         </div>
 
- <!-- 3. రూమ్స్ లిస్ట్ -->
+        <!-- రూమ్స్ లిస్ట్ -->
         <div class="rooms-list">
             
-            <!-- ROOM 1: 2-Sharing -->
+            <!-- ROOM 1 -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room2bed', 0)">
                     <img src="LDG/LDG_3bed.1.jpeg" alt="2 Sharing Room">
@@ -250,18 +198,22 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20Non-AC%20Room%20(Rs.1000)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'Non-AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1400 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20AC%20Room%20(Rs.1400)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 2: 3-Sharing -->
+            <!-- ROOM 2 -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room3bed', 0)">
                     <img src="LDG/LDG_3bed.jpeg" alt="3 Sharing Room">
@@ -277,18 +229,22 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20Non-AC%20Room%20(Rs.1200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'Non-AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20AC%20Room%20(Rs.1500)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 3: 4-Sharing -->
+            <!-- ROOM 3 -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room4bed', 0)">
                     <img src="LDG/LDG_4bed.jpeg" alt="4 Sharing Room">
@@ -303,21 +259,23 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20Non-AC%20Room%20(Rs.1500)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'Non-AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹2000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20AC%20Room%20(Rs.2000)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 4: 5-Sharing -->
+            <!-- ROOM 4 -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room5bed', 0)">
                     <img src="LDG/LDG_6bed.1.jpeg" alt="5 Sharing Room">
@@ -327,26 +285,28 @@
                     <h3>5-Sharing Family Room</h3>
                     <p class="room-desc">
                         <i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>
-                        Our biggest room option! Perfectly accommodates 5 people comfortably. Perfect for groups visiting the temple.
+                        Perfectly accommodates 5 people comfortably. Perfect for groups visiting the temple.
                     </p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20Non-AC%20Room%20(Rs.1800)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'Non-AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20AC%20Room%20(Rs.2200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-             <!-- ROOM 5: 6-Sharing -->
+            <!-- ROOM 5 -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room6bed', 0)">
                     <img src="LDG/LDG_6bed.jpeg" alt="6 Sharing Room">
@@ -356,20 +316,22 @@
                     <h3>6-Sharing Family Room</h3>
                     <p class="room-desc">
                         <i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>
-                        Our biggest room option! Perfectly accommodates 6 people comfortably. Perfect for groups visiting the temple.
+                        Our biggest room option! Perfectly accommodates 6 people comfortably.
                     </p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*6-Sharing%20Non-AC%20Room%20(Rs.2200)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'Non-AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <!-- రేట్ ఇంకా డిసైడ్ కాలేదు కాబట్టి "---" పెట్టాను -->
                             <div class="price-amount">₹2600 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*6-Sharing%20AC%20Room%20(Rs.2650)*%20at%20*LDG%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC </a>
+                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'AC')">
+                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -383,8 +345,7 @@
         <h2 class="loc-title">Our Location</h2>
         <div class="map-wrapper">
             <div class="map-iframe-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.473634125712!2d78.67419171533804!3d15.13491408945903!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb4f500721af647%3A0x7b4e17ea4025663c!2sAhobilam%20temple%20bus%20parking!5e0!3m2!1ste!2sin!4v1725710000000!5m2!1ste!2sin" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.473634125712!2d78.67419171533804!3d15.13491408945903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb4f500721af647%3A0x7b4e17ca4025663c!2sAhobilam%20temple%20bus%20parking!5e0!3m2!1sen!2sin!4v1725710000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <p class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> LDG Guest House & Home Food, Ahobilam, Andhra Pradesh
@@ -395,28 +356,15 @@
     <!-- DISCLAIMER SECTION -->
     <section style="background-color: #1a1a1a; padding: 40px 5%; border-top: 1px solid #333;">
         <div style="max-width: 1100px; margin: 0 auto; background-color: #222222; border: 1px solid #333; border-left: 4px solid #dfb160; border-radius: 8px; padding: 25px; color: #cccccc;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; border-bottom: 1px dashed #333; padding-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 10px;">
                 <i class="fa-solid fa-circle-info" style="color: #dfb160; font-size: 20px;"></i>
                 <h3 style="color: #dfb160; font-family: 'Playfair Display', serif; font-size: 20px; margin: 0;">Important Pilgrim Guidelines & Disclaimer</h3>
             </div>
-            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; font-size: 13.5px; line-height: 1.6;">
-                <div>
-                    <strong style="color: #fff; display: block; margin-bottom: 4px;">Independent Service Provider:</strong>
-                    This website is an independent 3rd-party private booking & local assistance service. We are NOT affiliated with Ahobilam Temple Devasthanam or Ahobila Mutt.
-                </div>
-                <div>
-                    <strong style="color: #fff; display: block; margin-bottom: 4px;">Trust-Based Facilitation:</strong>
-                    We help pilgrims reserve comfortable private guest houses and lodges based on mutual trust, transparency, and local availability.
-                </div>
-                <div>
-                    <strong style="color: #fff; display: block; margin-bottom: 4px;">Temple Rituals & Darshan:</strong>
-                    All official temple rituals and Darshan lines are directly managed by Temple Devasthanam. We do not issue or sell official temple tickets.
-                </div>
-                <div>
-                    <strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong>
-                    Guests must produce valid original Govt. ID proof at check-in as per local guidelines.
-                </div>
+                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Independent Service Provider:</strong> This website is an independent 3rd-party private booking service. We are NOT affiliated with Ahobilam Temple Devasthanam.</div>
+                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Trust-Based Facilitation:</strong> We help pilgrims reserve comfortable private guest houses based on mutual trust and local availability.</div>
+                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Temple Rituals & Darshan:</strong> All official temple rituals are directly managed by Devasthanam. We do not issue official temple tickets.</div>
+                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong> Guests must produce valid original Govt. ID proof at check-in as per local guidelines.</div>
             </div>
         </div>
     </section>
@@ -426,29 +374,14 @@
         <div class="footer-container">
             <div class="footer-col">
                 <h3 class="footer-title">Ahobilam Rooms</h3>
-                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
-            </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="rooms.html">Rooms</a></li>
-                    <li><a href="temple-history.html">Temple History</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <p>Your comfortable stay near the sacred Ahobilam temples.</p>
             </div>
             <div class="footer-col">
                 <h3 class="footer-title">Contact Info</h3>
                 <ul class="footer-contact">
-                    <li><i class="fa-solid fa-location-dot"></i> Ahobilam, Kurnool District, Andhra Pradesh, India</li>
                     <li><i class="fa-solid fa-phone"></i> +91 76759 62840</li>
-                    <li><i class="fa-solid fa-envelope"></i> ahobilamrooms@gmail.com</li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Ahobilam Rooms. All rights reserved.</p>
         </div>
     </footer>
 
@@ -456,7 +389,7 @@
     <div id="galleryModal" class="modal">
         <div class="modal-content-wrap">
             <span class="close-btn" onclick="closeGallery()">&times;</span>
-            <img id="modalImage" src="" alt="Gallery Preview">
+            <img id="modalimage" class="modalimage" src="" alt="Gallery Preview">
             <a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
             <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
             <div id="modal-caption"></div>
@@ -471,41 +404,36 @@
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
-                <input type="hidden" id="modalPropertyName" value="Lakshmi Divya Guest House & Home Food">
-
+                <input type="hidden" id="modalPropertyName" value="LDG Guest House & Home Food">
+                
                 <div class="form-group">
                     <label>Guest Name *</label>
                     <input type="text" id="guestName" required placeholder="Enter your full name">
                 </div>
-
                 <div class="form-group">
                     <label>Mobile Number *</label>
                     <input type="tel" id="guestMobile" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
                 </div>
-
-                <!-- CALENDAR INPUT FIELDS -->
                 <div class="form-row">
                     <div class="form-group" style="flex:1;">
-                        <label for="checkInDate">Check-in Date *</label>
+                        <label for="checkInDate">Check-In Date *</label>
                         <input type="date" id="checkInDate" required>
                     </div>
                     <div class="form-group" style="flex:1;">
-                        <label for="checkOutDate">Check-out Date *</label>
+                        <label for="checkOutDate">Check-Out Date *</label>
                         <input type="date" id="checkOutDate" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Number of Guests *</label>
                     <input type="number" id="guestCount" min="1" value="2" required>
                 </div>
-
+                
                 <button type="submit" class="btn-submit-booking">
                     <i class="fa-brands fa-whatsapp"></i> Proceed to WhatsApp
                 </button>
             </form>
-
-            <!-- CONFIRMATION NOTICE -->
+            
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-clock-rotate-left"></i>
                 <h4>Enquiry Submitted!</h4>
@@ -514,9 +442,7 @@
         </div>
     </div>
 
-    <!-- FLOATING CHAT BUTTON -->
-    <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20have%20a%20query%20regarding%20room%20booking%20and%20Ahobilam%20stay." 
-       class="float-support-btn" target="_blank">
+    <a href="https://wa.me/917675962840" class="float-support-btn" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
         <span>Need Help? Chat with Us</span>
     </a>
@@ -524,28 +450,8 @@
     <!-- JAVASCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // మొబైల్ మెనూ
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            
-            if(mobileMenu && navLinks) {
-                const icon = mobileMenu.querySelector('i');
-                mobileMenu.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    if(navLinks.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-xmark');
-                    } else {
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-
-            // క్యాలెండర్ ఆటో-పాపప్ మరియు మినిమమ్ డేట్ సెట్ చేయడం
             const checkInInput = document.getElementById('checkInDate');
             const checkOutInput = document.getElementById('checkOutDate');
-
             const today = new Date().toISOString().split('T')[0];
             if(checkInInput) checkInInput.setAttribute('min', today);
             if(checkOutInput) checkOutInput.setAttribute('min', today);
@@ -572,28 +478,28 @@
             ],
             'room2bed': [
                 { src: 'LDG/LDG_3bed.1.jpeg', caption: '2 Sharing - Room' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '2 Sharing - Bathroom' } 
+                { src: 'LDG/LDG_washroom.jpeg', caption: '2 Sharing - Bathroom' }
             ],
             'room3bed': [
                 { src: 'LDG/LDG_3bed.jpeg', caption: '3 Sharing - Main View' },
-                { src: 'LDG/LDG_3bed.1.jpeg', caption: '3 Sharing - Inner View' }, 
-                { src: 'LDG/LDG_washroom.jpeg', caption: '3 Sharing - Bathroom' } 
+                { src: 'LDG/LDG_3bed.1.jpeg', caption: '3 Sharing - Inner View' },
+                { src: 'LDG/LDG_washroom.jpeg', caption: '3 Sharing - Bathroom' }
             ],
             'room4bed': [
                 { src: 'LDG/LDG_4bed.jpeg', caption: '4 Sharing - Main View' },
-                { src: 'LDG/LDG_4bed.1.jpeg', caption: '4 Sharing - Inner View' }, 
+                { src: 'LDG/LDG_4bed.1.jpeg', caption: '4 Sharing - Inner View' },
                 { src: 'LDG/LDG_4bed.2.jpeg', caption: '4 Sharing - Inner View' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '4 Sharing - Bathroom' } 
+                { src: 'LDG/LDG_washroom.jpeg', caption: '4 Sharing - Bathroom' }
             ],
             'room5bed': [
                 { src: 'LDG/LDG_6bed.1.jpeg', caption: '5 Sharing - Main View' },
-                { src: 'LDG/LDG_corridor.jpeg', caption: 'corridor - Inner View' },
-                { src: 'LDG/LDG_washroom.1.jpeg', caption: '5 Sharing - Bathroom' } 
+                { src: 'LDG/LDG_corridor.jpeg', caption: 'Corridor - Inner View' },
+                { src: 'LDG/LDG_washroom.1.jpeg', caption: '5 Sharing - Bathroom' }
             ],
-           'room6bed': [
+            'room6bed': [
                 { src: 'LDG/LDG_6bed.jpeg', caption: '6 Sharing - Main View' },
-                { src: 'LDG/LDG_corridor.1.jpeg', caption: 'corridor - Inner View' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '6 Sharing - Bathroom' } 
+                { src: 'LDG/LDG_corridor.1.jpeg', caption: 'Corridor - Inner View' },
+                { src: 'LDG/LDG_washroom.jpeg', caption: '6 Sharing - Bathroom' }
             ]
         };
 
@@ -618,17 +524,18 @@
             updateModalContent();
         }
 
+        // ఇమేజ్ అప్‌డేట్ చేసే ఫంక్షన్ (మీ స్క్రీన్ షాట్ నుండి)
         function updateModalContent() {
-            document.getElementById('modalImage').src = currentGallery[currentIndex].src;
+            document.getElementById('modalimage').src = currentGallery[currentIndex].src;
             document.getElementById('modal-caption').innerText = currentGallery[currentIndex].caption;
         }
 
-        // BOOKING FORM LOGIC
+        // BOOKING FORM LOGIC (మీ స్క్రీన్ షాట్ నుండి)
         function openBookingModal(category, type) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
             document.getElementById('bookingForm').style.display = 'block';
             document.getElementById('confirmationNotice').style.display = 'none';
-            document.getElementById('bookingModal').style.display = "block";
+            document.getElementById('bookingModal').style.display = 'block';
         }
 
         function closeBookingModal() {
@@ -647,7 +554,7 @@
             const property = document.getElementById('modalPropertyName').value;
 
             // వాట్సాప్ మెసేజ్ ఫార్మాట్
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Preferred Property: ${property}`;
+            const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Preferred Property: ${property}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
@@ -661,7 +568,7 @@
             }, 1200);
         }
 
-        // మోడల్ విండో బాహ్య క్లిక్ క్లోజింగ్
+        // మోడల్ వెలుపల క్లిక్ చేస్తే క్లోజింగ్
         window.onclick = function(event) {
             let galleryModal = document.getElementById('galleryModal');
             let bookingModal = document.getElementById('bookingModal');
