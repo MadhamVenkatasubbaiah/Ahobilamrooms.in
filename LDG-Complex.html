@@ -47,6 +47,49 @@
         .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; font-family: 'Inter', sans-serif;}
         .btn-whatsapp-book:hover { background-color: #1cbd57; }
 
+        /* GUIDELINES & DISCLAIMER SECTION STYLES */
+        .guidelines-section {
+            padding: 40px 5% 80px;
+            background-color: #1e1e1e;
+        }
+        .guidelines-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .guidelines-box {
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .guidelines-box h3 {
+            color: #dfb160;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .guidelines-box ul {
+            padding-left: 20px;
+            color: #b3b3b3;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .guidelines-box ul li {
+            margin-bottom: 10px;
+        }
+        .guidelines-box p {
+            color: #b3b3b3;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
         /* POPUP GALLERY & MODAL */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
         .modal-content-wrap { position: relative; margin: auto; top: 50%; transform: translateY(-50%); max-width: 800px; width: 90%; }
@@ -77,7 +120,7 @@
 
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); color: #ffffff; }
+        .float-support-btn:hover { transform: translateY(-50px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); color: #ffffff; }
         .float-support-btn i { font-size: 22px; }
 
         /* రెస్పాన్సివ్ డిజైన్ */
@@ -327,18 +370,21 @@
         </div>
     </main>
 
-    <!-- DISCLAIMER SECTION -->
-    <section style="background-color: #1a1a1a; padding: 40px 5%; border-top: 1px solid #333;">
-        <div style="max-width: 1100px; margin: 0 auto; background-color: #222222; border: 1px solid #333; border-left: 4px solid #dfb160; border-radius: 8px; padding: 25px; color: #cccccc;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 10px;">
-                <i class="fa-solid fa-circle-info" style="color: #dfb160; font-size: 20px;"></i>
-                <h3 style="color: #dfb160; font-family: 'Playfair Display', serif; font-size: 20px; margin: 0;">Important Pilgrim Guidelines & Disclaimer</h3>
+    <!-- IMPORTANT PILGRIM GUIDELINES & DISCLAIMER -->
+    <section class="guidelines-section">
+        <div class="guidelines-container">
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Important Pilgrim Guidelines</h3>
+                <ul>
+                    <li>Please carry valid ID proof for all guests during check-in.</li>
+                    <li>Eco-friendly practices are encouraged; do not litter plastic around the temple premises.</li>
+                    <li>Upper Ahobilam trekking timings are subject to forest department rules.</li>
+                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                </ul>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; font-size: 13.5px; line-height: 1.6;">
-                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Independent Service Provider:</strong> This website is an independent 3rd-party private booking service. We are NOT affiliated with Ahobilam Temple Devasthanam.</div>
-                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Trust-Based Facilitation:</strong> We help pilgrims reserve comfortable private guest houses based on mutual trust and local availability.</div>
-                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">Temple Rituals & Darshan:</strong> All official temple rituals are directly managed by Devasthanam. We do not issue official temple tickets.</div>
-                <div><strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong> Guests must produce valid original Govt. ID proof at check-in as per local guidelines.</div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
             </div>
         </div>
     </section>
@@ -348,14 +394,31 @@
         <div class="footer-container">
             <div class="footer-col">
                 <h3 class="footer-title">Ahobilam Rooms</h3>
-                <p>Your comfortable stay near the sacred Ahobilam temples.</p>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
             </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
             <div class="footer-col">
                 <h3 class="footer-title">Contact Info</h3>
                 <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> Ahobilam, Kurnool District, Andhra Pradesh, India</li>
                     <li><i class="fa-solid fa-phone"></i> +91 76759 62840</li>
+                    <li><i class="fa-solid fa-envelope"></i> ahobilamrooms@gmail.com</li>
                 </ul>
             </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ahobilam rooms. All rights reserved.</p>
         </div>
     </footer>
 
@@ -528,24 +591,20 @@
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
             
-            // ఇక్కడ మీ గూగుల్ మ్యాప్స్ ఎగ్జాక్ట్ లొకేషన్ లింక్ ఇవ్వండి
             const exactLocationLink = "https://maps.app.goo.gl/YourExactLocationLinkHere";
 
             const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Price per Night: ${price}\n- Preferred Property: ${property}\n\n📍 Exact Location to Reach:\n${exactLocationLink}`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
-            // Confirmation Notice
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('confirmationNotice').style.display = 'block';
 
-            // వాట్సాప్ రీడైరెక్ట్
             setTimeout(() => {
                 window.open(whatsappUrl, '_blank');
             }, 1200);
         }
 
-        // మోడల్ వెలుపల క్లిక్ చేస్తే క్లోజింగ్
         window.onclick = function(event) {
             let galleryModal = document.getElementById('galleryModal');
             let bookingModal = document.getElementById('bookingModal');
