@@ -185,15 +185,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1300')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1100 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1100')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1650')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1300')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -213,15 +213,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '₹1500')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '₹1300')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '₹1800')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '₹1500')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
                         </div>
@@ -258,8 +258,6 @@
             </div>
              -->
             
-           
-
         </div>
     </main>
 
@@ -270,7 +268,7 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత మీ వాట్సాప్ చాట్‌లోకి నేరుగా గూగుల్ మ్యాప్స్ లొకేషన్ పంపబడుతుంది)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(Once your booking is confirmed, the exact Google Maps location and property directions will be shared directly with you on WhatsApp for seamless navigation.)</p>
         </div>
     </section>
 
@@ -295,7 +293,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>&copy; 2026 <span>VBS Guest House & Home Food</span>, Ahobilam. All Rights Reserved.</p>
+        <p>&copy; 2026 <span>Madham Rajeshwari Complex </span>, Ahobilam. All Rights Reserved.</p>
         <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
     </footer>
 
@@ -313,7 +311,7 @@
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
                 <input type="hidden" id="modalRoomPrice">
-                <input type="hidden" id="modalPropertyName" value="Veerabadhra Swamy Guest House & Home Food">
+                <input type="hidden" id="modalPropertyName" value="Madham Rajeshwari Complex ">
                 
                 <div class="form-group">
                     <label>Full Name</label>
@@ -384,28 +382,27 @@
         });
 
         // Gallery Images Data
-        const galleryData = {
-            hotelViews: [
-                { src: "VBC/vbc_mainview.jpeg", caption: "Main Building View" },
-                { src: "VBC/vbc_reception.jpeg", caption: "Reception Area" },
-                { src: "VBC/vbc_corridor.jpeg", caption: "Corridor" }
+        const allGalleries = {
+            'hotelViews': [
+                { src: 'MRC/MR_mainview.jpeg', caption: 'Hotel Front View' },
+                { src: 'MRC/MR_Parking.jpeg', caption: 'Parking Area' },
+                { src: 'MRC/MR_corridor.jpeg', caption: 'entrence' }
             ],
-            room2bed: [
-                { src: "VBC/VBC_2bed.jpeg", caption: "2 Sharing - Room" },
-                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            'room1': [
+                { src: 'MRC/MR_2bed.jpeg', caption: '2 Sharing - Room' },
+                { src: 'MRC/MR-washroom.jpeg', caption: '2 Sharing - Bathroom' },  
             ],
-            room3bed: [
-                { src: "VBC/vbc_3bed.jpeg", caption: "3 Sharing - Room" },
-                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
-            ],
+            'room2': [
+                { src: 'MRC/MR_3bed.jpeg', caption: '3 Sharing - Room' },
+                { src: 'MRC/MR_3bed.1.jpeg', caption: '3 Sharing - Room' }, 
+                { src: 'MRC/MR_washroom.1.jpeg', caption: '3 Sharing - Bathroom' } 
+            ]
+            <!--
             room4bed: [
                 { src: "VBC/vbc_4bed.jpeg", caption: "4 Sharing - Room" },
                 { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
-            ],
-            room5bed: [
-                { src: "VBC/vbc_5bed.jpeg", caption: "5 Sharing Family Room" },
-                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ]
+            -->
         };
 
         let currentGalleryKey = '';
