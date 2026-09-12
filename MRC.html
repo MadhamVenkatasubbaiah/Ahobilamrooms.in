@@ -58,8 +58,14 @@
         .prev-btn:hover, .next-btn:hover { background-color: #dfb160; color: #000; }
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
-        /* BOOKING FORM MODAL STYLES */
-        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 20px 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 460px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
+        /* BOOKING FORM MODAL STYLES (Added Scrolling for Mobile View) */
+        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 20px 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 460px; width: 90%; max-height: 88vh; overflow-y: auto; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
+        
+        /* Custom Scrollbar for Modal */
+        .modal-form-content::-webkit-scrollbar { width: 6px; }
+        .modal-form-content::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 4px; }
+        .modal-form-content::-webkit-scrollbar-thumb { background: #dfb160; border-radius: 4px; }
+
         .form-group { margin-bottom: 10px; }
         .form-group label { display: block; margin-bottom: 3px; color: #b3b3b3; font-size: 13px; }
         .form-group input { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
@@ -327,7 +333,7 @@
                         <i class="fa-solid fa-ticket"></i> Booking & Cancellation Policy
                     </div>
                     <ul class="ticket-terms-list">
-                        <li><i class="fa-solid fa-circle-xmark"></i> <span>Non-Refundable:</span> The advance amount paid will not be refunded under any circumstances.( చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు ).</li>
+                        <li><i class="fa-solid fa-circle-xmark"></i> <span>Non-Refundable:</span>  The advance amount paid will not be refunded under any circumstances.( చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు ).</li>
                         <li><i class="fa-solid fa-clock"></i> <span>Cancellation Rule:</span> No cancellation allowed after 10 hours of booking.(బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
                     </ul>
                 </div>
