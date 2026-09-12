@@ -68,10 +68,10 @@
         .price-box { background-color: #1e1e1e; border: 1px solid #444; border-radius: 8px; padding: 20px; width: 50%; text-align: center; }
         .price-box h4 { color: #ffffff; font-size: 18px; margin-bottom: 5px; }
         .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 15px; }
-        .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; }
+        .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; }
         .btn-whatsapp-book:hover { background-color: #1ebd57; }
 
-        /* POPUP GALLERY (MODAL) */
+        /* POPUP GALLERY & MODAL */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
         .modal-content-wrap { position: relative; margin: auto; top: 50%; transform: translateY(-50%); max-width: 800px; width: 90%; }
         .modal-content-wrap img { width: 100%; max-height: 70vh; object-fit: contain; border-radius: 8px; border: 2px solid #dfb160; }
@@ -82,6 +82,34 @@
         .next-btn { right: -50px; }
         .prev-btn:hover, .next-btn:hover { background-color: #dfb160; color: #000; }
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
+
+        /* BOOKING FORM MODAL STYLES */
+        .modal-form-content {
+            background-color: #2a2a2a; margin: 5% auto; padding: 30px; border-radius: 12px;
+            border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #b3b3b3; font-size: 14px; }
+        .form-group input { 
+            width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #444; 
+            background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px;
+        }
+        .form-group input:focus { border-color: #dfb160; outline: none; }
+        .form-row { display: flex; gap: 15px; }
+        .btn-submit-booking {
+            width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px;
+            border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .btn-submit-booking:hover { background-color: #1ebd57; }
+        .confirmation-box {
+            text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px;
+            border: 1px solid #25d366; margin-top: 10px; color: #25d366;
+        }
+        .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
+        .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
+        .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
 
         /* LOCATION SECTION */
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; }
@@ -111,6 +139,7 @@
             .price-box { width: 100%; }
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
+            .form-row { flex-direction: column; gap: 0; }
         }
         @media screen and (max-width: 600px) {
             .map-iframe-box { height: 250px; }
@@ -202,12 +231,12 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20Non-AC%20Room%20(Rs.1300)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</a>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*2-Sharing%20AC%20Room%20(Rs.1650)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC</a>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
                         </div>
                     </div>
                 </div>
@@ -229,12 +258,12 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20Non-AC%20Room%20(Rs.1500)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</a>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*3-Sharing%20AC%20Room%20(Rs.1800)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC</a>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
                         </div>
                     </div>
                 </div>
@@ -256,12 +285,12 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20Non-AC%20Room%20(Rs.1800)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</a>
+                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*4-Sharing%20AC%20Room%20(Rs.2200)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC</a>
+                            <button onclick="openBookingModal('AC Room', '4-Sharing Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
                         </div>
                     </div>
                 </div>
@@ -283,12 +312,12 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20Non-AC%20Room%20(Rs.2300)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</a>
+                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book Non-AC</button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <a href="https://wa.me/917675962840?text=Om%20Namo%20Narasimhaya!%20I%20want%20to%20book%20*5-Sharing%20AC%20Room%20(Rs.2800)*%20at%20*VBC%20Guest%20House*." class="btn-whatsapp-book" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book AC</a>
+                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room')" class="btn-whatsapp-book"><i class="fa-brands fa-whatsapp"></i> Book AC</button>
                         </div>
                     </div>
                 </div>
@@ -334,7 +363,7 @@
                 </div>
                 <div>
                     <strong style="color: #fff; display: block; margin-bottom: 4px;">ID Verification Required:</strong>
-                    Guests must produce valid original Govt. ID proof (Aadhaar/Voter ID) at check-in as per local guidelines.
+                    Guests must produce valid original Govt. ID proof at check-in as per local guidelines.
                 </div>
             </div>
         </div>
@@ -379,6 +408,56 @@
             <a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
             <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
             <div id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- BOOKING FORM MODAL -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-form-content">
+            <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+            <h3 style="color: #dfb160; text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 20px;">Room Booking Enquiry</h3>
+            
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <input type="hidden" id="modalRoomCategory">
+                <input type="hidden" id="modalPropertyName" value="LDG Guest">
+
+                <div class="form-group">
+                    <label>Guest Name *</label>
+                    <input type="text" id="guestName" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" id="guestMobile" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex:1;">
+                        <label>Check-in Date *</label>
+                        <input type="date" id="checkInDate" required>
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label>Check-out Date *</label>
+                        <input type="date" id="checkOutDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Guests *</label>
+                    <input type="number" id="guestCount" min="1" value="2" required>
+                </div>
+
+                <button type="submit" class="btn-submit-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Proceed to WhatsApp
+                </button>
+            </form>
+
+            <!-- CONFIRMATION NOTICE -->
+            <div id="confirmationNotice" class="confirmation-box" style="display: none;">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <h4>Enquiry Submitted!</h4>
+                <p>Please wait for the confirmation message from our team on WhatsApp.</p>
+            </div>
         </div>
     </div>
 
@@ -467,10 +546,53 @@
             document.getElementById('modal-caption').innerText = currentGallery[currentIndex].caption;
         }
 
+        // BOOKING FORM LOGIC
+        function openBookingModal(category, type) {
+            document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
+            document.getElementById('bookingForm').style.display = 'block';
+            document.getElementById('confirmationNotice').style.display = 'none';
+            document.getElementById('bookingModal').style.display = "block";
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = "none";
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('guestName').value;
+            const mobile = document.getElementById('guestMobile').value;
+            const checkIn = document.getElementById('checkInDate').value;
+            const checkOut = document.getElementById('checkOutDate').value;
+            const guests = document.getElementById('guestCount').value;
+            const room = document.getElementById('modalRoomCategory').value;
+            const property = document.getElementById('modalPropertyName').value;
+
+            // వాట్సాప్ మెసేజ్ ఫార్మాటింగ్
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Preferred Property: ${property}`;
+
+            const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
+
+            // Confirmation message చూపించడం
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('confirmationNotice').style.display = 'block';
+
+            // 1.2 సెకన్ల తర్వాత WhatsApp ఓపెన్ అవ్వడం
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1200);
+        }
+
+        // modal క్లోజ్ అవ్వడానికి బాహ్య క్లిక్ హ్యాండ్లర్
         window.onclick = function(event) {
-            let modal = document.getElementById('galleryModal');
-            if (event.target == modal) {
+            let galleryModal = document.getElementById('galleryModal');
+            let bookingModal = document.getElementById('bookingModal');
+            if (event.target == galleryModal) {
                 closeGallery();
+            }
+            if (event.target == bookingModal) {
+                closeBookingModal();
             }
         }
     </script>
