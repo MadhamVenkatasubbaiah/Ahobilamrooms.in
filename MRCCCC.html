@@ -75,15 +75,6 @@
         .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
         .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
 
-        /* LOCATION SECTION */
-        .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; }
-        .loc-title { text-align: center; color: #dfb160; font-size: 28px; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
-        .map-wrapper { max-width: 900px; margin: 0 auto; background-color: #2a2a2a; padding: 15px; border-radius: 12px; border: 1px solid #444; transition: 0.3s ease; }
-        .map-wrapper:hover { border-color: #dfb160; }
-        .map-iframe-box { border-radius: 8px; overflow: hidden; height: 350px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .loc-address { margin-top: 15px; color: #b3b3b3; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .loc-address i { color: #ff4d4d; }
-
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); color: #ffffff; }
@@ -99,10 +90,6 @@
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
             .form-row { flex-direction: column; gap: 0; }
-        }
-        @media screen and (max-width: 600px) {
-            .map-iframe-box { height: 250px; }
-            .loc-title { font-size: 24px; }
         }
     </style>
 </head>
@@ -340,19 +327,6 @@
         </div>
     </main>
 
-    <!-- LOCATION SECTION -->
-    <section class="single-location-section">
-        <h2 class="loc-title">Our Location</h2>
-        <div class="map-wrapper">
-            <div class="map-iframe-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.473634125712!2d78.67419171533804!3d15.13491408945903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb4f500721af647%3A0x7b4e17ca4025663c!2sAhobilam%20temple%20bus%20parking!5e0!3m2!1sen!2sin!4v1725710000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <p class="loc-address">
-                <i class="fa-solid fa-location-dot"></i> LDG Guest House & Home Food, Ahobilam, Andhra Pradesh
-            </p>
-        </div>
-    </section>
-
     <!-- DISCLAIMER SECTION -->
     <section style="background-color: #1a1a1a; padding: 40px 5%; border-top: 1px solid #333;">
         <div style="max-width: 1100px; margin: 0 auto; background-color: #222222; border: 1px solid #333; border-left: 4px solid #dfb160; border-radius: 8px; padding: 25px; color: #cccccc;">
@@ -554,7 +528,7 @@
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
             
-            // ఇక్కడ మీ ఎగ్జాక్ట్ లొకేషన్ గూగుల్ మ్యాప్ లింక్ ఇవ్వండి
+            // ఇక్కడ మీ గూగుల్ మ్యాప్స్ ఎగ్జాక్ట్ లొకేషన్ లింక్ ఇవ్వండి
             const exactLocationLink = "https://maps.app.goo.gl/YourExactLocationLinkHere";
 
             const message = `Om Namo Narasimhaya!\n\nNew Ahobilam Room Booking Enquiry\n------------------------------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Price per Night: ${price}\n- Preferred Property: ${property}\n\n📍 Exact Location to Reach:\n${exactLocationLink}`;
