@@ -206,8 +206,8 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
@@ -441,7 +441,15 @@
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
                 <h4>Payment & Booking Verified!</h4>
-                <p>Redirecting you to WhatsApp with room details and location directions...</p>
+                <p>బుకింగ్ వివరాలు విజయవంతంగా ఏజెంట్‌కి పంపబడ్డాయి.</p>
+                
+                <!-- కస్టమర్ నంబర్‌కి నేరుగా లొకేషన్ పంపడానికి బటన్ -->
+                <div style="margin-top: 15px;">
+                    <p style="color: #dfb160; font-size: 13px; margin-bottom: 8px;">కస్టమర్ వాట్సాప్‌కి లొకేషన్ పంపడానికి క్రింది బటన్ క్లిక్ చేయండి:</p>
+                    <a id="sendToCustomerBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
+                        <i class="fa-brands fa-whatsapp"></i> Send Location to Customer WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -640,7 +648,6 @@
             const room = document.getElementById('modalRoomCategory').value;
             const price = document.getElementById('modalRoomPrice').value;
             const utr = document.getElementById('utrNumber').value;
-            
             const propertyName = document.getElementById('modalPropertyName').value;
             
             const checkInDateObj = new Date(checkIn);
@@ -657,17 +664,26 @@
             
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            // ఇక్కడ కస్టమర్ నంబర్ వాట్సాప్ మెసేజ్‌లో స్పష్టంగా ప్రింట్ అవుతుంది, కాబట్టి ఏజెంట్‌కి కస్టమర్ ఎవరో తెలుస్తుంది
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry (Paid Advance)\n----------------------------------\n- Preferred Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile Number: *${mobile}*\n- Check-in: ${checkIn} at ${checkInTime}\n- Check-out: ${checkOut} at ${checkOutTime}\n- Total Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Rate: ${price} /night\n- Total Amount: ₹${totalPrice}\n- Advance Paid (50%): ₹${advanceAmount}\n- UTR / Ref Number: ${utr}\n- Payment UPI: dhanunjayamadham@ybl\n\n⚠️ *Terms & Policy:* Amount is Non-Refundable. Cancellation not allowed after 10 hours of booking.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            // 1. ఏజెంట్‌కి వెళ్లే మెసేజ్
+            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Paid Advance)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n- UTR Ref: ${utr}\n\n📍 Location Link: ${mapLocationUrl}`;
+            
+            const agentWhatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(agentMessage)}`;
 
-            const whatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(message)}`;
+            // 2. కస్టమర్‌కి వెళ్లే మెసేజ్
+            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking and advance payment (UTR: ${utr}) are verified successfully.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
+            
+            const formattedCustomerMobile = mobile.replace(/\D/g, '');
+            const customerWhatsappUrl = `https://wa.me/91${formattedCustomerMobile}?text=${encodeURIComponent(customerMessage)}`;
 
+            // స్క్రీన్ మీద కస్టమర్ బటన్‌కి లింక్ సెట్ చేయడం
+            document.getElementById('sendToCustomerBtn').href = customerWhatsappUrl;
+
+            // ఫారమ్ హైడ్ చేసి సక్సెస్ బాక్స్ చూపించడం
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('confirmationNotice').style.display = 'block';
 
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 1200);
+            // ఆటోమేటిక్‌గా ఏజెంట్ వాట్సాప్ ఓపెన్ అవుతుంది
+            window.open(agentWhatsappUrl, '_blank');
         }
 
         // Close modals when clicking outside
