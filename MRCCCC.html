@@ -207,8 +207,8 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
@@ -261,7 +261,7 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment is completed through UPI, exact Google Maps location and confirmation details will be shared directly with you on WhatsApp.)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment is verified and confirmed by the owner, exact Google Maps location and booking confirmation details will be shared directly with you on WhatsApp.)</p>
         </div>
     </section>
 
@@ -279,7 +279,7 @@
             </div>
             <div class="guidelines-box">
                 <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
-                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Bookings are subject to owner payment verification.</p>
             </div>
         </div>
     </section>
@@ -401,7 +401,7 @@
                     </div>
                     <ul class="ticket-terms-list">
                         <li><i class="fa-solid fa-circle-xmark"></i> <span>Non-Refundable:</span> The advance amount paid will not be refunded under any circumstances.( చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు ).</li>
-                        <li><i class="fa-solid fa-clock"></i> <span>Cancellation Rule:</span> No cancellation allowed after 10 hours of booking.(బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
+                        <li><i class="fa-solid fa-clock"></i> <span>Verification Rule:</span> Booking is confirmed only after owner verifies the payment.</li>
                     </ul>
                 </div>
 
@@ -425,29 +425,25 @@
                     <br>
                     <!-- కన్ఫర్మేషన్ బటన్ (ఇది నొక్కితే పాప్-అప్ వస్తుంది) -->
                     <button type="button" onclick="enablePaymentDone()" style="margin-top: 8px; background: #dfb160; color: #000; border: none; padding: 8px 14px; border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer;">
-                        <i class="fa-solid fa-check"></i> Click here after scanning & paying
+                        <i class="fa-solid fa-check"></i> Click here after paying (Check with Owner)
                     </button>
                 </div>
 
                 <!-- ఫైనల్ వాట్సాప్ కన్ఫర్మేషన్ బటన్ (మొదట్లో డిసేబుల్ ఉంటుంది) -->
                 <button type="submit" id="submitBtn" class="btn-submit-booking" disabled>
-                    <i class="fa-brands fa-whatsapp"></i> I have paid - Send Details via WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> Send Payment Details to Owner for Confirmation
                 </button>
             </form>
 
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
-                <h4>Booking Details Ready!</h4>
-                <p>పేమెంట్ విజయవంతంగా పూర్తయింది. ఏజెంట్‌కి మరియు కస్టమర్‌కి వాట్సాప్‌లో మెసేజ్‌లు పంపడానికి క్రింది బటన్లు ఉపయోగించండి:</p>
+                <h4>Request Sent for Owner Verification!</h4>
+                <p>మీ వివరాలు ఓనర్‌కి పంపబడ్డాయి. ఓనర్ పేమెంట్ పరిశీలించి కన్ఫర్మ్ చేసిన వెంటనే మీకు కాల్ చేసి లేదా వాట్సాప్‌లో లొకేషన్ పంపుతారు:</p>
                 
                 <!-- ఏజెంట్ మరియు కస్టమర్ వాట్సాప్ బటన్లు -->
                 <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
                     <a id="sendToAgentBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
-                        <i class="fa-brands fa-whatsapp"></i> 1. Send Details to Agent WhatsApp
-                    </a>
-                    
-                    <a id="sendToCustomerBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #007bff; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
-                        <i class="fa-brands fa-whatsapp"></i> 2. Send Location & Confirmation to Customer
+                        <i class="fa-brands fa-whatsapp"></i> Send Details to Agent WhatsApp Again
                     </a>
                 </div>
             </div>
@@ -604,19 +600,17 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
-        // పేమెంట్ కన్ఫర్మేషన్ పాప్-అప్ ఫంక్షన్ (సవరించబడింది)
+        // పేమెంట్ కన్ఫర్మేషన్ పాప్-అప్ ఫంక్షన్ (Owner Verification Check)
         function enablePaymentDone() {
-            let confirmPayment = confirm("మీరు నిజంగా ఫోన్‌పే/జీపే ద్వారా పేమెంట్ పూర్తి చేశారా?\n(సరే - OK నొక్కితేనే వాట్సాప్ బటన్ ఎనేబుల్ అవుతుంది)");
+            let confirmPayment = confirm("మీరు నిజంగా ఫోన్‌పే/జీపే ద్వారా పేమెంట్ పూర్తి చేశారా?\n(సరే - OK నొక్కితేనే ఓనర్‌కి కన్ఫర్మేషన్ పంపే బటన్ ఎనేబుల్ అవుతుంది)");
             
-            // కచ్చితంగా OK (true) అయితేనే బటన్ ఎనేబుల్ అవుతుంది
             if (confirmPayment === true) {
                 const submitBtn = document.getElementById('submitBtn');
                 submitBtn.disabled = false;
                 submitBtn.classList.add('enabled');
-                alert("ధన్యవాదాలు! ఇప్పుడు వాట్సాప్ బటన్ ద్వారా వివరాలు పంపవచ్చు.");
+                alert("ధన్యవాదాలు! ఇప్పుడు 'Send Payment Details to Owner' బటన్ ద్వారా ఓనర్‌కి వివరాలు పంపండి. ఓనర్ చెక్ చేసి కన్ఫర్మ్ చేస్తారు.");
             } else {
-                // Cancel నొక్కితే బటన్ డిసేబుల్‌గానే ఉంటుంది
-                alert("పేమెంట్ పూర్తి కాలేదు. దయచేసి ముందుగా పేమెంట్ చేయండి.");
+                alert("పేమెంట్ పూర్తి కాలేదు. దయచేసి ముందుగా పేమెంట్ చేయండి లేదా ఓనర్‌కి కాల్ చేసి కన్ఫర్మ్ చేయండి.");
             }
         }
 
@@ -649,29 +643,20 @@
             const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
             const totalPrice = numericPrice * nights;
             const advanceAmount = totalPrice / 2;
-            
-            const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            // 1. ఏజెంట్‌కి వెళ్లే మెసేజ్
-            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid via UPI Intent)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n\n📍 Location Link: ${mapLocationUrl}`;
+            // ఏజెంట్‌కి వెళ్లే మెసేజ్ (Owner Verification కోసమని ప్రత్యేకంగా రాసాము)
+            const agentMessage = `Om Namo Narasimhaya!\n🔔 *Ahobilam Room Booking - Payment Verification Request*\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n\n⚠️ *సార్, నేను పేమెంట్ చేశాను. దయచేసి చెక్ చేసి (Payment Confirmed / Failed) అని కన్ఫర్మ్ చేయగలరు.*`;
             
             const agentWhatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(agentMessage)}`;
 
-            // 2. కస్టమర్‌కి వెళ్లే మెసేజ్
-            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour advance payment of ₹${advanceAmount} has been registered successfully.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
-            
-            const formattedCustomerMobile = mobile.replace(/\D/g, '');
-            const customerWhatsappUrl = `https://wa.me/91${formattedCustomerMobile}?text=${encodeURIComponent(customerMessage)}`;
-
-            // బటన్లకి లింక్‌లు సెట్ చేయడం
+            // బటన్‌కి లింక్ సెట్ చేయడం
             document.getElementById('sendToAgentBtn').href = agentWhatsappUrl;
-            document.getElementById('sendToCustomerBtn').href = customerWhatsappUrl;
 
             // ఫారమ్ హైడ్ చేసి సక్సెస్ బాక్స్ చూపించడం
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('confirmationNotice').style.display = 'block';
 
-            // ఆటోమేటిక్‌గా ఏజెంట్ వాట్సాప్ ఓపెన్ అవుతుంది
+            // ఆటోమేటిక్‌గా ఓనర్/ఏజెంట్ వాట్సాప్ ఓపెన్ అవుతుంది
             window.open(agentWhatsappUrl, '_blank');
         }
 
