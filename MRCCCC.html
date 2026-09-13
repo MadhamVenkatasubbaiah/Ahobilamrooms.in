@@ -206,8 +206,8 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹20 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹20')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
@@ -260,7 +260,7 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment is successful, the exact Google Maps location and room details will be shared directly with you on WhatsApp.)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment and screenshot are verified, the exact Google Maps location and room details will be shared directly with you on WhatsApp.)</p>
         </div>
     </section>
 
@@ -404,7 +404,7 @@
                     </ul>
                 </div>
 
-                <!-- 50% Advance & Simple Checkbox Payment Option -->
+                <!-- 50% Advance & Screenshot Upload Payment Option -->
                 <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 12px;">
                     <p style="color: #dfb160; font-size: 13px; font-weight: 600; margin-bottom: 8px;" id="advanceInfoText">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
@@ -421,24 +421,24 @@
                         <img id="upiQrCodeImg" src="" alt="UPI QR Code" style="width: 130px; height: 130px; border-radius: 4px; background: #fff; padding: 4px;">
                     </div>
 
-                    <!-- సింపుల్ చెక్‌బాక్స్ ఆప్షన్ (UTR బదులుగా) -->
-                    <div style="margin: 12px 0 6px 0; text-align: left; background: #1a1a1a; padding: 9px; border-radius: 5px; border: 1px solid #444;">
-                        <label style="color: #fff; font-size: 13px; display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="checkbox" id="simplePaymentCheck" onchange="toggleSimplePayment()" style="width: 18px; height: 18px; accent-color: #25d366; cursor: pointer;">
-                            <span>నేను ఫోన్‌పే/గూగుల్ పే ద్వారా విజయవంతంగా అడ్వాన్స్ చెల్లించాను.</span>
+                    <!-- స్క్రీన్ షాట్ అప్‌లోడ్ ఆప్షన్ (UTR బదులుగా) -->
+                    <div style="margin-top: 12px; text-align: left; background: #1a1a1a; padding: 10px; border-radius: 5px; border: 1px solid #444;">
+                        <label style="color: #dfb160; font-size: 13px; display: block; margin-bottom: 5px;">
+                            <i class="fa-solid fa-camera"></i> పేమెంట్ చేశాక ఆ **స్క్రీన్ షాట్** ఇక్కడ అప్‌లోడ్ చేయండి:
                         </label>
+                        <input type="file" id="paymentScreenshot" accept="image/*" onchange="enableSubmitAfterUpload()" required style="width: 100%; color: #ccc; font-size: 12px; background: #222; padding: 6px; border: 1px dashed #dfb160; border-radius: 4px; cursor: pointer;">
                     </div>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn-submit-booking" style="opacity: 0.6; cursor: not-allowed;" disabled>
-                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Pay Advance First)
+                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)
                 </button>
             </form>
 
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
-                <h4>Payment & Booking Confirmed!</h4>
-                <p>బుకింగ్ వివరాలు విజయవంతంగా ఏజెంట్‌కి పంపబడ్డాయి.</p>
+                <h4>Payment Screenshot Attached & Booking Confirmed!</h4>
+                <p>బుకింగ్ వివరాలు మరియు స్క్రీన్ షాట్ ఏజెంట్‌కి పంపడానికి సిద్ధంగా ఉన్నాయి.</p>
                 
                 <!-- కస్టమర్ నంబర్‌కి నేరుగా లొకేషన్ పంపడానికి బటన్ -->
                 <div style="margin-top: 15px;">
@@ -465,7 +465,7 @@
     <!-- JavaScript Logic -->
     <script>
         let currentBasePrice = 0;
-        let isPaymentCompleted = false;
+        let isScreenshotUploaded = false;
 
         // Calendar Minimum Date Setup
         document.addEventListener('DOMContentLoaded', function() {
@@ -550,14 +550,14 @@
             document.getElementById('modalRoomPrice').value = price;
             currentBasePrice = parseInt(price.replace(/[^0-9]/g, ''));
             
-            // Reset payment status on modal open
-            isPaymentCompleted = false;
-            document.getElementById('simplePaymentCheck').checked = false;
+            // Reset state on modal open
+            isScreenshotUploaded = false;
+            document.getElementById('paymentScreenshot').value = "";
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.style.opacity = "0.6";
             submitBtn.style.cursor = "not-allowed";
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Pay Advance First)`;
+            submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)`;
 
             updateAdvanceCalculation();
 
@@ -606,22 +606,23 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
-        // Simple Checkbox Payment Toggle Function
-        function toggleSimplePayment() {
-            const isChecked = document.getElementById('simplePaymentCheck').checked;
-            isPaymentCompleted = isChecked;
-            
+        // Enable Submit Button after Screenshot Upload
+        function enableSubmitAfterUpload() {
+            const fileInput = document.getElementById('paymentScreenshot');
             const submitBtn = document.getElementById('submitBtn');
-            if (isChecked) {
+            
+            if (fileInput.files.length > 0) {
+                isScreenshotUploaded = true;
                 submitBtn.style.opacity = "1";
                 submitBtn.style.cursor = "pointer";
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp`;
             } else {
+                isScreenshotUploaded = false;
                 submitBtn.style.opacity = "0.6";
                 submitBtn.style.cursor = "not-allowed";
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Pay Advance First)`;
+                submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)`;
             }
         }
 
@@ -632,8 +633,8 @@
         function submitBooking(e) {
             e.preventDefault();
 
-            if (!isPaymentCompleted) {
-                alert("దయచేసి ముందుగా 50% అడ్వాన్స్ పేమెంట్ చేసి చెక్‌బాక్స్‌పై టిక్ చేయండి!");
+            if (!isScreenshotUploaded) {
+                alert("దయచేసి ముందుగా పేమెంట్ స్క్రీన్ షాట్ అప్‌లోడ్ చేయండి!");
                 return;
             }
 
@@ -663,12 +664,12 @@
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
             // 1. ఏజెంట్‌కి వెళ్లే మెసేజ్
-            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Paid Advance)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n- Payment Status: Verified via Checkbox\n\n📍 Location Link: ${mapLocationUrl}`;
+            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid & Screenshot Attached)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n- Payment Proof: Screenshot Uploaded by Guest\n\n📍 Location Link: ${mapLocationUrl}`;
             
             const agentWhatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(agentMessage)}`;
 
             // 2. కస్టమర్‌కి వెళ్లే మెసేజ్
-            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking and advance payment are verified successfully.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
+            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking details and payment screenshot have been submitted. Agent will verify and confirm shortly.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
             
             const formattedCustomerMobile = mobile.replace(/\D/g, '');
             const customerWhatsappUrl = `https://wa.me/91${formattedCustomerMobile}?text=${encodeURIComponent(customerMessage)}`;
