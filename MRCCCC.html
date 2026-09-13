@@ -304,7 +304,7 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత మీ వాట్సాప్ చాట్‌లోకి నేరుగా గూగుల్ మ్యాప్స్ లొకేషన్ పంపబడుతుంది)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత లొకేషన్ వివరాలు ఏజెంట్ ద్వారా పంపబడతాయి)</p>
         </div>
     </section>
 
@@ -312,12 +312,12 @@
     <section class="guidelines-section">
         <div class="guidelines-container">
             <div class="guidelines-box">
-                <h3><i class="fa-solid fa-circle-info"></i> Booking & Policy Guidelines</h3>
+                <h3><i class="fa-solid fa-circle-info"></i> Booking & Cancellation Policy</h3>
                 <ul>
-                    <li><strong>Advance Payment:</strong> 50% advance payment is mandatory to confirm room booking.</li>
-                    <li><strong>Direct Discussion:</strong> Final room confirmation and specific timing adjustments must be discussed and finalized directly with the Property Owner.</li>
-                    <li>Please carry valid ID proof for all guests during check-in.</li>
-                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                    <li><strong>Advance Payment:</strong> 50% advance payment is required to secure the room booking.</li>
+                    <li><strong>Non-Refundable:</strong> The advance amount paid will not be refunded under any circumstances. (చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు).</li>
+                    <li><strong>Cancellation Rule:</strong> No cancellation allowed after 10 hours of booking. (బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
+                    <li><strong>Note:</strong> Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.</li>
                 </ul>
             </div>
             <div class="guidelines-box">
@@ -365,7 +365,7 @@
                             <option value="12:00 PM">12:00 PM (Afternoon)</option>
                             <option value="01:00 PM">01:00 PM</option>
                             <option value="02:00 PM">02:00 PM</option>
-                            <option value="Flexible / As Discussed">Flexible Time</option>
+                            <option value="Flexible / Discuss with Owner">Flexible Time</option>
                         </select>
                     </div>
                     <div class="form-group" style="width: 50%;">
@@ -375,7 +375,7 @@
                             <option value="10:00 AM">10:00 AM (Morning)</option>
                             <option value="11:00 AM">11:00 AM</option>
                             <option value="12:00 PM">12:00 PM</option>
-                            <option value="Flexible / As Discussed">Flexible Time</option>
+                            <option value="Flexible / Discuss with Owner">Flexible Time</option>
                         </select>
                     </div>
                 </div>
@@ -391,7 +391,7 @@
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
                 <h4>Booking Request Prepared!</h4>
-                <p>Redirecting you to WhatsApp with room details and location directions...</p>
+                <p>Redirecting you to WhatsApp with room details...</p>
             </div>
         </div>
     </div>
@@ -510,9 +510,7 @@
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
             
-            const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
-
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- *Advance Payment:* 50% required to confirm booking\n- Preferred Property: ${property}\n\n⚠️ *Note:* Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- *Booking Terms:* 50% advance payment required to confirm reservation\n- Preferred Property: ${property}\n\n⚠️ *Note:* Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.\n\n📍 *Location:* Location details will be shared by agent.`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
