@@ -100,8 +100,24 @@
         .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37,211,102,0.5); color: #ffffff; }
         .float-support-btn i { font-size: 22px; }
 
-        /* రెస్పాన్సివ్ డిజైన్ */
+        /* రెస్పాన్సివ్ డిజైన్ & మొబైల్ మెనూ స్టైల్స్ */
         @media screen and (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 20px;
+                border-bottom: 1px solid #333;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                z-index: 1000;
+            }
+            .nav-links.active {
+                display: flex;
+            }
             .room-card { flex-direction: column; }
             .room-image-box, .room-details-box { width: 100%; }
             .room-image-box { height: 250px; }
@@ -409,6 +425,16 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+
         // Calendar Minimum Date Setup
         document.addEventListener('DOMContentLoaded', function() {
             const checkInInput = document.getElementById('checkInDate');
