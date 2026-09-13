@@ -58,10 +58,9 @@
         .prev-btn:hover, .next-btn:hover { background-color: #dfb160; color: #000; }
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
-        /* BOOKING FORM MODAL STYLES (Added Scrolling for Mobile View) */
+        /* BOOKING FORM MODAL STYLES */
         .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 20px 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 460px; width: 90%; max-height: 88vh; overflow-y: auto; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
         
-        /* Custom Scrollbar for Modal */
         .modal-form-content::-webkit-scrollbar { width: 6px; }
         .modal-form-content::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 4px; }
         .modal-form-content::-webkit-scrollbar-thumb { background: #dfb160; border-radius: 4px; }
@@ -338,7 +337,7 @@
                     </ul>
                 </div>
 
-                <!-- 50% Advance & Dynamic PhonePe Payment Option (Calculated based on Days/Nights) -->
+                <!-- 50% Advance & Dynamic PhonePe Payment Option -->
                 <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 8px 10px; border-radius: 6px; text-align: center; margin-bottom: 10px;">
                     <p style="color: #dfb160; font-size: 12.5px; font-weight: 600; margin-bottom: 5px;" id="advanceInfoText">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
@@ -453,7 +452,7 @@
             document.getElementById('modal-caption').innerText = item.caption;
         }
 
-        // Booking Form Modal Functions (Dynamic 50% Calculation based on Days/Nights)
+        // Booking Form Modal Functions
         function openBookingModal(category, type, price) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
             document.getElementById('modalRoomPrice').value = price;
@@ -483,7 +482,6 @@
             const totalPrice = currentBasePrice * nights;
             const advanceAmount = totalPrice / 2;
 
-            // PhonePe UPI లింక్ మరియు టెక్స్ట్ డైనమిక్‌గా మార్చడం
             const upiUrl = `upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&am=${advanceAmount}&cu=INR`;
             document.getElementById('phonepePayLink').href = upiUrl;
             document.getElementById('phonepePayText').innerText = `Pay 50% Advance (₹${advanceAmount}) for ${nights} Night(s)`;
@@ -505,6 +503,9 @@
             const room = document.getElementById('modalRoomCategory').value;
             const price = document.getElementById('modalRoomPrice').value;
             
+            // Preferred Property Name తీసుకుంటున్నాం
+            const propertyName = document.getElementById('modalPropertyName').value;
+            
             // గణన (Days/Nights calculation)
             const checkInDateObj = new Date(checkIn);
             const checkOutDateObj = new Date(checkOut);
@@ -520,7 +521,7 @@
             
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Total Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Rate: ${price} /night\n- Total Amount: ₹${totalPrice}\n- Advance Paid/Due (50%): ₹${advanceAmount}\n- Payment UPI: dhanunjayamadham@ybl\n\n⚠️ *Terms & Policy:* Amount is Non-Refundable. Cancellation not allowed after 10 hours of booking.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Preferred Property: ${propertyName}\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Total Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Rate: ${price} /night\n- Total Amount: ₹${totalPrice}\n- Advance Paid/Due (50%): ₹${advanceAmount}\n- Payment UPI: dhanunjayamadham@ybl\n\n⚠️ *Terms & Policy:* Amount is Non-Refundable. Cancellation not allowed after 10 hours of booking.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
 
             const whatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(message)}`;
 
