@@ -314,7 +314,7 @@
                     <input type="tel" id="guestMobile" required placeholder="Enter 10-digit mobile number">
                 </div>
                 
-                <!-- Check-in Date & Time Selection (1 Hour Gap) -->
+                <!-- Check-in Date & Time Selection -->
                 <div class="form-row">
                     <div class="form-group" style="width: 55%;">
                         <label>Check-in Date</label>
@@ -351,7 +351,7 @@
                     </div>
                 </div>
 
-                <!-- Check-out Date & Time Selection (1 Hour Gap) -->
+                <!-- Check-out Date & Time Selection -->
                 <div class="form-row">
                     <div class="form-group" style="width: 55%;">
                         <label>Check-out Date</label>
@@ -404,14 +404,14 @@
                     </ul>
                 </div>
 
-                <!-- 50% Advance & PhonePe Payment Option (Mobile & Laptop Support) -->
+                <!-- 50% Advance & PhonePe Payment Option -->
                 <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 10px; border-radius: 6px; text-align: center; margin-bottom: 12px;">
                     <p style="color: #dfb160; font-size: 12.5px; font-weight: 600; margin-bottom: 8px;" id="advanceInfoText">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
                     </p>
                     
                     <!-- మొబైల్ కోసం పేమెంట్ బటన్ -->
-                    <a href="#" id="phonepePayLink" target="_blank" onclick="markAsPaid()" class="btn-phonepe-pay">
+                    <a href="#" id="phonepePayLink" target="_blank" class="btn-phonepe-pay">
                         <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / UPI</span>
                     </a>
 
@@ -420,6 +420,11 @@
                         <p style="color: #dfb160; font-size: 12px; margin-bottom: 6px;">Scan this QR code using PhonePe / GPay from another mobile:</p>
                         <img id="upiQrCodeImg" src="" alt="UPI QR Code" style="width: 130px; height: 130px; border-radius: 4px; background: #fff; padding: 4px;">
                     </div>
+
+                    <!-- పేమెంట్ పూర్తి అయిన తర్వాత క్లిక్ చేయడానికి బటన్ -->
+                    <button type="button" onclick="markAsPaid()" style="background-color: #25d366; color: #fff; border: none; padding: 8px 12px; border-radius: 5px; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; width: 100%;">
+                        <i class="fa-solid fa-check-circle"></i> పేమెంట్ పూర్తి అయింది (Click After Payment)
+                    </button>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn-submit-booking" style="opacity: 0.6; cursor: not-allowed;" disabled>
@@ -589,7 +594,7 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
-        // User clicked payment button or scanned QR
+        // User clicked payment completion button
         function markAsPaid() {
             isPaymentCompleted = true;
             const submitBtn = document.getElementById('submitBtn');
@@ -597,6 +602,7 @@
             submitBtn.style.cursor = "pointer";
             submitBtn.disabled = false;
             submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp`;
+            alert("పేమెంట్ కన్ఫర్మ్ చేయబడింది! ఇప్పుడు వాట్సాప్ ద్వారా బుకింగ్ పంపవచ్చు.");
         }
 
         function closeBookingModal() {
@@ -607,7 +613,7 @@
             e.preventDefault();
 
             if (!isPaymentCompleted) {
-                alert("దయచేసి ముందుగా 50% అడ్వాన్స్ పేమెంట్ పూర్తి చేయండి!");
+                alert("దయచేసి ముందుగా 50% అడ్వాన్స్ పేమెంట్ పూర్తి చేసి, 'పేమెంట్ పూర్తి అయింది' బటన్ క్లిక్ చేయండి!");
                 return;
             }
 
