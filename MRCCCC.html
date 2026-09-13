@@ -84,10 +84,10 @@
         .ticket-terms-list li i { color: #dfb160; margin-top: 2px; font-size: 11px; }
         .ticket-terms-list li span { color: #dfb160; font-weight: 600; }
 
-        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 5px; transition: background 0.3s; }
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 5px; transition: background 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
         
-        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 10px 12px; border-radius: 5px; font-size: 13px; font-weight: bold; margin-top: 6px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
+        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold; margin-top: 6px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
         .btn-phonepe-pay:hover { background-color: #4b1d7d; }
         
         .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
@@ -206,8 +206,8 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
@@ -260,7 +260,7 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment and screenshot are verified, the exact Google Maps location and room details will be shared directly with you on WhatsApp.)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment is completed through UPI, exact Google Maps location and confirmation details will be shared directly with you on WhatsApp.)</p>
         </div>
     </section>
 
@@ -404,15 +404,15 @@
                     </ul>
                 </div>
 
-                <!-- 50% Advance & Screenshot Upload Payment Option -->
+                <!-- UPI One-Click Pay & WhatsApp Send Section -->
                 <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 12px;">
                     <p style="color: #dfb160; font-size: 13px; font-weight: 600; margin-bottom: 8px;" id="advanceInfoText">
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
                     </p>
                     
-                    <!-- మొబైల్ కోసం పేమెంట్ బటన్ -->
+                    <!-- మొబైల్ కోసం UPI యాప్ ఓపెನ್ అయ్యే బటన్ -->
                     <a href="#" id="phonepePayLink" target="_blank" class="btn-phonepe-pay">
-                        <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / UPI</span>
+                        <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / GPay</span>
                     </a>
 
                     <!-- లాప్‌టాప్ / డెస్క్‌టాప్ కోసం క్యూఆర్ కోడ్ బాక్స్ -->
@@ -420,25 +420,18 @@
                         <p style="color: #dfb160; font-size: 12px; margin-bottom: 6px;">Scan this QR code using PhonePe / GPay from another mobile:</p>
                         <img id="upiQrCodeImg" src="" alt="UPI QR Code" style="width: 130px; height: 130px; border-radius: 4px; background: #fff; padding: 4px;">
                     </div>
-
-                    <!-- స్క్రీన్ షాట్ అప్‌లోడ్ ఆప్షన్ (UTR బదులుగా) -->
-                    <div style="margin-top: 12px; text-align: left; background: #1a1a1a; padding: 10px; border-radius: 5px; border: 1px solid #444;">
-                        <label style="color: #dfb160; font-size: 13px; display: block; margin-bottom: 5px;">
-                            <i class="fa-solid fa-camera"></i> పేమెంట్ చేశాక ఆ **స్క్రీన్ షాట్** ఇక్కడ అప్‌లోడ్ చేయండి:
-                        </label>
-                        <input type="file" id="paymentScreenshot" accept="image/*" onchange="enableSubmitAfterUpload()" required style="width: 100%; color: #ccc; font-size: 12px; background: #222; padding: 6px; border: 1px dashed #dfb160; border-radius: 4px; cursor: pointer;">
-                    </div>
                 </div>
 
-                <button type="submit" id="submitBtn" class="btn-submit-booking" style="opacity: 0.6; cursor: not-allowed;" disabled>
-                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)
+                <!-- ఫైనల్ వాట్సాప్ కన్ఫర్మేషన్ బటన్ -->
+                <button type="submit" id="submitBtn" class="btn-submit-booking">
+                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send Details via WhatsApp
                 </button>
             </form>
 
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
-                <h4>Payment Screenshot Attached & Booking Confirmed!</h4>
-                <p>బుకింగ్ వివరాలు మరియు స్క్రీన్ షాట్ ఏజెంట్‌కి పంపడానికి సిద్ధంగా ఉన్నాయి.</p>
+                <h4>Booking Details Ready!</h4>
+                <p>పేమెంట్ పూర్తి చేసిన తర్వాత, మీ వివరాలు ఏజెంట్‌కి వాట్సాప్‌లో పంపబడతాయి.</p>
                 
                 <!-- కస్టమర్ నంబర్‌కి నేరుగా లొకేషన్ పంపడానికి బటన్ -->
                 <div style="margin-top: 15px;">
@@ -465,7 +458,6 @@
     <!-- JavaScript Logic -->
     <script>
         let currentBasePrice = 0;
-        let isScreenshotUploaded = false;
 
         // Calendar Minimum Date Setup
         document.addEventListener('DOMContentLoaded', function() {
@@ -550,15 +542,6 @@
             document.getElementById('modalRoomPrice').value = price;
             currentBasePrice = parseInt(price.replace(/[^0-9]/g, ''));
             
-            // Reset state on modal open
-            isScreenshotUploaded = false;
-            document.getElementById('paymentScreenshot').value = "";
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.style.opacity = "0.6";
-            submitBtn.style.cursor = "not-allowed";
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)`;
-
             updateAdvanceCalculation();
 
             document.getElementById('bookingForm').style.display = 'block';
@@ -583,6 +566,7 @@
             const totalPrice = currentBasePrice * nights;
             const advanceAmount = totalPrice / 2;
 
+            // UPI Intent Link (PhonePe, GPay, Paytm etc. ഓപ്പൺ అవుతుంది)
             const upiUrl = `upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&am=${advanceAmount}&cu=INR`;
             
             const payLinkElement = document.getElementById('phonepePayLink');
@@ -596,7 +580,7 @@
                 payLinkElement.style.display = "inline-flex";
                 payLinkElement.href = upiUrl;
                 qrContainer.style.display = "none";
-                document.getElementById('phonepePayText').innerText = `Pay 50% Advance (₹${advanceAmount}) via PhonePe / UPI`;
+                document.getElementById('phonepePayText').innerText = `Pay 50% Advance (₹${advanceAmount}) via PhonePe / GPay`;
             } else {
                 payLinkElement.style.display = "none";
                 qrContainer.style.display = "block";
@@ -606,37 +590,12 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
-        // Enable Submit Button after Screenshot Upload
-        function enableSubmitAfterUpload() {
-            const fileInput = document.getElementById('paymentScreenshot');
-            const submitBtn = document.getElementById('submitBtn');
-            
-            if (fileInput.files.length > 0) {
-                isScreenshotUploaded = true;
-                submitBtn.style.opacity = "1";
-                submitBtn.style.cursor = "pointer";
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp`;
-            } else {
-                isScreenshotUploaded = false;
-                submitBtn.style.opacity = "0.6";
-                submitBtn.style.cursor = "not-allowed";
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Upload Screenshot First)`;
-            }
-        }
-
         function closeBookingModal() {
             document.getElementById('bookingModal').style.display = "none";
         }
 
         function submitBooking(e) {
             e.preventDefault();
-
-            if (!isScreenshotUploaded) {
-                alert("దయచేసి ముందుగా పేమెంట్ స్క్రీన్ షాట్ అప్‌లోడ్ చేయండి!");
-                return;
-            }
 
             const name = document.getElementById('guestName').value;
             const mobile = document.getElementById('guestMobile').value;
@@ -664,12 +623,12 @@
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
             // 1. ఏజెంట్‌కి వెళ్లే మెసేజ్
-            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid & Screenshot Attached)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n- Payment Proof: Screenshot Uploaded by Guest\n\n📍 Location Link: ${mapLocationUrl}`;
+            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid via UPI)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n\n📍 Location Link: ${mapLocationUrl}`;
             
             const agentWhatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(agentMessage)}`;
 
             // 2. కస్టమర్‌కి వెళ్లే మెసేజ్
-            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking details and payment screenshot have been submitted. Agent will verify and confirm shortly.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
+            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking and payment intent have been registered. Agent will verify the UPI payment and confirm shortly.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
             
             const formattedCustomerMobile = mobile.replace(/\D/g, '');
             const customerWhatsappUrl = `https://wa.me/91${formattedCustomerMobile}?text=${encodeURIComponent(customerMessage)}`;
