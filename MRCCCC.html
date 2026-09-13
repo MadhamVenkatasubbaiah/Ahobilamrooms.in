@@ -207,15 +207,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1200')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book AC
                             </button>
                         </div>
@@ -411,8 +411,8 @@
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
                     </p>
                     
-                    <!-- మొబైల్ కోసం UPI యాప్ ఓపెన్ అయ్యే బటన్ (దీని మీద క్లిక్ చేస్తేనే కింది వాట్సాప్ బటన్ ఎనేబుల్ అవుతుంది) -->
-                    <a href="#" id="phonepePayLink" target="_blank" onclick="enablePaymentDone()" class="btn-phonepe-pay">
+                    <!-- మొబైల్ కోసం UPI యాప్ ఓపెన్ అయ్యే బటన్ -->
+                    <a href="#" id="phonepePayLink" target="_blank" class="btn-phonepe-pay">
                         <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / GPay</span>
                     </a>
 
@@ -420,11 +420,13 @@
                     <div id="qrCodeContainer" style="display: none; text-align: center; margin-top: 6px;">
                         <p style="color: #dfb160; font-size: 12px; margin-bottom: 6px;">Scan this QR code using PhonePe / GPay from another mobile:</p>
                         <img id="upiQrCodeImg" src="" alt="UPI QR Code" style="width: 130px; height: 130px; border-radius: 4px; background: #fff; padding: 4px;">
-                        <br>
-                        <button type="button" onclick="enablePaymentDone()" style="margin-top: 8px; background: #dfb160; color: #000; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; cursor: pointer;">
-                            <i class="fa-solid fa-check"></i> Click here after scanning & paying
-                        </button>
                     </div>
+
+                    <br>
+                    <!-- కన్ఫర్మేషన్ బటన్ (ఇది నొక్కితే పాప్-అప్ వస్తుంది) -->
+                    <button type="button" onclick="enablePaymentDone()" style="margin-top: 8px; background: #dfb160; color: #000; border: none; padding: 8px 14px; border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer;">
+                        <i class="fa-solid fa-check"></i> Click here after scanning & paying
+                    </button>
                 </div>
 
                 <!-- ఫైనల్ వాట్సాప్ కన్ఫర్మేషన్ బటన్ (మొదట్లో డిసేబుల్ ఉంటుంది) -->
@@ -579,14 +581,13 @@
             const totalPrice = currentBasePrice * nights;
             const advanceAmount = totalPrice / 2;
 
-            // UPI Intent Link (PhonePe, GPay, Paytm etc. ഓപ്പൺ అవుతుంది)
+            // UPI Intent Link
             const upiUrl = `upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&am=${advanceAmount}&cu=INR`;
             
             const payLinkElement = document.getElementById('phonepePayLink');
             const qrContainer = document.getElementById('qrCodeContainer');
             const qrImage = document.getElementById('upiQrCodeImg');
 
-            // Detect Mobile or Laptop/Desktop
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             if (isMobile) {
@@ -603,12 +604,20 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
-        // పేమెంట్ బటన్ నొక్కిన తర్వాత వాట్సాప్ బటన్ ఎనేబుల్ అయ్యే ఫంక్షన్
+        // పేమెంట్ కన్ఫర్మేషన్ పాప్-అప్ ఫంక్షన్ (సవరించబడింది)
         function enablePaymentDone() {
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = false;
-            submitBtn.classList.add('enabled');
-            alert("ధన్యవాదాలు! పేమెంట్ పూర్తయిన తర్వాత ఇప్పుడు వాట్సాప్ బటన్ క్లిక్ చేయవచ్చు.");
+            let confirmPayment = confirm("మీరు నిజంగా ఫోన్‌పే/జీపే ద్వారా పేమెంట్ పూర్తి చేశారా?\n(సరే - OK నొక్కితేనే వాట్సాప్ బటన్ ఎనేబుల్ అవుతుంది)");
+            
+            // కచ్చితంగా OK (true) అయితేనే బటన్ ఎనేబుల్ అవుతుంది
+            if (confirmPayment === true) {
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = false;
+                submitBtn.classList.add('enabled');
+                alert("ధన్యవాదాలు! ఇప్పుడు వాట్సాప్ బటన్ ద్వారా వివరాలు పంపవచ్చు.");
+            } else {
+                // Cancel నొక్కితే బటన్ డిసేబుల్‌గానే ఉంటుంది
+                alert("పేమెంట్ పూర్తి కాలేదు. దయచేసి ముందుగా పేమెంట్ చేయండి.");
+            }
         }
 
         function closeBookingModal() {
