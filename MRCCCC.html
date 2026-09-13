@@ -84,8 +84,9 @@
         .ticket-terms-list li i { color: #dfb160; margin-top: 2px; font-size: 11px; }
         .ticket-terms-list li span { color: #dfb160; font-weight: 600; }
 
-        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 5px; transition: background 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
-        .btn-submit-booking:hover { background-color: #1ebd57; }
+        .btn-submit-booking { width: 100%; background-color: #555; color: #aaa; border: none; padding: 11px; border-radius: 6px; font-weight: bold; cursor: not-allowed; font-size: 15px; margin-top: 5px; transition: background 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+        .btn-submit-booking.enabled { background-color: #25d366; color: #fff; cursor: pointer; }
+        .btn-submit-booking.enabled:hover { background-color: #1ebd57; }
         
         .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: bold; margin-top: 6px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
         .btn-phonepe-pay:hover { background-color: #4b1d7d; }
@@ -206,8 +207,8 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹10 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹10')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
@@ -410,8 +411,8 @@
                         <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
                     </p>
                     
-                    <!-- మొబైల్ కోసం UPI యాప్ ఓపెನ್ అయ్యే బటన్ -->
-                    <a href="#" id="phonepePayLink" target="_blank" class="btn-phonepe-pay">
+                    <!-- మొబైల్ కోసం UPI యాప్ ఓపెన్ అయ్యే బటన్ (దీని మీద క్లిక్ చేస్తేనే కింది వాట్సాప్ బటన్ ఎనేబుల్ అవుతుంది) -->
+                    <a href="#" id="phonepePayLink" target="_blank" onclick="enablePaymentDone()" class="btn-phonepe-pay">
                         <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / GPay</span>
                     </a>
 
@@ -419,25 +420,32 @@
                     <div id="qrCodeContainer" style="display: none; text-align: center; margin-top: 6px;">
                         <p style="color: #dfb160; font-size: 12px; margin-bottom: 6px;">Scan this QR code using PhonePe / GPay from another mobile:</p>
                         <img id="upiQrCodeImg" src="" alt="UPI QR Code" style="width: 130px; height: 130px; border-radius: 4px; background: #fff; padding: 4px;">
+                        <br>
+                        <button type="button" onclick="enablePaymentDone()" style="margin-top: 8px; background: #dfb160; color: #000; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; cursor: pointer;">
+                            <i class="fa-solid fa-check"></i> Click here after scanning & paying
+                        </button>
                     </div>
                 </div>
 
-                <!-- ఫైనల్ వాట్సాప్ కన్ఫర్మేషన్ బటన్ -->
-                <button type="submit" id="submitBtn" class="btn-submit-booking">
-                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send Details via WhatsApp
+                <!-- ఫైనల్ వాట్సాప్ కన్ఫర్మేషన్ బటన్ (మొదట్లో డిసేబుల్ ఉంటుంది) -->
+                <button type="submit" id="submitBtn" class="btn-submit-booking" disabled>
+                    <i class="fa-brands fa-whatsapp"></i> I have paid - Send Details via WhatsApp
                 </button>
             </form>
 
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
                 <h4>Booking Details Ready!</h4>
-                <p>పేమెంట్ పూర్తి చేసిన తర్వాత, మీ వివరాలు ఏజెంట్‌కి వాట్సాప్‌లో పంపబడతాయి.</p>
+                <p>పేమెంట్ విజయవంతంగా పూర్తయింది. ఏజెంట్‌కి మరియు కస్టమర్‌కి వాట్సాప్‌లో మెసేజ్‌లు పంపడానికి క్రింది బటన్లు ఉపయోగించండి:</p>
                 
-                <!-- కస్టమర్ నంబర్‌కి నేరుగా లొకేషన్ పంపడానికి బటన్ -->
-                <div style="margin-top: 15px;">
-                    <p style="color: #dfb160; font-size: 13px; margin-bottom: 8px;">కస్టమర్ వాట్సాప్‌కి లొకేషన్ పంపడానికి క్రింది బటన్ క్లిక్ చేయండి:</p>
-                    <a id="sendToCustomerBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
-                        <i class="fa-brands fa-whatsapp"></i> Send Location to Customer WhatsApp
+                <!-- ఏజెంట్ మరియు కస్టమర్ వాట్సాప్ బటన్లు -->
+                <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                    <a id="sendToAgentBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
+                        <i class="fa-brands fa-whatsapp"></i> 1. Send Details to Agent WhatsApp
+                    </a>
+                    
+                    <a id="sendToCustomerBtn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #007bff; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; font-size: 13px;">
+                        <i class="fa-brands fa-whatsapp"></i> 2. Send Location & Confirmation to Customer
                     </a>
                 </div>
             </div>
@@ -542,6 +550,11 @@
             document.getElementById('modalRoomPrice').value = price;
             currentBasePrice = parseInt(price.replace(/[^0-9]/g, ''));
             
+            // బటన్‌ని డిసేబుల్ స్టేట్‌లోకి మార్చడం
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.classList.remove('enabled');
+
             updateAdvanceCalculation();
 
             document.getElementById('bookingForm').style.display = 'block';
@@ -590,6 +603,14 @@
             document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
         }
 
+        // పేమెంట్ బటన్ నొక్కిన తర్వాత వాట్సాప్ బటన్ ఎనేబుల్ అయ్యే ఫంక్షన్
+        function enablePaymentDone() {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = false;
+            submitBtn.classList.add('enabled');
+            alert("ధన్యవాదాలు! పేమెంట్ పూర్తయిన తర్వాత ఇప్పుడు వాట్సాప్ బటన్ క్లిక్ చేయవచ్చు.");
+        }
+
         function closeBookingModal() {
             document.getElementById('bookingModal').style.display = "none";
         }
@@ -623,17 +644,18 @@
             const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
 
             // 1. ఏజెంట్‌కి వెళ్లే మెసేజ్
-            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid via UPI)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n\n📍 Location Link: ${mapLocationUrl}`;
+            const agentMessage = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking (Advance Paid via UPI Intent)\n----------------------------------\n- Property: ${propertyName}\n- Guest Name: ${name}\n- Customer Mobile: *${mobile}*\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Room: ${room}\n- Advance Paid: ₹${advanceAmount}\n\n📍 Location Link: ${mapLocationUrl}`;
             
             const agentWhatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(agentMessage)}`;
 
             // 2. కస్టమర్‌కి వెళ్లే మెసేజ్
-            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour booking and payment intent have been registered. Agent will verify the UPI payment and confirm shortly.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
+            const customerMessage = `Namaste ${name} Garu,\nThank you for booking with ${propertyName} at Ahobilam!\nYour advance payment of ₹${advanceAmount} has been registered successfully.\n\n📍 Here is your Google Maps Location to reach the property easily:\n${mapLocationUrl}\n\nHave a safe journey! Sri Lakshmi Narasimha Swamy Bless You.`;
             
             const formattedCustomerMobile = mobile.replace(/\D/g, '');
             const customerWhatsappUrl = `https://wa.me/91${formattedCustomerMobile}?text=${encodeURIComponent(customerMessage)}`;
 
-            // స్క్రీన్ మీద కస్టమర్ బటన్‌కి లింక్ సెట్ చేయడం
+            // బటన్లకి లింక్‌లు సెట్ చేయడం
+            document.getElementById('sendToAgentBtn').href = agentWhatsappUrl;
             document.getElementById('sendToCustomerBtn').href = customerWhatsappUrl;
 
             // ఫారమ్ హైడ్ చేసి సక్సెస్ బాక్స్ చూపించడం
