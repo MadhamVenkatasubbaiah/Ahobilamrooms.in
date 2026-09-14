@@ -42,7 +42,8 @@
         .booking-options { display: flex; gap: 20px; margin-top: 10px; border-top: 1px dashed #444; padding-top: 25px; }
         .price-box { background-color: #1e1e1e; border: 1px solid #444; border-radius: 8px; padding: 20px; width: 50%; text-align: center; }
         .price-box h4 { color: #ffffff; font-size: 18px; margin-bottom: 5px; }
-        .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+        .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+        .advance-text { font-size: 11px; color: #25d366; margin-bottom: 15px; font-weight: 500; }
         .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; }
         .btn-whatsapp-book:hover { background-color: #1ebd57; }
 
@@ -59,15 +60,15 @@
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
         /* BOOKING FORM MODAL STYLES */
-        .modal-form-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #b3b3b3; font-size: 14px; }
-        .form-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
+        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 25px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; color: #b3b3b3; font-size: 13px; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
         .form-group input[type="date"] { cursor: pointer; }
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 18px; }
-        .form-group input:focus { border-color: #dfb160; outline: none; }
-        .form-row { display: flex; gap: 15px; }
-        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background 0.3s; }
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 16px; }
+        .form-group input:focus, .form-group select:focus { border-color: #dfb160; outline: none; }
+        .form-row { display: flex; gap: 10px; }
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 8px; transition: background 0.3s; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
         .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
         .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
@@ -99,8 +100,24 @@
         .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37,211,102,0.5); color: #ffffff; }
         .float-support-btn i { font-size: 22px; }
 
-        /* రెస్పాన్సివ్ డిజైన్ */
+        /* రెస్పాన్సివ్ డిజైన్ & మొబైల్ మెనూ స్టైల్స్ */
         @media screen and (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 20px;
+                border-bottom: 1px solid #333;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                z-index: 1000;
+            }
+            .nav-links.active {
+                display: flex;
+            }
             .room-card { flex-direction: column; }
             .room-image-box, .room-details-box { width: 100%; }
             .room-image-box { height: 250px; }
@@ -186,6 +203,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1300')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
@@ -193,6 +211,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1650')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
@@ -214,6 +233,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '₹1500')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
@@ -221,6 +241,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('AC Room', '3-Sharing Room', '₹1800')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
@@ -242,6 +263,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', '₹1800')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
@@ -249,6 +271,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('AC Room', '4-Sharing Room', '₹2200')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
@@ -270,6 +293,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', '₹2300')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book Non-AC
                             </button>
@@ -277,6 +301,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <div class="advance-text">50% Advance Required</div>
                             <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', '₹2800')" class="btn-whatsapp-book">
                                 <i class="fa-brands fa-whatsapp"></i> Book AC
                             </button>
@@ -288,14 +313,14 @@
         </div>
     </main>
 
-    <!-- LOCATION SECTION (మ్యాప్ పూర్తిగా దాచబడింది, కేవలం అడ్రస్ మాత్రమే) -->
+    <!-- LOCATION SECTION -->
     <section class="single-location-section">
         <h3 class="loc-title">Our Location</h3>
         <div class="loc-card">
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత మీ వాట్సాప్ చాట్‌లోకి నేరుగా గూగుల్ మ్యాప్స్ లొకేషన్ పంపబడుతుంది)</p>
+            <p style="color: #888; font-size: 13px; margin: 0;">(బుకింగ్ చేసుకున్న తర్వాత లొకేషన్ వివరాలు ఏజెంట్ ద్వారా పంపబడతాయి)</p>
         </div>
     </section>
 
@@ -303,17 +328,17 @@
     <section class="guidelines-section">
         <div class="guidelines-container">
             <div class="guidelines-box">
-                <h3><i class="fa-solid fa-triangle-exclamation"></i> Important Pilgrim Guidelines</h3>
+                <h3><i class="fa-solid fa-circle-info"></i> Booking & Cancellation Policy</h3>
                 <ul>
-                    <li>Please carry valid ID proof for all guests during check-in.</li>
-                    <li>Eco-friendly practices are encouraged; do not litter plastic around the temple premises.</li>
-                    <li>Upper Ahobilam trekking timings are subject to forest department rules.</li>
-                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                    <li><strong>Advance Payment:</strong> 50% advance payment is required to secure the room booking.</li>
+                    <li><strong>Non-Refundable:</strong> The advance amount paid will not be refunded under any circumstances. (చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు).</li>
+                    <li><strong>Cancellation Rule:</strong> No cancellation allowed after 10 hours of booking. (బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
+                    <li><strong>Note:</strong> Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.</li>
                 </ul>
             </div>
             <div class="guidelines-box">
                 <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
-                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays.</p>
             </div>
         </div>
     </section>
@@ -333,12 +358,12 @@
     <div id="bookingModal" class="modal">
         <div class="modal-form-content">
             <span class="close-btn" onclick="closeBookingModal()">&times;</span>
-            <h3 style="color: #dfb160; margin-bottom: 20px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
+            <h3 style="color: #dfb160; margin-bottom: 15px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
                 <input type="hidden" id="modalRoomPrice">
-                <input type="hidden" id="modalPropertyName" value="Veerabadhra Swamy Guest House & Home Food">
+                <input type="hidden" id="modalPropertyName" value="VBS Guest House & Home Food">
                 
                 <div class="form-group">
                     <label>Full Name</label>
@@ -350,12 +375,24 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group" style="width: 50%;">
-                        <label>Check-in Date</label>
-                        <input type="date" id="checkInDate" required>
+                        <label>Check-in Date & Time</label>
+                        <input type="date" id="checkInDate" required style="margin-bottom: 6px;">
+                        <select id="checkInTime">
+                            <option value="12:00 PM">12:00 PM (Afternoon)</option>
+                            <option value="01:00 PM">01:00 PM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="Flexible / Discuss with Owner">Flexible Time</option>
+                        </select>
                     </div>
                     <div class="form-group" style="width: 50%;">
-                        <label>Check-out Date</label>
-                        <input type="date" id="checkOutDate" required>
+                        <label>Check-out Date & Time</label>
+                        <input type="date" id="checkOutDate" required style="margin-bottom: 6px;">
+                        <select id="checkOutTime">
+                            <option value="10:00 AM">10:00 AM (Morning)</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="Flexible / Discuss with Owner">Flexible Time</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -370,7 +407,7 @@
             <div id="confirmationNotice" class="confirmation-box" style="display: none;">
                 <i class="fa-solid fa-circle-check"></i>
                 <h4>Booking Request Prepared!</h4>
-                <p>Redirecting you to WhatsApp with room details and location directions...</p>
+                <p>Redirecting you to WhatsApp with room details...</p>
             </div>
         </div>
     </div>
@@ -388,6 +425,16 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+
         // Calendar Minimum Date Setup
         document.addEventListener('DOMContentLoaded', function() {
             const checkInInput = document.getElementById('checkInDate');
@@ -481,17 +528,15 @@
             const name = document.getElementById('guestName').value;
             const mobile = document.getElementById('guestMobile').value;
             const checkIn = document.getElementById('checkInDate').value;
+            const checkInTime = document.getElementById('checkInTime').value;
             const checkOut = document.getElementById('checkOutDate').value;
+            const checkOutTime = document.getElementById('checkOutTime').value;
             const guests = document.getElementById('guestCount').value;
             const room = document.getElementById('modalRoomCategory').value;
             const price = document.getElementById('modalRoomPrice').value;
             const property = document.getElementById('modalPropertyName').value;
             
-            // మీరు ఇచ్చిన ఖచ్చితమైన గూగుల్ మ్యాప్ లొకేషన్ లింక్
-            const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
-
-            // బుకింగ్ చేసుకున్న తర్వాత వాట్సాప్ మెసేజ్‌లో లొకేషన్ వెళ్లేలా సెట్ చేయడం
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in Date: ${checkIn}\n- Check-out Date: ${checkOut}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- Preferred Property: ${property}\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- *Booking Terms:* 50% advance payment required to confirm reservation\n- Preferred Property: ${property}\n\n⚠️ *Note:* Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.\n\n📍 *Location:* Location details will be shared in whatsapp once room is confirmed.`;
 
             const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
 
