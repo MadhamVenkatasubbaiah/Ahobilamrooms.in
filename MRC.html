@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madham Rajeswari Complex - Ahobilam</title>
+    <title>Madam Rajeswari Home stay - Ahobilam</title>
     <!-- CSS లింక్ -->
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -59,48 +59,44 @@
         #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
 
         /* BOOKING FORM MODAL STYLES */
-        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 20px 30px; border-radius: 12px; border: 1px solid #dfb160; max-width: 460px; width: 90%; max-height: 88vh; overflow-y: auto; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); }
-        
-        .modal-form-content::-webkit-scrollbar { width: 6px; }
-        .modal-form-content::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 4px; }
-        .modal-form-content::-webkit-scrollbar-thumb { background: #dfb160; border-radius: 4px; }
-
-        .form-group { margin-bottom: 10px; }
-        .form-group label { display: block; margin-bottom: 3px; color: #b3b3b3; font-size: 13px; }
+        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 25px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; color: #b3b3b3; font-size: 13px; }
         .form-group input, .form-group select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
         .form-group input[type="date"], .form-group input[type="time"] { cursor: pointer; }
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator, .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 18px; }
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator,
+        .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 16px; }
         .form-group input:focus, .form-group select:focus { border-color: #dfb160; outline: none; }
         .form-row { display: flex; gap: 10px; }
-        
-        /* TICKET STYLE POLICY BOX */
-        .ticket-policy-box { background-color: #1a1a1a; border: 1px dashed #dfb160; border-radius: 8px; padding: 10px 15px; margin-bottom: 12px; position: relative; }
-        .ticket-policy-box::before, .ticket-policy-box::after { content: ''; position: absolute; width: 10px; height: 10px; background-color: #2a2a2a; border-radius: 50%; border: 1px solid #dfb160; }
-        .ticket-policy-box::before { left: -6px; top: 50%; transform: translateY(-50%); }
-        .ticket-policy-box::after { right: -6px; top: 50%; transform: translateY(-50%); }
-        .ticket-header { color: #dfb160; font-size: 13px; font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; border-bottom: 1px dashed #444; padding-bottom: 3px; }
-        .ticket-terms-list { list-style: none; padding: 0; margin: 0; font-size: 12px; color: #ccc; line-height: 1.4; }
-        .ticket-terms-list li { margin-bottom: 2px; display: flex; gap: 6px; align-items: flex-start; }
-        .ticket-terms-list li i { color: #dfb160; margin-top: 2px; font-size: 11px; }
-        .ticket-terms-list li span { color: #dfb160; font-weight: 600; }
-
-        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 5px; transition: background 0.3s; }
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 8px; transition: background 0.3s; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
         
-        .btn-phonepe-pay { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #5f259f; color: #fff; text-decoration: none; padding: 10px 12px; border-radius: 5px; font-size: 13px; font-weight: bold; margin-top: 4px; transition: background 0.3s; width: 100%; box-sizing: border-box; }
-        .btn-phonepe-pay:hover { background-color: #4b1d7d; }
-        
-        .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
-        .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
-        .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
-        .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
+        /* PAYMENT & QR SECTION */
+        .payment-container { text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #dfb160; margin-top: 10px; }
+        .payment-container h4 { color: #dfb160; font-size: 20px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .qr-code-img { width: 150px; height: 150px; background: #fff; padding: 6px; border-radius: 8px; margin: 8px auto; display: block; border: 2px solid #dfb160; }
+        .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 10px; border-radius: 6px; font-size: 12px; margin: 10px 0; line-height: 1.4; text-align: left; }
+        .payment-instructions i { color: #25d366; margin-right: 5px; }
+
+        /* DUAL ACTION BUTTONS */
+        .dual-buttons-row { display: flex; gap: 10px; margin-top: 10px; }
+        .btn-custom-action { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #333; color: #dfb160; text-decoration: none; padding: 10px 8px; border-radius: 5px; font-weight: 600; font-size: 13px; border: 1px solid #dfb160; cursor: pointer; transition: all 0.3s; text-align: center; }
+        .btn-custom-action:hover { background-color: #dfb160; color: #1e1e1e; }
+
+        /* INFO BOX STYLES */
+        .info-dropdown-box { background-color: #242424; border: 1px solid #444; border-radius: 6px; padding: 12px; margin-top: 8px; font-size: 13px; color: #ccc; text-align: left; display: none; line-height: 1.6; }
+        .info-dropdown-box ul { padding-left: 18px; margin: 5px 0 0 0; }
+        .info-dropdown-box li { margin-bottom: 4px; color: #b3b3b3; }
 
         /* LOCATION SECTION */
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
         .loc-title { color: #dfb160; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
         .loc-card { max-width: 700px; margin: 0 auto; background-color: #2a2a2a; padding: 30px; border-radius: 12px; border: 1px solid #444; }
-        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
+        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 15px; line-height: 1.6; }
         .loc-address i { color: #ff4d4d; margin-right: 8px; }
+        
+        /* LOCATION NOTE STYLING */
+        .loc-note { color: #dfb160; font-size: 14px; font-style: italic; line-height: 1.5; background-color: rgba(223, 177, 96, 0.08); border-left: 3px solid #dfb160; padding: 10px 15px; border-radius: 4px; text-align: left; margin-top: 10px; }
 
         /* GUIDELINES & DISCLAIMER SECTION */
         .guidelines-section { background-color: #181818; padding: 50px 5%; border-top: 1px solid #333; color: #ccc; }
@@ -111,17 +107,99 @@
         .guidelines-box p { font-size: 14px; line-height: 1.7; }
 
         /* FOOTER */
-        .site-footer { background-color: #141414; color: #888; text-align: center; padding: 30px 5%; border-top: 1px solid #222; font-size: 14px; }
-        .site-footer p { margin-bottom: 10px; }
-        .site-footer span { color: #dfb160; }
+        .site-footer {
+            background-color: #141414;
+            color: #b3b3b3;
+            padding: 50px 5% 20px 5%;
+            border-top: 1px solid #222;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-col h3, .footer-col h4 {
+            color: #dfb160;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #999;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links li a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-links li a:hover {
+            color: #dfb160;
+        }
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+        .footer-contact-info li i {
+            color: #dfb160;
+            margin-top: 4px;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+        .footer-bottom span {
+            color: #dfb160;
+        }
 
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37,211,102,0.5); color: #ffffff; }
         .float-support-btn i { font-size: 22px; }
 
-        /* రెస్పాన్సివ్ డిజైన్ */
+        /* రెస్పాన్సివ్ డిజైన్ & మొబైల్ మెనూ స్టైల్స్ */
         @media screen and (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 20px;
+                border-bottom: 1px solid #333;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                z-index: 1000;
+            }
+            .nav-links.active {
+                display: flex;
+            }
             .room-card { flex-direction: column; }
             .room-image-box, .room-details-box { width: 100%; }
             .room-image-box { height: 250px; }
@@ -131,6 +209,7 @@
             .next-btn { right: 10px; }
             .form-row { flex-direction: column; gap: 0; }
             .guidelines-container { grid-template-columns: 1fr; }
+            .dual-buttons-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -140,7 +219,7 @@
     <header class="navbar">
         <div class="logo-section">
             <div class="logo-icon">
-                <img src="logo.png" alt="madam Rajeswari Logo" class="custom-logo">
+                <img src="logo.png" alt="VBS Guest House Logo" class="custom-logo">
             </div>
             <div class="logo-text">
                 <h1>Ahobilam Rooms</h1>
@@ -164,10 +243,10 @@
 
     <!-- మెయిన్ కంటెంట్ -->
     <main class="property-section">
-        <h2 class="property-title">Madham Rajeswari Complex</h2>
+        <h2 class="property-title">Madam Rajeswari Home stay</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-        <!-- హోటల్ గ్యాలరీ -->
+       <!-- హోటల్ గ్యాలరీ -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
                 <img src="MRC/MR_mainview.jpeg" alt="Hotel View 1">
@@ -191,7 +270,7 @@
             <div class="amenity-item"><i class="fa-solid fa-utensils"></i> Home Food Available</div>
         </div>
 
-        <!-- రూమ్స్ జాబితా -->
+    <!-- రూమ్స్ జాబితా -->
         <div class="rooms-list">
             
             <!-- 2-Sharing Room -->
@@ -253,6 +332,7 @@
         </div>
     </main>
 
+    
     <!-- LOCATION SECTION -->
     <section class="single-location-section">
         <h3 class="loc-title">Our Location</h3>
@@ -260,7 +340,9 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <p style="color: #888; font-size: 13px; margin: 0;">(Once your advance payment is successful, the exact Google Maps location and room details will be shared directly with you on WhatsApp.)</p>
+            <div class="loc-note">
+                Note : Exact location details will be shared on WhatsApp once your room reservation is confirmed.
+            </div>
         </div>
     </section>
 
@@ -268,25 +350,74 @@
     <section class="guidelines-section">
         <div class="guidelines-container">
             <div class="guidelines-box">
-                <h3><i class="fa-solid fa-triangle-exclamation"></i> Important Pilgrim Guidelines</h3>
+                <h3><i class="fa-solid fa-circle-info"></i> Booking & Cancellation Policy</h3>
                 <ul>
-                    <li>Please carry valid ID proof for all guests during check-in.</li>
-                    <li>Eco-friendly practices are encouraged; do not litter plastic around the temple premises.</li>
-                    <li>Upper Ahobilam trekking timings are subject to forest department rules.</li>
-                    <li>Maintain spiritual decorum and traditional attire near temple zones.</li>
+                    <li><strong>Full Payment:</strong> 100% full payment is required online to confirm your room reservation.</li>
+                    <li><strong>ID Proof:</strong> Original Government ID (Aadhar/Driving License) is mandatory for all guests at the time of Check-In.</li>
+                    <li><strong>Right to Admission:</strong> The hotel management reserves the right to deny admission if guests pose a security threat or violate rules.</li>
+                    <li><strong>Prohibited Items:</strong> Alcohol, Smoking, and Non-Vegetarian food are strictly prohibited inside the Satram/Hotel premises as Ahobilam is a sacred Kshetram.</li>
+                </ul>
+            </div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Return & Refund Policy </h3>
+                <p>Our cancellation and refund rules are as follows:</p>
+                <ul>
+                    <li><strong>Cancellation before 48 Hours:</strong> 90% of the advance amount will be refunded.</li>
+                    <li><strong>Cancellation before 24 Hours:</strong> 50% of the advance amount will be refunded.</li>
+                    <li><strong>Cancellation within 24 Hours: </strong> No refund will be provided.</li>
+                    <li><strong>Refund Processing: </strong> Refunds will be processed within 5-7 working days via UPI or Bank Transfer.</li>
                 </ul>
             </div>
             <div class="guidelines-box">
                 <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
-                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays. Guests are advised to confirm bookings in advance.</p>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays.</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>&copy; 2026 <span>Madham Rajeshwari Complex</span>, Ahobilam. All Rights Reserved.</p>
-        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
+        <div class="footer-container">
+            <!-- Col 1: About -->
+            <div class="footer-col">
+                <h3>Ahobilam Rooms</h3>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
+            </div>
+            
+            <!-- Col 2: Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Col 3: Contact Info -->
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-info">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Ahobilam, Nandyal District (Kurnool Dist), Andhra Pradesh, India</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 76759 62840</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>ahobilamrooms@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span>Ahobilam Rooms</span>. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- FLOATING WHATSAPP SUPPORT -->
@@ -298,12 +429,12 @@
     <div id="bookingModal" class="modal">
         <div class="modal-form-content">
             <span class="close-btn" onclick="closeBookingModal()">&times;</span>
-            <h3 style="color: #dfb160; margin-bottom: 12px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
+            <h3 style="color: #dfb160; margin-bottom: 15px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
-                <input type="hidden" id="modalRoomPrice">
-                <input type="hidden" id="modalPropertyName" value="Madham Rajeshwari Complex">
+                <input type="hidden" id="modalRoomPriceNum">
+                <input type="hidden" id="modalPropertyName" value="VBS Guest House & Home Food">
                 
                 <div class="form-group">
                     <label>Full Name</label>
@@ -313,66 +444,85 @@
                     <label>Mobile Number</label>
                     <input type="tel" id="guestMobile" required placeholder="Enter 10-digit mobile number">
                 </div>
-                
-                <!-- Check-in Date & Time -->
                 <div class="form-row">
-                    <div class="form-group" style="width: 60%;">
-                        <label>Check-in Date</label>
-                        <input type="date" id="checkInDate" onchange="updateAdvanceCalculation()" required>
-                    </div>
-                    <div class="form-group" style="width: 40%;">
-                        <label>Check-in Time</label>
+                    <div class="form-group" style="width: 50%;">
+                        <label>Check-in Date & Time</label>
+                        <input type="date" id="checkInDate" required style="margin-bottom: 6px;">
                         <input type="time" id="checkInTime" value="12:00" required>
                     </div>
-                </div>
-
-                <!-- Check-out Date & Time -->
-                <div class="form-row">
-                    <div class="form-group" style="width: 60%;">
-                        <label>Check-out Date</label>
-                        <input type="date" id="checkOutDate" onchange="updateAdvanceCalculation()" required>
-                    </div>
-                    <div class="form-group" style="width: 40%;">
-                        <label>Check-out Time</label>
+                    <div class="form-group" style="width: 50%;">
+                        <label>Check-out Date & Time</label>
+                        <input type="date" id="checkOutDate" required style="margin-bottom: 6px;">
                         <input type="time" id="checkOutTime" value="10:00" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Number of Guests</label>
                     <input type="number" id="guestCount" min="1" max="10" value="2" required>
                 </div>
-
-                <!-- TICKET STYLE TERMS & CANCELLATION POLICY BOX -->
-                <div class="ticket-policy-box">
-                    <div class="ticket-header">
-                        <i class="fa-solid fa-ticket"></i> Booking & Cancellation Policy
-                    </div>
-                    <ul class="ticket-terms-list">
-                        <li><i class="fa-solid fa-circle-xmark"></i> <span>Non-Refundable:</span> The advance amount paid will not be refunded under any circumstances.( చెల్లించిన అడ్వాన్స్ అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు ).</li>
-                        <li><i class="fa-solid fa-clock"></i> <span>Cancellation Rule:</span> No cancellation allowed after 10 hours of booking.(బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
-                    </ul>
-                </div>
-
-                <!-- 50% Advance & PhonePe Payment Option (Mandatory before WhatsApp Send) -->
-                <div style="background: rgba(223, 177, 96, 0.12); border: 1px solid #dfb160; padding: 10px; border-radius: 6px; text-align: center; margin-bottom: 12px;">
-                    <p style="color: #dfb160; font-size: 12.5px; font-weight: 600; margin-bottom: 8px;" id="advanceInfoText">
-                        <i class="fa-solid fa-triangle-exclamation"></i> 50% Advance Required based on nights stay.
-                    </p>
-                    <a href="#" id="phonepePayLink" target="_blank" onclick="markAsPaid()" class="btn-phonepe-pay">
-                        <i class="fa-solid fa-wallet"></i> <span id="phonepePayText">Pay 50% Advance via PhonePe / UPI</span>
-                    </a>
-                </div>
-
-                <button type="submit" id="submitBtn" class="btn-submit-booking" style="opacity: 0.6; cursor: not-allowed;" disabled>
-                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Pay Advance First)
+                <button type="submit" class="btn-submit-booking">
+                    <i class="fa-solid fa-qrcode"></i> Proceed to Payment
                 </button>
             </form>
 
-            <div id="confirmationNotice" class="confirmation-box" style="display: none;">
-                <i class="fa-solid fa-circle-check"></i>
-                <h4>Payment & Booking Verified!</h4>
-                <p>Redirecting you to WhatsApp with room details and location directions...</p>
+            <!-- PAYMENT QR & PHONEPE NUMBER SECTION -->
+            <div id="paymentSection" class="payment-container" style="display: none;">
+                <h4 id="paymentHeading">Complete Payment</h4>
+                <p id="fullAmountDisplay" style="color: #25d366; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
+                
+                <!-- PhonePe Number & UPI ID Info Box for Single Mobile Users -->
+                <div style="background-color: #252525; padding: 12px; border-radius: 8px; margin: 10px 0; border: 1px dashed #dfb160; text-align: left;">
+                    <p style="font-size: 14px; color: #fff; font-weight: bold; margin-bottom: 4px;">
+                        PhonePe / GPay No: <span style="color: #25d366; font-size: 16px;">9553905464</span>
+                    </p>
+                    <p style="font-size: 13px; color: #fff;">
+                        UPI ID: <span id="upiIdText" style="color: #dfb160;">dhanunjayamadham@ybl</span>
+                    </p>
+                </div>
+
+                <!-- QR Code image -->
+                <img id="upiQrCode" src="" alt="Payment QR Code" class="qr-code-img">
+
+                <div class="payment-instructions">
+                    <i class="fa-solid fa-circle-info"></i> <strong>Note:</strong> After successful payment, click below to send details and screenshot to WhatsApp.
+                </div>
+
+                <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Details & Screenshot to WhatsApp
+                </button>
+
+                <!-- DUAL ACTION BUTTONS (Near by Places & Rental Cars) -->
+                <div class="dual-buttons-row">
+                    <button type="button" onclick="toggleInfoBox('nearByInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-map-location-dot"></i> Near by Places
+                    </button>
+                    <button type="button" onclick="toggleInfoBox('rentalCarsInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-car"></i> Rental Cars
+                    </button>
+                </div>
+
+                <!-- Near by Places Info Details Box -->
+                <div id="nearByInfoBox" class="info-dropdown-box">
+                    <strong>Tourist & Temple Places Around Ahobilam:</strong>
+                    <ul>
+                        <li>Ahobilam (9 Temples)</li>
+                        <li>Mahanandhi</li>
+                        <li>Yaganti</li>
+                        <li>Belum Caves</li>
+                        <li>Nandhavaram</li>
+                        <li>Devuni Kadapa</li>
+                        <li>Mantralayam</li>
+                    </ul>
+                </div>
+
+                <!-- Rental Cars Info Details Box -->
+                <div id="rentalCarsInfoBox" class="info-dropdown-box">
+                    <strong>Rental Cars from Ahobilam:</strong><br>
+                    Available for local temple visits and long distance trips.<br>
+                    <span style="color: #dfb160; font-weight: bold; display: inline-block; margin-top: 5px;">
+                        <i class="fa-solid fa-phone"></i> Contact: 7675962840
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -390,28 +540,28 @@
 
     <!-- JavaScript Logic -->
     <script>
-        let currentBasePrice = 0;
-        let isPaymentCompleted = false;
+        const MERCHANT_UPI = "dhanunjayamadham@ybl";
+        const MERCHANT_NAME = "VBS Guest House Ahobilam";
+        const WHATSAPP_NUMBER = "919553905464";
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
 
         // Calendar Minimum Date Setup
         document.addEventListener('DOMContentLoaded', function() {
             const checkInInput = document.getElementById('checkInDate');
             const checkOutInput = document.getElementById('checkOutDate');
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
+            const today = new Date().toISOString().split('T')[0];
             
-            const todayStr = today.toISOString().split('T')[0];
-            const tomorrowStr = tomorrow.toISOString().split('T')[0];
-
-            if(checkInInput) {
-                checkInInput.setAttribute('min', todayStr);
-                checkInInput.value = todayStr;
-            }
-            if(checkOutInput) {
-                checkOutInput.setAttribute('min', todayStr);
-                checkOutInput.value = tomorrowStr;
-            }
+            if(checkInInput) checkInInput.setAttribute('min', today);
+            if(checkOutInput) checkOutInput.setAttribute('min', today);
 
             [checkInInput, checkOutInput].forEach(input => {
                 if(input) {
@@ -425,20 +575,27 @@
         });
 
         // Gallery Images Data
-        const allGalleries = {
-            'hotelViews': [
-                { src: 'MRC/MR_mainview.jpeg', caption: 'Hotel Front View' },
-                { src: 'MRC/MR_Parking.jpeg', caption: 'Parking Area' },
-                { src: 'MRC/MR_corridor.jpeg', caption: 'Entrance' }
+        const galleryData = {
+            hotelViews: [
+                { src: "VBC/vbc_mainview.jpeg", caption: "Main Building View" },
+                { src: "VBC/vbc_reception.jpeg", caption: "Reception Area" },
+                { src: "VBC/vbc_corridor.jpeg", caption: "Corridor" }
             ],
-            'room1': [
-                { src: 'MRC/MR_2bed.jpeg', caption: '2 Sharing - Room' },
-                { src: 'MRC/MR-washroom.jpeg', caption: '2 Sharing - Bathroom' }  
+            room2bed: [
+                { src: "VBC/VBC_2bed.jpeg", caption: "2 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ],
-            'room2': [
-                { src: 'MRC/MR_3bed.jpeg', caption: '3 Sharing - Room' },
-                { src: 'MRC/MR_3bed.1.jpeg', caption: '3 Sharing - Room' }, 
-                { src: 'MRC/MR_washroom.1.jpeg', caption: '3 Sharing - Bathroom' } 
+            room3bed: [
+                { src: "VBC/vbc_3bed.jpeg", caption: "3 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ],
+            room4bed: [
+                { src: "VBC/vbc_4bed.jpeg", caption: "4 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ],
+            room5bed: [
+                { src: "VBC/vbc_5bed.jpeg", caption: "5 Sharing Family Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ]
         };
 
@@ -457,7 +614,7 @@
         }
 
         function changeSlide(direction) {
-            const images = allGalleries[currentGalleryKey];
+            const images = galleryData[currentGalleryKey];
             currentIndex += direction;
             if (currentIndex >= images.length) currentIndex = 0;
             if (currentIndex < 0) currentIndex = images.length - 1;
@@ -465,121 +622,108 @@
         }
 
         function updateGalleryImage() {
-            const item = allGalleries[currentGalleryKey][currentIndex];
+            const item = galleryData[currentGalleryKey][currentIndex];
             document.getElementById('modalImage').src = item.src;
             document.getElementById('modal-caption').innerText = item.caption;
         }
 
         // Booking Form Modal Functions
-        function openBookingModal(category, type, price) {
+        function openBookingModal(category, type, priceNum) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
-            document.getElementById('modalRoomPrice').value = price;
-            currentBasePrice = parseInt(price.replace(/[^0-9]/g, ''));
+            document.getElementById('modalRoomPriceNum').value = priceNum;
             
-            // Reset payment status on modal open
-            isPaymentCompleted = false;
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.style.opacity = "0.6";
-            submitBtn.style.cursor = "not-allowed";
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp (Pay Advance First)`;
-
-            updateAdvanceCalculation();
-
             document.getElementById('bookingForm').style.display = 'block';
-            document.getElementById('confirmationNotice').style.display = 'none';
-            document.getElementById('bookingModal').style.display = "block";
-        }
-
-        function updateAdvanceCalculation() {
-            const checkInVal = document.getElementById('checkInDate').value;
-            const checkOutVal = document.getElementById('checkOutDate').value;
+            document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('nearByInfoBox').style.display = 'none';
+            document.getElementById('rentalCarsInfoBox').style.display = 'none';
             
-            let nights = 1;
-            if (checkInVal && checkOutVal) {
-                const checkIn = new Date(checkInVal);
-                const checkOut = new Date(checkOutVal);
-                const diffTime = checkOut - checkIn;
-                if (diffTime > 0) {
-                    nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                }
-            }
-
-            const totalPrice = currentBasePrice * nights;
-            const advanceAmount = totalPrice / 2;
-
-            const upiUrl = `upi://pay?pa=dhanunjayamadham@ybl&pn=Madham%20Rajeswari%20Complex&am=${advanceAmount}&cu=INR`;
-            document.getElementById('phonepePayLink').href = upiUrl;
-            document.getElementById('phonepePayText').innerText = `Pay 50% Advance (₹${advanceAmount}) for ${nights} Night(s)`;
-            document.getElementById('advanceInfoText').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Total: ₹${totalPrice} (${nights} Night/s) | 50% Advance: ₹${advanceAmount}`;
-        }
-
-        // User clicked payment button
-        function markAsPaid() {
-            isPaymentCompleted = true;
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.style.opacity = "1";
-            submitBtn.style.cursor = "pointer";
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp`;
+            document.getElementById('bookingModal').style.display = "block";
         }
 
         function closeBookingModal() {
             document.getElementById('bookingModal').style.display = "none";
         }
 
+        // Toggle Info Box function
+        function toggleInfoBox(boxId) {
+            const box = document.getElementById(boxId);
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
+        }
+
+        // Time format converter for WhatsApp
+        function formatTime12h(timeStr) {
+            if (!timeStr) return '';
+            let [hours, minutes] = timeStr.split(':');
+            let h = parseInt(hours, 10);
+            let ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12;
+            h = h ? h : 12; 
+            return `${h}:${minutes} ${ampm}`;
+        }
+
         function submitBooking(e) {
             e.preventDefault();
 
-            if (!isPaymentCompleted) {
-                alert("దయచేసి ముందుగా 50% అడ్వాన్స్ పేమెంట్ పూర్తి చేయండి!");
-                return;
-            }
+            const checkInDate = new Date(document.getElementById('checkInDate').value);
+            const checkOutDate = new Date(document.getElementById('checkOutDate').value);
 
+            let timeDiff = checkOutDate.getTime() - checkInDate.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1; 
+
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights;
+
+            const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
+
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('paymentSection').style.display = 'block';
+
+            document.getElementById('paymentHeading').innerText = `Pay for ${nights} Night(s)`;
+            document.getElementById('fullAmountDisplay').innerText = `Total Amount: ₹${fullPrice}`;
+
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(upiLink)}`;
+            document.getElementById('upiQrCode').src = qrApiUrl;
+        }
+
+        function sendToWhatsApp() {
             const name = document.getElementById('guestName').value;
             const mobile = document.getElementById('guestMobile').value;
             const checkIn = document.getElementById('checkInDate').value;
-            const checkInTime = document.getElementById('checkInTime').value;
+            const checkInTimeRaw = document.getElementById('checkInTime').value;
             const checkOut = document.getElementById('checkOutDate').value;
-            const checkOutTime = document.getElementById('checkOutTime').value;
+            const checkOutTimeRaw = document.getElementById('checkOutTime').value;
             const guests = document.getElementById('guestCount').value;
             const room = document.getElementById('modalRoomCategory').value;
-            const price = document.getElementById('modalRoomPrice').value;
             
-            const propertyName = document.getElementById('modalPropertyName').value;
-            
+            const checkInTime = formatTime12h(checkInTimeRaw);
+            const checkOutTime = formatTime12h(checkOutTimeRaw);
+
             const checkInDateObj = new Date(checkIn);
             const checkOutDateObj = new Date(checkOut);
-            let nights = 1;
-            const diffTime = checkOutDateObj - checkInDateObj;
-            if (diffTime > 0) {
-                nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            }
+            let timeDiff = checkOutDateObj.getTime() - checkInDateObj.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1;
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights;
 
-            const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
-            const totalPrice = numericPrice * nights;
-            const advanceAmount = totalPrice / 2;
+            const property = document.getElementById('modalPropertyName').value;
             
-            const mapLocationUrl = "https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6713613,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n(Note : Exact location details will be shared on WhatsApp once your room reservation is confirmed.)`;
 
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry (Paid Advance)\n----------------------------------\n- Preferred Property: ${propertyName}\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} at ${checkInTime}\n- Check-out: ${checkOut} at ${checkOutTime}\n- Total Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Rate: ${price} /night\n- Total Amount: ₹${totalPrice}\n- Advance Paid (50%): ₹${advanceAmount} (Successful)\n- Payment UPI: dhanunjayamadham@ybl\n\n⚠️ *Terms & Policy:* Amount is Non-Refundable. Cancellation not allowed after 10 hours of booking.\n\n📍 *Guest House Location / దారి:* ${mapLocationUrl}`;
-
-            const whatsappUrl = `https://wa.me/919553905464?text=${encodeURIComponent(message)}`;
-
-            document.getElementById('bookingForm').style.display = 'none';
-            document.getElementById('confirmationNotice').style.display = 'block';
-
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 1200);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        // Close modals when clicking outside
         window.onclick = function(event) {
             const bookingModal = document.getElementById('bookingModal');
-            const galleryModal = document.getElementById('galleryModal');
+            const galleryModal = Другой('galleryModal'); // keep modal ids intact
             if (event.target == bookingModal) closeBookingModal();
-            if (event.target == galleryModal) closeGalleryModal();
+            if (event.target == document.getElementById('galleryModal')) closeGalleryModal();
         }
     </script>
 </body>
