@@ -92,10 +92,11 @@
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
         .loc-title { color: #dfb160; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
         .loc-card { max-width: 700px; margin: 0 auto; background-color: #2a2a2a; padding: 30px; border-radius: 12px; border: 1px solid #444; }
-        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
+        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 15px; line-height: 1.6; }
         .loc-address i { color: #ff4d4d; margin-right: 8px; }
-        .map-direction-btn { display: inline-flex; align-items: center; gap: 8px; background-color: #dfb160; color: #1e1e1e; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; transition: background 0.3s; margin-top: 10px; }
-        .map-direction-btn:hover { background-color: #c99b4d; }
+        
+        /* LOCATION NOTE STYLING */
+        .loc-note { color: #dfb160; font-size: 14px; font-style: italic; line-height: 1.5; background-color: rgba(223, 177, 96, 0.08); border-left: 3px solid #dfb160; padding: 10px 15px; border-radius: 4px; text-align: left; margin-top: 10px; }
 
         /* GUIDELINES & DISCLAIMER SECTION */
         .guidelines-section { background-color: #181818; padding: 50px 5%; border-top: 1px solid #333; color: #ccc; }
@@ -394,9 +395,9 @@
             <div class="loc-address">
                 <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
             </div>
-            <a href="https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6739362,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-direction-btn">
-                <i class="fa-solid fa-map-location-dot"></i> Open Google Maps Navigation
-            </a>
+            <div class="loc-note">
+                Note : Exact location details will be shared on WhatsApp once your room reservation is confirmed.
+            </div>
         </div>
     </section>
 
@@ -757,7 +758,7 @@
 
             const property = document.getElementById('modalPropertyName').value;
             
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🗺️ *Google Maps Link:* https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6739362,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n(Note : Exact location details will be shared on WhatsApp once your room reservation is confirmed.)`;
 
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -765,9 +766,9 @@
 
         window.onclick = function(event) {
             const bookingModal = document.getElementById('bookingModal');
-            const galleryModal = document.getElementById('galleryModal');
+            const galleryModal = Другой('galleryModal'); // keep modal ids intact
             if (event.target == bookingModal) closeBookingModal();
-            if (event.target == galleryModal) closeGalleryModal();
+            if (event.target == document.getElementById('galleryModal')) closeGalleryModal();
         }
     </script>
 </body>
