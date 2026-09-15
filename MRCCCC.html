@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madam Rajeswari Home stay - Ahobilam</title>
+    <title>VBS Guest House & Home Food - Ahobilam</title>
     <!-- CSS లింక్ -->
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -243,21 +243,21 @@
 
     <!-- మెయిన్ కంటెంట్ -->
     <main class="property-section">
-        <h2 class="property-title">Madam Rajeswari Home stay</h2>
+        <h2 class="property-title">VBS Guest House & Home Food</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-       <!-- హోటల్ గ్యాలరీ -->
+        <!-- హోటల్ గ్యాలరీ -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
-                <img src="MRC/MR_mainview.jpeg" alt="Hotel View 1">
+                <img src="VBC/vbc_mainview.jpeg" alt="Hotel View 1">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 1)">
-                <img src="MRC/MR_Parking.jpeg" alt="Hotel View 2">
+                <img src="VBC/vbc_reception.jpeg" alt="Hotel View 2">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 2)">
-                <img src="MRC/MR_corridor.jpeg" alt="Hotel View 3">
+                <img src="VBC/vbc_corridor.jpeg" alt="Hotel View 3">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
         </div>
@@ -270,13 +270,13 @@
             <div class="amenity-item"><i class="fa-solid fa-utensils"></i> Home Food Available</div>
         </div>
 
-    <!-- రూమ్స్ జాబితా -->
+        <!-- రూమ్స్ జాబితా -->
         <div class="rooms-list">
             
             <!-- 2-Sharing Room -->
             <div class="room-card">
-                <div class="room-image-box" onclick="openGallery('room1', 0)">
-                    <img src="MRC/MR_2bed.jpeg" alt="2 Sharing Room">
+                <div class="room-image-box" onclick="openGallery('room2bed', 0)">
+                    <img src="VBC/VBC_2bed.jpeg" alt="2 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -285,16 +285,16 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹100 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1100')" class="btn-whatsapp-book">
-                                <i class="fa-solid fa-calendar-check"></i> Book Non-AC
+                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', 1300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹150 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1300')" class="btn-whatsapp-book">
-                                <i class="fa-solid fa-calendar-check"></i> Book AC
+                            <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', 1650)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
@@ -303,8 +303,8 @@
 
             <!-- 3-Sharing Room -->
             <div class="room-card">
-                <div class="room-image-box" onclick="openGallery('room2', 0)">
-                    <img src="MRC/MR_3bed.jpeg" alt="3 Sharing Room">
+                <div class="room-image-box" onclick="openGallery('room3bed', 0)">
+                    <img src="VBC/vbc_3bed.jpeg" alt="3 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -313,26 +313,81 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '₹1300')" class="btn-whatsapp-book">
-                                <i class="fa-solid fa-calendar-check"></i> Book Non-AC
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', 1500)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '₹1500')" class="btn-whatsapp-book">
-                                <i class="fa-solid fa-calendar-check"></i> Book AC
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- 4-Sharing Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room4bed', 0)">
+                    <img src="VBC/vbc_4bed.jpeg" alt="4 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>4-Sharing Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Double Beds / 4 Singles</b><br><br>Spacious room designed for families or group travelers.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '4-Sharing Room', 2200)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Sharing Family Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room5bed', 0)">
+                    <img src="VBC/vbc_5bed.jpeg" alt="5 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>5-Sharing Family Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>Our biggest room option! Perfectly accommodates 5 people comfortably.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', 2300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', 2800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    
     <!-- LOCATION SECTION -->
     <section class="single-location-section">
         <h3 class="loc-title">Our Location</h3>
