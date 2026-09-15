@@ -70,10 +70,13 @@
         .form-row { display: flex; gap: 10px; }
         .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 8px; transition: background 0.3s; }
         .btn-submit-booking:hover { background-color: #1ebd57; }
-        .confirmation-box { text-align: center; background-color: #1e1e1e; padding: 25px 20px; border-radius: 8px; border: 1px solid #25d366; margin-top: 10px; color: #25d366; }
-        .confirmation-box i { font-size: 40px; margin-bottom: 10px; }
-        .confirmation-box h4 { font-size: 20px; margin-bottom: 5px; color: #fff; }
-        .confirmation-box p { color: #ccc; font-size: 14px; margin-top: 5px; line-height: 1.5; }
+        
+        /* PAYMENT & QR SECTION */
+        .payment-container { text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #dfb160; margin-top: 10px; }
+        .payment-container h4 { color: #dfb160; font-size: 20px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .qr-code-img { width: 180px; height: 180px; background: #fff; padding: 10px; border-radius: 8px; margin: 10px auto; display: block; border: 2px solid #dfb160; }
+        .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 12px; border-radius: 6px; font-size: 13px; margin: 15px 0; line-height: 1.5; text-align: left; }
+        .payment-instructions i { color: #25d366; margin-right: 5px; }
 
         /* LOCATION SECTION */
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
@@ -204,16 +207,16 @@
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '₹1300')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', 1300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '₹1650')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', 1650)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                     </div>
@@ -234,16 +237,16 @@
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '₹1500')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', 1500)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '₹1800')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                     </div>
@@ -264,16 +267,16 @@
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', '₹1800')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('AC Room', '4-Sharing Room', '₹2200')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <button onclick="openBookingModal('AC Room', '4-Sharing Room', 2200)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                     </div>
@@ -294,16 +297,16 @@
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', '₹2300')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', 2300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
                             <div class="advance-text">50% Advance Required</div>
-                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', '₹2800')" class="btn-whatsapp-book">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', 2800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Booking
                             </button>
                         </div>
                     </div>
@@ -362,7 +365,7 @@
             
             <form id="bookingForm" onsubmit="submitBooking(event)">
                 <input type="hidden" id="modalRoomCategory">
-                <input type="hidden" id="modalRoomPrice">
+                <input type="hidden" id="modalRoomPriceNum">
                 <input type="hidden" id="modalPropertyName" value="VBS Guest House & Home Food">
                 
                 <div class="form-group">
@@ -400,14 +403,26 @@
                     <input type="number" id="guestCount" min="1" max="10" value="2" required>
                 </div>
                 <button type="submit" class="btn-submit-booking">
-                    <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp
+                    <i class="fa-solid fa-qrcode"></i> Proceed to Advance Payment
                 </button>
             </form>
 
-            <div id="confirmationNotice" class="confirmation-box" style="display: none;">
-                <i class="fa-solid fa-circle-check"></i>
-                <h4>Booking Request Prepared!</h4>
-                <p>Redirecting you to WhatsApp with room details...</p>
+            <!-- PAYMENT QR / APP REDIRECT SECTION -->
+            <div id="paymentSection" class="payment-container" style="display: none;">
+                <h4>Scan QR or Pay Advance</h4>
+                <p id="advanceAmountDisplay" style="color: #25d366; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
+                
+                <!-- QR Code image generated dynamically based on UPI details -->
+                <img id="upiQrCode" src="" alt="Payment QR Code" class="qr-code-img">
+                <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UPI ID: <span id="upiIdText" style="color: #dfb160;">7675962840@ybl</span></p>
+
+                <div class="payment-instructions">
+                    <i class="fa-solid fa-circle-info"></i> <strong>Important:</strong> Please share the payment screenshot of PhonePe / GPay details on WhatsApp to complete your room reservation.
+                </div>
+
+                <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Details & Screenshot to WhatsApp
+                </button>
             </div>
         </div>
     </div>
@@ -425,6 +440,11 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // UPI configuration (Change this to your actual merchant UPI ID if needed)
+        const MERCHANT_UPI = "7675962840@ybl";
+        const MERCHANT_NAME = "VBS Guest House Ahobilam";
+        const WHATSAPP_NUMBER = "917675962840";
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
@@ -509,12 +529,12 @@
         }
 
         // Booking Form Modal Functions
-        function openBookingModal(category, type, price) {
+        function openBookingModal(category, type, priceNum) {
             document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
-            document.getElementById('modalRoomPrice').value = price;
+            document.getElementById('modalRoomPriceNum').value = priceNum;
             
             document.getElementById('bookingForm').style.display = 'block';
-            document.getElementById('confirmationNotice').style.display = 'none';
+            document.getElementById('paymentSection').style.display = 'none';
             document.getElementById('bookingModal').style.display = "block";
         }
 
@@ -522,9 +542,36 @@
             document.getElementById('bookingModal').style.display = "none";
         }
 
+        // Helper to detect mobile devices
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
         function submitBooking(e) {
             e.preventDefault();
 
+            const fullPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const advanceAmount = Math.round(fullPrice * 0.5); // 50% advance
+
+            const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${advanceAmount}&cu=INR`;
+
+            if (isMobileDevice()) {
+                // If on mobile, redirect directly to PhonePe/GPay UPI intent
+                window.location.href = upiLink;
+            }
+
+            // Display QR Code & Payment Section in modal
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('paymentSection').style.display = 'block';
+
+            document.getElementById('advanceAmountDisplay').innerText = `Advance Payable (50%): ₹${advanceAmount} (Full: ₹${fullPrice})`;
+            
+            // Generate QR Code image using a standard public QR API
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}`;
+            document.getElementById('upiQrCode').src = qrApiUrl;
+        }
+
+        function sendToWhatsApp() {
             const name = document.getElementById('guestName').value;
             const mobile = document.getElementById('guestMobile').value;
             const checkIn = document.getElementById('checkInDate').value;
@@ -533,19 +580,14 @@
             const checkOutTime = document.getElementById('checkOutTime').value;
             const guests = document.getElementById('guestCount').value;
             const room = document.getElementById('modalRoomCategory').value;
-            const price = document.getElementById('modalRoomPrice').value;
+            const fullPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const advanceAmount = Math.round(fullPrice * 0.5);
             const property = document.getElementById('modalPropertyName').value;
             
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Enquiry\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Room Amount: ${price} /night\n- *Booking Terms:* 50% advance payment required to confirm reservation\n- Preferred Property: ${property}\n\n⚠️ *Note:* Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.\n\n📍 *Location:* Location details will be shared in whatsapp once room is confirmed.`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Advance Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Advance Paid (50%): ₹${advanceAmount} (Out of ₹${fullPrice})\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the PhonePe/GPay payment screenshot here.\n\n📍 *Location:* Please share location details.`;
 
-            const whatsappUrl = `https://wa.me/917675962840?text=${encodeURIComponent(message)}`;
-
-            document.getElementById('bookingForm').style.display = 'none';
-            document.getElementById('confirmationNotice').style.display = 'block';
-
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 1200);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         // Close modals when clicking outside
