@@ -106,9 +106,75 @@
         .guidelines-box p { font-size: 14px; line-height: 1.7; }
 
         /* FOOTER */
-        .site-footer { background-color: #141414; color: #888; text-align: center; padding: 30px 5%; border-top: 1px solid #222; font-size: 14px; }
-        .site-footer p { margin-bottom: 10px; }
-        .site-footer span { color: #dfb160; }
+        .site-footer {
+            background-color: #141414;
+            color: #b3b3b3;
+            padding: 50px 5% 20px 5%;
+            border-top: 1px solid #222;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-col h3, .footer-col h4 {
+            color: #dfb160;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #999;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links li a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-links li a:hover {
+            color: #dfb160;
+        }
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+        .footer-contact-info li i {
+            color: #dfb160;
+            margin-top: 4px;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+        .footer-bottom span {
+            color: #dfb160;
+        }
 
         /* FLOATING SUPPORT BUTTON */
         .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -355,8 +421,47 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>&copy; 2026 <span>VBS Guest House & Home Food</span>, Ahobilam. All Rights Reserved.</p>
-        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
+        <div class="footer-container">
+            <!-- Col 1: About -->
+            <div class="footer-col">
+                <h3>Ahobilam Rooms</h3>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
+            </div>
+            
+            <!-- Col 2: Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Col 3: Contact Info -->
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-info">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Ahobilam, Nandyal District (Kurnool Dist), Andhra Pradesh, India</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 76759 62840</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>ahobilamrooms@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span>Ahobilam Rooms</span>. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- FLOATING WHATSAPP SUPPORT -->
