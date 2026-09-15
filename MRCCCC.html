@@ -404,7 +404,7 @@
 
             <!-- PAYMENT QR / APP REDIRECT SECTION -->
             <div id="paymentSection" class="payment-container" style="display: none;">
-                <h4>Scan QR or Pay Total Amount</h4>
+                <h4 id="paymentHeading">Scan QR to Pay Total Amount</h4>
                 <p id="fullAmountDisplay" style="color: #25d366; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
                 
                 <!-- QR Code image generated dynamically based on UPI details -->
@@ -545,7 +545,19 @@
         function submitBooking(e) {
             e.preventDefault();
 
-            const fullPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            // Check-in మరియు Check-out తేదీలను తీసుకోవడం
+            const checkInDate = new Date(document.getElementById('checkInDate').value);
+            const checkOutDate = new Date(document.getElementById('checkOutDate').value);
+
+            // రోజుల తేడాను లెక్కించడం
+            let timeDiff = checkOutDate.getTime() - checkInDate.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1; 
+
+            // నైట్స్ బట్టి టోటల్ అమౌంట్ లెక్కించడం
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights;
+
             const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
 
             if (isMobileDevice()) {
@@ -555,7 +567,9 @@
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
 
-            document.getElementById('fullAmountDisplay').innerText = `Amount: ₹${fullPrice}`;
+            // హెడ్డింగ్ మరియు అమౌంట్‌ను డైనమిక్‌గా అప్‌డేట్ చేయడం
+            document.getElementById('paymentHeading').innerText = `Scan QR to Pay for ${nights} Night(s)`;
+            document.getElementById('fullAmountDisplay').innerText = `Total Amount Payable: ₹${fullPrice}`;
             
             const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}`;
             document.getElementById('upiQrCode').src = qrApiUrl;
@@ -570,10 +584,19 @@
             const checkOutTime = document.getElementById('checkOutTime').value;
             const guests = document.getElementById('guestCount').value;
             const room = document.getElementById('modalRoomCategory').value;
-            const fullPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            
+            // సేమ్ నైట్స్ మరియు టోటల్ అమౌంట్ వాట్సాప్ మెసేజ్‌లోకి కూడా పంపేలా
+            const checkInDateObj = new Date(checkIn);
+            const checkOutDateObj = new Date(checkOut);
+            let timeDiff = checkOutDateObj.getTime() - checkInDateObj.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1;
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights;
+
             const property = document.getElementById('modalPropertyName').value;
             
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🗺️ *Google Maps Link:* https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6739362,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🗺️ *Google Maps Link:* https://www.google.com/maps/place/Veerabadhra+Swamy+Guest+House/@15.1291454,78.6739362,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb4f500109fbb2f:0x38f72c954490dd29!8m2!3d15.1291454!4d78.6739362!16s%2Fg%2F11wps_ky46?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
 
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
