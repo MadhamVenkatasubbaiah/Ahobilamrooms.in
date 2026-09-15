@@ -43,7 +43,7 @@
         .price-box { background-color: #1e1e1e; border: 1px solid #444; border-radius: 8px; padding: 20px; width: 50%; text-align: center; }
         .price-box h4 { color: #ffffff; font-size: 18px; margin-bottom: 5px; }
         .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
-        .advance-text { font-size: 11px; color: #25d366; margin-bottom: 15px; font-weight: 500; }
+        .advance-text { font-size: 11px; color: #dfb160; margin-bottom: 15px; font-weight: 500; }
         .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; }
         .btn-whatsapp-book:hover { background-color: #1ebd57; }
 
@@ -206,7 +206,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', 1300)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -214,7 +214,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('AC Room', '2-Sharing Room', 1650)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -236,7 +236,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', 1500)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -244,7 +244,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('AC Room', '3-Sharing Room', 1800)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -266,7 +266,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', 1800)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -274,7 +274,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('AC Room', '4-Sharing Room', 2200)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -296,7 +296,7 @@
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', 2300)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -304,7 +304,7 @@
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <div class="advance-text" style="color: #dfb160;">100% Full Payment Required</div>
+                            <div class="advance-text">100% Full Payment Required</div>
                             <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', 2800)" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-check-circle"></i> Book & Pay Full
                             </button>
@@ -583,7 +583,7 @@
             const fullPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
             const property = document.getElementById('modalPropertyName').value;
             
-            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Full Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Paid (100%): ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the full payment. Attaching/sharing the PhonePe/GPay payment screenshot here.\n\n📍 *Location:* Please share location details.`;
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Full Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Paid (100%): ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the PhonePe/GPay payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543`;
 
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
