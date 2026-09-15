@@ -74,16 +74,20 @@
         /* PAYMENT & QR SECTION */
         .payment-container { text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #dfb160; margin-top: 10px; }
         .payment-container h4 { color: #dfb160; font-size: 20px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
-        .qr-code-img { width: 180px; height: 180px; background: #fff; padding: 10px; border-radius: 8px; margin: 10px auto; display: block; border: 2px solid #dfb160; }
-        .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 12px; border-radius: 6px; font-size: 13px; margin: 15px 0; line-height: 1.5; text-align: left; }
+        .qr-code-img { width: 160px; height: 160px; background: #fff; padding: 8px; border-radius: 8px; margin: 8px auto; display: block; border: 2px solid #dfb160; }
+        .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 10px; border-radius: 6px; font-size: 12px; margin: 10px 0; line-height: 1.4; text-align: left; }
         .payment-instructions i { color: #25d366; margin-right: 5px; }
 
-        /* DUAL ACTION BUTTONS (NEW) */
+        /* DIRECT APP PAY BUTTON (NEW FOR SINGLE MOBILE USERS) */
+        .btn-direct-pay { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #512da8; color: #fff; text-decoration: none; padding: 12px; border-radius: 6px; font-weight: bold; font-size: 14px; width: 100%; margin-bottom: 10px; border: none; cursor: pointer; transition: background 0.3s; }
+        .btn-direct-pay:hover { background-color: #4527a0; }
+
+        /* DUAL ACTION BUTTONS */
         .dual-buttons-row { display: flex; gap: 10px; margin-top: 10px; }
         .btn-custom-action { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #333; color: #dfb160; text-decoration: none; padding: 10px 8px; border-radius: 5px; font-weight: 600; font-size: 13px; border: 1px solid #dfb160; cursor: pointer; transition: all 0.3s; text-align: center; }
         .btn-custom-action:hover { background-color: #dfb160; color: #1e1e1e; }
 
-        /* INFO BOX STYLES (NEW) */
+        /* INFO BOX STYLES */
         .info-dropdown-box { background-color: #242424; border: 1px solid #444; border-radius: 6px; padding: 12px; margin-top: 8px; font-size: 13px; color: #ccc; text-align: left; display: none; line-height: 1.6; }
         .info-dropdown-box ul { padding-left: 18px; margin: 5px 0 0 0; }
         .info-dropdown-box li { margin-bottom: 4px; color: #b3b3b3; }
@@ -404,17 +408,24 @@
                 </button>
             </form>
 
-            <!-- PAYMENT QR / APP REDIRECT SECTION -->
+            <!-- PAYMENT QR & DIRECT APP PAY SECTION -->
             <div id="paymentSection" class="payment-container" style="display: none;">
-                <h4 id="paymentHeading">Scan QR to Pay Total Amount</h4>
+                <h4 id="paymentHeading">Complete Payment</h4>
                 <p id="fullAmountDisplay" style="color: #25d366; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
                 
-                <!-- QR Code image generated dynamically based on UPI details -->
+                <!-- SINGLE MOBILE USERS DIRECT UPI APP BUTTON -->
+                <a id="directPayBtn" href="" class="btn-direct-pay">
+                    <i class="fa-solid fa-mobile-screen-button"></i> Click to Pay via PhonePe / GPay / Paytm
+                </a>
+
+                <p style="font-size: 13px; color: #b3b3b3; margin: 10px 0 5px 0;">(Or scan QR code if using another device)</p>
+
+                <!-- QR Code image -->
                 <img id="upiQrCode" src="" alt="Payment QR Code" class="qr-code-img">
                 <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UPI ID: <span id="upiIdText" style="color: #dfb160;">dhanunjayamadham@ybl</span></p>
 
                 <div class="payment-instructions">
-                    <i class="fa-solid fa-circle-info"></i> <strong>Important:</strong> Please scan the QR code using PhonePe / GPay, complete the payment, and share the screenshot on WhatsApp.
+                    <i class="fa-solid fa-circle-info"></i> <strong>Note:</strong> After successful payment, click below to send details and screenshot to WhatsApp.
                 </div>
 
                 <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
@@ -565,7 +576,6 @@
             
             document.getElementById('bookingForm').style.display = 'block';
             document.getElementById('paymentSection').style.display = 'none';
-            // Hide any open info boxes when reopening modal
             document.getElementById('nearByInfoBox').style.display = 'none';
             document.getElementById('rentalCarsInfoBox').style.display = 'none';
             
@@ -576,7 +586,7 @@
             document.getElementById('bookingModal').style.display = "none";
         }
 
-        // Toggle Info Box function for Near By Places & Rental Cars buttons
+        // Toggle Info Box function
         function toggleInfoBox(boxId) {
             const box = document.getElementById(boxId);
             if (box.style.display === "block") {
@@ -586,7 +596,7 @@
             }
         }
 
-        // Time format converter for WhatsApp (24h to 12h format friendly)
+        // Time format converter for WhatsApp
         function formatTime12h(timeStr) {
             if (!timeStr) return '';
             let [hours, minutes] = timeStr.split(':');
@@ -600,30 +610,30 @@
         function submitBooking(e) {
             e.preventDefault();
 
-            // Check-in మరియు Check-out తేదీలను తీసుకోవడం
             const checkInDate = new Date(document.getElementById('checkInDate').value);
             const checkOutDate = new Date(document.getElementById('checkOutDate').value);
 
-            // రోజుల తేడాను లెక్కించడం
             let timeDiff = checkOutDate.getTime() - checkInDate.getTime();
             let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
             if (nights <= 0) nights = 1; 
 
-            // నైట్స్ బట్టి టోటల్ అమౌంట్ లెక్కించడం
             const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
             const fullPrice = perNightPrice * nights;
 
-            // కేవలం QR కోడ్ కోసం మాత్రమే UPI లింక్ (డైరెక్ట్ యాప్ ఓపెన్ అవ్వదు కాబట్టి ఎర్రర్స్ రావు)
+            // UPI లింక్ (డైరెక్ట్ యాప్ ఓపెన్ కావడానికి మరియు QR కోడ్ జనరేట్ చేయడానికి)
             const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
 
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
 
-            // హెడ్డింగ్ మరియు అమౌంట్‌ను డైనమిక్‌గా అప్‌డేట్ చేయడం
-            document.getElementById('paymentHeading').innerText = `Scan QR to Pay for ${nights} Night(s)`;
-            document.getElementById('fullAmountDisplay').innerText = `Total Amount Payable: ₹${fullPrice}`;
+            document.getElementById('paymentHeading').innerText = `Pay for ${nights} Night(s)`;
+            document.getElementById('fullAmountDisplay').innerText = `Total Amount: ₹${fullPrice}`;
             
-            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}`;
+            // డైరెక్ట్ పే బటన్‌కి లింక్ సెట్ చేయడం (ఒకే మొబైల్ యూజర్ల కోసం)
+            document.getElementById('directPayBtn').href = upiLink;
+
+            // QR కోడ్ జనరేట్ చేయడం
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(upiLink)}`;
             document.getElementById('upiQrCode').src = qrApiUrl;
         }
 
@@ -640,7 +650,6 @@
             const checkInTime = formatTime12h(checkInTimeRaw);
             const checkOutTime = formatTime12h(checkOutTimeRaw);
 
-            // సేమ్ నైట్స్ మరియు టోటల్ అమౌంట్ వాట్సాప్ మెసేజ్‌లోకి కూడా పంపేలా
             const checkInDateObj = new Date(checkIn);
             const checkOutDateObj = new Date(checkOut);
             let timeDiff = checkOutDateObj.getTime() - checkInDateObj.getTime();
@@ -657,7 +666,6 @@
             window.open(whatsappUrl, '_blank');
         }
 
-        // Close modals when clicking outside
         window.onclick = function(event) {
             const bookingModal = document.getElementById('bookingModal');
             const galleryModal = document.getElementById('galleryModal');
