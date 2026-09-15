@@ -414,7 +414,7 @@
                 <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UPI ID: <span id="upiIdText" style="color: #dfb160;">dhanunjayamadham@ybl</span></p>
 
                 <div class="payment-instructions">
-                    <i class="fa-solid fa-circle-info"></i> <strong>Important:</strong> Please share the payment screenshot of PhonePe / GPay details on WhatsApp to confirm your room reservation.
+                    <i class="fa-solid fa-circle-info"></i> <strong>Important:</strong> Please scan the QR code using PhonePe / GPay, complete the payment, and share the screenshot on WhatsApp.
                 </div>
 
                 <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
@@ -586,11 +586,6 @@
             }
         }
 
-        // Helper to detect mobile devices
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-
         // Time format converter for WhatsApp (24h to 12h format friendly)
         function formatTime12h(timeStr) {
             if (!timeStr) return '';
@@ -618,11 +613,8 @@
             const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
             const fullPrice = perNightPrice * nights;
 
+            // కేవలం QR కోడ్ కోసం మాత్రమే UPI లింక్ (డైరెక్ట్ యాప్ ఓపెన్ అవ్వదు కాబట్టి ఎర్రర్స్ రావు)
             const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
-
-            if (isMobileDevice()) {
-                window.location.href = upiLink;
-            }
 
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
