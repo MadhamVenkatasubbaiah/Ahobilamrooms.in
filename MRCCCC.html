@@ -77,16 +77,15 @@
         .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 12px; border-radius: 6px; font-size: 13px; margin: 15px 0; line-height: 1.5; text-align: left; }
         .payment-instructions i { color: #25d366; margin-right: 5px; }
 
-        /* EXTRA SERVICES SECTION (NEARBY PLACES & RENTAL CARS) */
-        .services-extra-section { background-color: #181818; padding: 60px 5%; border-top: 1px solid #333; color: #ccc; }
-        .services-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .service-box { background-color: #232323; padding: 30px; border-radius: 10px; border: 1px solid #333; }
-        .service-box h3 { color: #dfb160; font-size: 22px; margin-bottom: 15px; font-family: 'Playfair Display', serif; display: flex; align-items: center; gap: 10px; }
-        .service-box p { font-size: 14px; line-height: 1.7; margin-bottom: 15px; }
-        .places-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 15px; }
-        .place-tag { background-color: #1e1e1e; border: 1px solid #444; padding: 8px 12px; border-radius: 6px; text-align: center; font-size: 13px; color: #dfb160; font-weight: 500; }
-        .car-rental-btn { display: inline-flex; align-items: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; transition: background 0.3s; margin-top: 10px; }
-        .car-rental-btn:hover { background-color: #1ebd57; }
+        /* DUAL ACTION BUTTONS (NEW) */
+        .dual-buttons-row { display: flex; gap: 10px; margin-top: 10px; }
+        .btn-custom-action { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #333; color: #dfb160; text-decoration: none; padding: 10px 8px; border-radius: 5px; font-weight: 600; font-size: 13px; border: 1px solid #dfb160; cursor: pointer; transition: all 0.3s; text-align: center; }
+        .btn-custom-action:hover { background-color: #dfb160; color: #1e1e1e; }
+
+        /* INFO BOX STYLES (NEW) */
+        .info-dropdown-box { background-color: #242424; border: 1px solid #444; border-radius: 6px; padding: 12px; margin-top: 8px; font-size: 13px; color: #ccc; text-align: left; display: none; line-height: 1.6; }
+        .info-dropdown-box ul { padding-left: 18px; margin: 5px 0 0 0; }
+        .info-dropdown-box li { margin-bottom: 4px; color: #b3b3b3; }
 
         /* LOCATION SECTION */
         .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
@@ -141,7 +140,8 @@
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
             .form-row { flex-direction: column; gap: 0; }
-            .guidelines-container, .services-container { grid-template-columns: 1fr; }
+            .guidelines-container { grid-template-columns: 1fr; }
+            .dual-buttons-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -162,8 +162,6 @@
             <a href="index.html">Home</a>
             <a href="rooms.html" class="active">Rooms</a>
             <a href="temple-history.html">Temple History</a>
-            <a href="#nearby-section">Nearby Places</a>
-            <a href="#rental-section">Rental Cars</a>
             <a href="contact.html">Contact</a>
             <button class="book-now-btn mobile-only"><i class="fa-solid fa-phone"></i> Book Now</button>
         </nav>
@@ -322,36 +320,6 @@
         </div>
     </main>
 
-    <!-- NEARBY PLACES & RENTAL CARS SECTION -->
-    <section id="nearby-section" class="services-extra-section">
-        <div class="services-container">
-            <!-- Nearby Places Box -->
-            <div class="service-box">
-                <h3><i class="fa-solid fa-map-marked-alt"></i> Nearby Places to Visit</h3>
-                <p>Explore prominent pilgrim centers and tourist attractions around Ahobilam with ease:</p>
-                <div class="places-grid">
-                    <div class="place-tag">Ahobilam (9 Temples)</div>
-                    <div class="place-tag">Mahanandhi</div>
-                    <div class="place-tag">Yaganti</div>
-                    <div class="place-tag">Belum Caves</div>
-                    <div class="place-tag">Nandhavaram</div>
-                    <div class="place-tag">Devuni Kadapa</div>
-                    <div class="place-tag">Mantralayam</div>
-                </div>
-            </div>
-
-            <!-- Rental Cars Box -->
-            <div id="rental-section" class="service-box">
-                <h3><i class="fa-solid id-card fa-car-side"></i> Rental Cars from Ahobilam</h3>
-                <p>Looking for reliable local transportation or outstation cabs for sightseeing? We arrange comfortable rental cars directly from Ahobilam at best rates.</p>
-                <p><strong>Contact for Cabs & Enquiries:</strong> <span style="color: #dfb160; font-weight: bold;">7675962840</span></p>
-                <a href="https://wa.me/917675962840?text=Hello,%20I%20want%20to%20book%20a%20rental%20car%20from%20Ahobilam." target="_blank" class="car-rental-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Book Cab via WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- LOCATION SECTION -->
     <section class="single-location-section">
         <h3 class="loc-title">Our Location</h3>
@@ -374,12 +342,12 @@
                     <li><strong>Full Payment:</strong> 100% full payment is required online to confirm your room reservation.</li>
                     <li><strong>Non-Refundable:</strong> The amount paid will not be refunded under any circumstances. (చెల్లించిన అమౌంట్ ఎట్టి పరిస్థితులలోనూ రిటర్న్ ఇవ్వబడదు).</li>
                     <li><strong>Cancellation Rule:</strong> No cancellation allowed after 10 hours of booking. (బుక్ చేసిన 10 గంటల తర్వాత క్యాన్సల్ చేయడానికి వీలులేదు).</li>
-                    <li><strong>Note:</strong> Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner. (Contact: 7675962840)</li>
+                    <li><strong>Note:</strong> Specific timings and final room confirmation will be discussed and finalized directly with the Property Owner.</li>
                 </ul>
             </div>
             <div class="guidelines-box">
                 <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
-                <p>This is an independent facilitator portal for room bookings, home food services, and travel assistance in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays.</p>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays.</p>
             </div>
         </div>
     </section>
@@ -387,12 +355,12 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <p>&copy; 2026 <span>VBS Guest House & Home Food</span>, Ahobilam. All Rights Reserved.</p>
-        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy | Helpline: 7675962840</p>
+        <p>Designed for Devotees visiting Lord Sri Lakshmi Narasimha Swamy.</p>
     </footer>
 
     <!-- FLOATING WHATSAPP SUPPORT -->
-    <a href="https://wa.me/917675962840" target="_blank" class="float-support-btn">
-        <i class="fa-brands fa-whatsapp"></i> Chat with Us (7675962840)
+    <a href="https://wa.me/919553905464" target="_blank" class="float-support-btn">
+        <i class="fa-brands fa-whatsapp"></i> Chat with Us
     </a>
 
     <!-- BOOKING FORM MODAL -->
@@ -461,6 +429,39 @@
                 <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
                     <i class="fa-brands fa-whatsapp"></i> Send Details & Screenshot to WhatsApp
                 </button>
+
+                <!-- DUAL ACTION BUTTONS (Near by Places & Rental Cars) -->
+                <div class="dual-buttons-row">
+                    <button type="button" onclick="toggleInfoBox('nearByInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-map-location-dot"></i> Near by Places
+                    </button>
+                    <button type="button" onclick="toggleInfoBox('rentalCarsInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-car"></i> Rental Cars
+                    </button>
+                </div>
+
+                <!-- Near by Places Info Details Box -->
+                <div id="nearByInfoBox" class="info-dropdown-box">
+                    <strong>Tourist & Temple Places Around Ahobilam:</strong>
+                    <ul>
+                        <li>Ahobilam (9 Temples)</li>
+                        <li>Mahanandhi</li>
+                        <li>Yaganti</li>
+                        <li>Belum Caves</li>
+                        <li>Nandhavaram</li>
+                        <li>Devuni Kadapa</li>
+                        <li>Mantralayam</li>
+                    </ul>
+                </div>
+
+                <!-- Rental Cars Info Details Box -->
+                <div id="rentalCarsInfoBox" class="info-dropdown-box">
+                    <strong>Rental Cars from Ahobilam:</strong><br>
+                    Available for local temple visits and long distance trips.<br>
+                    <span style="color: #dfb160; font-weight: bold; display: inline-block; margin-top: 5px;">
+                        <i class="fa-solid fa-phone"></i> Contact: 7675962840
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -481,7 +482,7 @@
         // UPI configuration with provided details
         const MERCHANT_UPI = "dhanunjayamadham@ybl";
         const MERCHANT_NAME = "VBS Guest House Ahobilam";
-        const WHATSAPP_NUMBER = "917675962840";
+        const WHATSAPP_NUMBER = "919553905464";
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu');
@@ -573,11 +574,25 @@
             
             document.getElementById('bookingForm').style.display = 'block';
             document.getElementById('paymentSection').style.display = 'none';
+            // Hide any open info boxes when reopening modal
+            document.getElementById('nearByInfoBox').style.display = 'none';
+            document.getElementById('rentalCarsInfoBox').style.display = 'none';
+            
             document.getElementById('bookingModal').style.display = "block";
         }
 
         function closeBookingModal() {
             document.getElementById('bookingModal').style.display = "none";
+        }
+
+        // Toggle Info Box function for Near By Places & Rental Cars buttons
+        function toggleInfoBox(boxId) {
+            const box = document.getElementById(boxId);
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
         }
 
         // Helper to detect mobile devices
