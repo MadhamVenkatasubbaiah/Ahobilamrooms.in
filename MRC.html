@@ -672,18 +672,18 @@
             const checkOutDate = new Date(document.getElementById('checkOutDate').value);
 
             let timeDiff = checkOutDate.getTime() - checkInDate.getTime();
-            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            if (nights <= 0) nights = 1; 
+            let days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (days <= 0) days = 1; 
 
             const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
-            const fullPrice = perNightPrice * nights;
+            const fullPrice = perNightPrice * days;
 
             const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
 
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
 
-            document.getElementById('paymentHeading').innerText = `Pay for ${nights} Night(s)`;
+            document.getElementById('paymentHeading').innerText = `Pay for ${days} Night(s)`;
             document.getElementById('fullAmountDisplay').innerText = `Total Amount: ₹${fullPrice}`;
 
             const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(upiLink)}`;
@@ -706,14 +706,14 @@
             const checkInDateObj = new Date(checkIn);
             const checkOutDateObj = new Date(checkOut);
             let timeDiff = checkOutDateObj.getTime() - checkInDateObj.getTime();
-            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            if (nights <= 0) nights = 1;
+            let days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (days <= 0) days = 1;
             const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
-            const fullPrice = perNightPrice * nights;
+            const fullPrice = perNightPrice * days;
 
             const property = document.getElementById('modalPropertyName').value;
             
-                        const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🌍 *Google Maps Link:* https://www.google.com/maps/place/Ahobilam+Rajeshwari+Complex/@15.1313734,78.6722684,17z/data=!4m14!1m7!3m6!1s0x3bb4f595d79cde9f:0xadc69bec3e67e13d!2sAhobilam+Rajeshwari+Complex!8m2!3d15.1313734!4d78.6748433!16s%2Fg%2F11n5446s18!3m5!1s0x3bb4f595d79cde9f:0xadc69bec3e67e13d!8m2!3d15.1313734!4d78.6748433!16s%2Fg%2F11n5446s18?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
+                        const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of days: ${days}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🌍 *Google Maps Link:* https://www.google.com/maps/place/Ahobilam+Rajeshwari+Complex/@15.1313734,78.6722684,17z/data=!4m14!1m7!3m6!1s0x3bb4f595d79cde9f:0xadc69bec3e67e13d!2sAhobilam+Rajeshwari+Complex!8m2!3d15.1313734!4d78.6748433!16s%2Fg%2F11n5446s18!3m5!1s0x3bb4f595d79cde9f:0xadc69bec3e67e13d!8m2!3d15.1313734!4d78.6748433!16s%2Fg%2F11n5446s18?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
 
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
