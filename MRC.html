@@ -683,7 +683,7 @@
             document.getElementById('bookingForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
 
-            document.getElementById('paymentHeading').innerText = `Pay for ${days} Night(s)`;
+            document.getElementById('paymentHeading').innerText = `Pay for ${days} days(s)`;
             document.getElementById('fullAmountDisplay').innerText = `Total Amount: ₹${fullPrice}`;
 
             const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(upiLink)}`;
