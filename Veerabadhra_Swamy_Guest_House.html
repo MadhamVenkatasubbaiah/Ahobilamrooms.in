@@ -1,1 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDG Guest House & Home Food - Ahobilam</title>
+    <!-- CSS లింక్ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS స్టైల్స్ -->
+    <style>
+        .property-section { padding: 130px 5% 80px; min-height: 100vh; background-color: #1e1e1e; }
+        .property-title { text-align: center; color: #dfb160; font-size: 38px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .property-subtitle { text-align: center; color: #b3b3b3; font-size: 16px; margin-bottom: 40px; }
+        
+        /* హోటల్ ఇమేజ్ గ్యాలరీ */
+        .hotel-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 40px auto; }
+        .gallery-item { position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; border: 2px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .img-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); color: #dfb160; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; font-size: 18px; font-weight: bold; }
+        .img-overlay i { font-size: 30px; margin-bottom: 10px; color: #fff; }
+        .gallery-item:hover .img-overlay, .room-image-box:hover .img-overlay { opacity: 1; }
 
+        /* కామన్ వసతులు */
+        .global-amenities { background-color: #2a2a2a; border: 1px solid #444; border-radius: 10px; padding: 25px; max-width: 1100px; margin: 0 auto 50px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .amenity-item { display: flex; align-items: center; gap: 10px; color: #ffffff; font-size: 15px; }
+        .amenity-item i { color: #dfb160; font-size: 20px; }
+
+        /* రూమ్ కార్డ్స్ */
+        .rooms-list { display: flex; flex-direction: column; gap: 40px; max-width: 1100px; margin: 0 auto; }
+        .room-card { display: flex; background-color: #2a2a2a; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+        .room-image-box { width: 40%; position: relative; cursor: pointer; }
+        .room-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .room-details-box { width: 60%; padding: 30px; }
+        .room-details-box h3 { color: #dfb160; font-size: 26px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .room-desc { color: #b3b3b3; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+
+        /* బుకింగ్ ఆప్షన్స్ */
+        .booking-options { display: flex; gap: 20px; margin-top: 10px; border-top: 1px dashed #444; padding-top: 25px; }
+        .price-box { background-color: #1e1e1e; border: 1px solid #444; border-radius: 8px; padding: 20px; width: 50%; text-align: center; }
+        .price-box h4 { color: #ffffff; font-size: 18px; margin-bottom: 5px; }
+        .price-amount { color: #dfb160; font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+        .btn-whatsapp-book { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: 600; font-size: 14px; width: 100%; transition: background-color 0.3s; border: none; cursor: pointer; }
+        .btn-whatsapp-book:hover { background-color: #1ebd57; }
+
+        /* POPUP GALLERY & MODAL */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content-wrap { position: relative; margin: auto; top: 50%; transform: translateY(-50%); max-width: 800px; width: 90%; text-align: center; }
+        .modal-content-wrap img { width: 100%; max-height: 70vh; object-fit: contain; border-radius: 8px; border: 2px solid #dfb160; }
+        .close-btn { position: absolute; top: -45px; right: 0; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #dfb160; }
+        .prev-btn, .next-btn { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 15px; color: white; font-weight: bold; font-size: 24px; background-color: rgba(0,0,0,0.6); border-radius: 5px; transition: 0.3s ease; user-select: none; }
+        .prev-btn { left: -50px; }
+        .next-btn { right: -50px; }
+        .prev-btn:hover, .next-btn:hover { background-color: #dfb160; color: #000; }
+        #modal-caption { text-align: center; color: #dfb160; padding-top: 15px; font-size: 18px; font-weight: 600; letter-spacing: 1px; }
+
+        /* BOOKING FORM MODAL STYLES */
+        .modal-form-content { background-color: #2a2a2a; margin: 3% auto; padding: 25px; border-radius: 12px; border: 1px solid #dfb160; max-width: 450px; width: 90%; position: relative; color: #fff; box-shadow: 0 5px 25px rgba(0,0,0,0.8); max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; color: #b3b3b3; font-size: 13px; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #444; background-color: #1e1e1e; color: #fff; box-sizing: border-box; font-size: 14px; }
+        .form-group input[type="date"], .form-group input[type="time"] { cursor: pointer; }
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator,
+        .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(350deg); cursor: pointer; font-size: 16px; }
+        .form-group input:focus, .form-group select:focus { border-color: #dfb160; outline: none; }
+        .form-row { display: flex; gap: 10px; }
+        .btn-submit-booking { width: 100%; background-color: #25d366; color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 8px; transition: background 0.3s; }
+        .btn-submit-booking:hover { background-color: #1ebd57; }
+        
+        /* EXIT / BACK BUTTON STYLING */
+        .btn-exit-modal { width: 100%; background-color: #333; color: #dfb160; border: 1px solid #dfb160; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; margin-top: 8px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-exit-modal:hover { background-color: #dfb160; color: #1e1e1e; }
+
+        /* PAYMENT & QR SECTION */
+        .payment-container { text-align: center; background-color: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #dfb160; margin-top: 10px; }
+        .payment-container h4 { color: #dfb160; font-size: 20px; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .qr-code-img { width: 150px; height: 150px; background: #fff; padding: 6px; border-radius: 8px; margin: 8px auto; display: block; border: 2px solid #dfb160; }
+        .payment-instructions { background-color: rgba(37, 211, 102, 0.1); border: 1px dashed #25d366; color: #fff; padding: 10px; border-radius: 6px; font-size: 12px; margin: 10px 0; line-height: 1.4; text-align: left; }
+        .payment-instructions i { color: #25d366; margin-right: 5px; }
+
+        /* DUAL ACTION BUTTONS */
+        .dual-buttons-row { display: flex; gap: 10px; margin-top: 10px; }
+        .btn-custom-action { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: #333; color: #dfb160; text-decoration: none; padding: 10px 8px; border-radius: 5px; font-weight: 600; font-size: 13px; border: 1px solid #dfb160; cursor: pointer; transition: all 0.3s; text-align: center; }
+        .btn-custom-action:hover { background-color: #dfb160; color: #1e1e1e; }
+
+        /* INFO BOX STYLES */
+        .info-dropdown-box { background-color: #242424; border: 1px solid #444; border-radius: 6px; padding: 12px; margin-top: 8px; font-size: 13px; color: #ccc; text-align: left; display: none; line-height: 1.6; }
+        .info-dropdown-box ul { padding-left: 18px; margin: 5px 0 0 0; }
+        .info-dropdown-box li { margin-bottom: 4px; color: #b3b3b3; }
+
+        /* LOCATION SECTION */
+        .single-location-section { padding: 60px 5%; background-color: #1e1e1e; border-top: 1px solid #333; text-align: center; }
+        .loc-title { color: #dfb160; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        .loc-card { max-width: 700px; margin: 0 auto; background-color: #2a2a2a; padding: 30px; border-radius: 12px; border: 1px solid #444; }
+        .loc-address { color: #b3b3b3; font-size: 16px; margin-bottom: 15px; line-height: 1.6; }
+        .loc-address i { color: #ff4d4d; margin-right: 8px; }
+        
+        .loc-note { color: #dfb160; font-size: 14px; font-style: italic; line-height: 1.5; background-color: rgba(223, 177, 96, 0.08); border-left: 3px solid #dfb160; padding: 10px 15px; border-radius: 4px; text-align: left; margin-top: 10px; }
+
+        /* GUIDELINES & DISCLAIMER SECTION */
+        .guidelines-section { background-color: #181818; padding: 50px 5%; border-top: 1px solid #333; color: #ccc; }
+        .guidelines-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .guidelines-box { background-color: #232323; padding: 25px; border-radius: 10px; border: 1px solid #333; }
+        .guidelines-box h3 { color: #dfb160; font-size: 20px; margin-bottom: 15px; font-family: 'Playfair Display', serif; display: flex; align-items: center; gap: 10px; }
+        .guidelines-box ul { padding-left: 20px; font-size: 14px; line-height: 1.7; }
+        .guidelines-box p { font-size: 14px; line-height: 1.7; }
+
+        /* FOOTER */
+        .site-footer { background-color: #141414; color: #b3b3b3; padding: 50px 5% 20px 5%; border-top: 1px solid #222; font-family: 'Inter', sans-serif; }
+        .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; }
+        .footer-col h3, .footer-col h4 { color: #dfb160; font-family: 'Playfair Display', serif; margin-bottom: 15px; font-size: 20px; }
+        .footer-col p { font-size: 14px; line-height: 1.6; color: #999; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links li a { color: #b3b3b3; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-links li a:hover { color: #dfb160; }
+        .footer-contact-info { list-style: none; padding: 0; }
+        .footer-contact-info li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 14px; color: #999; line-height: 1.5; }
+        .footer-contact-info li i { color: #dfb160; margin-top: 4px; }
+        .footer-bottom { text-align: center; border-top: 1px solid #222; padding-top: 20px; font-size: 13px; color: #777; }
+        .footer-bottom span { color: #dfb160; }
+
+        /* FLOATING SUPPORT BUTTON */
+        .float-support-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #ffffff; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; z-index: 9999; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .float-support-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37,211,102,0.5); color: #ffffff; }
+        .float-support-btn i { font-size: 22px; }
+
+        @media screen and (max-width: 850px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: #1a1a1a; padding: 20px; border-bottom: 1px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 1000; }
+            .nav-links.active { display: flex; }
+            .room-card { flex-direction: column; }
+            .room-image-box, .room-details-box { width: 100%; }
+            .room-image-box { height: 250px; }
+            .booking-options { flex-direction: column; }
+            .price-box { width: 100%; }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+            .form-row { flex-direction: column; gap: 0; }
+            .guidelines-container { grid-template-columns: 1fr; }
+            .dual-buttons-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="logo.png" alt="VBS Guest House Logo" class="custom-logo">
+            </div>
+            <div class="logo-text">
+                <h1>Ahobilam Rooms</h1>
+                <p>Hotels & Services</p>
+            </div>
+        </div>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="rooms.html" class="active">Rooms</a>
+            <a href="temple-history.html">Temple History</a>
+            <a href="contact.html">Contact</a>
+            <button class="book-now-btn mobile-only"><i class="fa-solid fa-phone"></i> Book Now</button>
+        </nav>
+        <div class="right-section">
+            <button class="book-now-btn desktop-only"><i class="fa-solid fa-phone"></i> Book Now</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- మెయిన్ కంటెంట్ -->
+    <main class="property-section">
+        <h2 class="property-title">VBS Guest House & Home Food</h2>
+        <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
+
+        <!-- హోటల్ గ్యాలరీ -->
+        <div class="hotel-gallery">
+            <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
+                <img src="VBC/vbc_mainview.jpeg" alt="Hotel View 1">
+                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            </div>
+            <div class="gallery-item" onclick="openGallery('hotelViews', 1)">
+                <img src="VBC/vbc_reception.jpeg" alt="Hotel View 2">
+                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            </div>
+            <div class="gallery-item" onclick="openGallery('hotelViews', 2)">
+                <img src="VBC/vbc_corridor.jpeg" alt="Hotel View 3">
+                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            </div>
+        </div>
+
+        <!-- హోటల్ వసతులు -->
+        <div class="global-amenities">
+            <div class="amenity-item"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</div>
+            <div class="amenity-item"><i class="fa-solid fa-car"></i> Parking Space</div>
+            <div class="amenity-item"><i class="fa-solid fa-hot-tub-person"></i> Hot Water (Geyser)</div>
+            <div class="amenity-item"><i class="fa-solid fa-stairs"></i> Easy Access Rooms</div>
+            <div class="amenity-item"><i class="fa-solid fa-snowflake"></i> AC & Non-AC Available</div>
+        </div>
+
+<!-- రూమ్స్ జాబితా -->
+        <div class="rooms-list">
+            
+            <!-- 2-Sharing Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room2bed', 0)">
+                    <img src="VBC/VBC_2bed.jpeg" alt="2 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>2-Sharing Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Single Bed Cots</b><br><br>Perfect for two persons with attached bathroom and geyser.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', 1300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', 1650)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-Sharing Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room3bed', 0)">
+                    <img src="VBC/vbc_3bed.jpeg" alt="3 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>3-Sharing Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>1 King Size Bed + 1 Single</b><br><br>Ideal for small families or group of 3 visiting Ahobilam.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', 1500)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-Sharing Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room4bed', 0)">
+                    <img src="VBC/vbc_4bed.jpeg" alt="4 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>4-Sharing Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Double Beds / 4 Singles</b><br><br>Spacious room designed for families or group travelers.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '4-Sharing Room', 2200)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Sharing Family Room -->
+            <div class="room-card">
+                <div class="room-image-box" onclick="openGallery('room5bed', 0)">
+                    <img src="VBC/vbc_5bed.jpeg" alt="5 Sharing Room">
+                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
+                </div>
+                <div class="room-details-box">
+                    <h3>5-Sharing Family Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>Our biggest room option! Perfectly accommodates 5 people comfortably.</p>
+                    <div class="booking-options">
+                        <div class="price-box">
+                            <h4>Non-AC</h4>
+                            <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', 2300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                        <div class="price-box">
+                            <h4>With AC</h4>
+                            <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', 2800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- LOCATION SECTION -->
+    <section class="single-location-section">
+        <h3 class="loc-title">Our Location</h3>
+        <div class="loc-card">
+            <div class="loc-address">
+                <i class="fa-solid fa-location-dot"></i> Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543
+            </div>
+            <div class="loc-note">
+                Note : Exact location details will be shared on WhatsApp once your room reservation is confirmed.
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIDELINES SECTION -->
+    <section class="guidelines-section">
+        <div class="guidelines-container">
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-circle-info"></i> Booking & Cancellation Policy</h3>
+                <ul>
+                    <li><strong>Full Payment:</strong> 100% full payment is required online to confirm your room reservation.</li>
+                    <li><strong>ID Proof:</strong> Original Government ID (Aadhar/Driving License) is mandatory for all guests at the time of Check-In.</li>
+                    <li><strong>Right to Admission:</strong> The hotel management reserves the right to deny admission if guests pose a security threat or violate rules.</li>
+                    <li><strong>Prohibited Items:</strong> Alcohol, Smoking, and Non-Vegetarian food are strictly prohibited inside the Satram/Hotel premises as Ahobilam is a sacred Kshetram.</li>
+                </ul>
+            </div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Return & Refund Policy </h3>
+                <p>Our cancellation and refund rules are as follows:</p>
+                <ul>
+                    <li><strong>Cancellation before 48 Hours:</strong> 90% of the advance amount will be refunded.</li>
+                    <li><strong>Cancellation before 24 Hours:</strong> 50% of the advance amount will be refunded.</li>
+                    <li><strong>Cancellation within 24 Hours: </strong> No refund will be provided.</li>
+                    <li><strong>Refund Processing: </strong> Refunds will be processed within 5-7 working days via UPI or Bank Transfer.</li>
+                </ul>
+            </div>
+            <div class="guidelines-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> Disclaimer</h3>
+                <p>This is an independent facilitator portal for room bookings and home food services in Ahobilam. Room tariffs and availability are subject to change during peak festival seasons and holidays.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Ahobilam Rooms</h3>
+                <p>Your comfortable stay near the sacred Ahobilam temples. Experience divine hospitality with modern amenities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="temple-history.html">Temple History</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-info">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Ahobilam, Nandyal District (Kurnool Dist), Andhra Pradesh, India</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 9553905464</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>ahobilamrooms@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span>Ahobilam Rooms</span>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP SUPPORT -->
+    <a href="https://wa.me/919553905464" target="_blank" class="float-support-btn">
+        <i class="fa-brands fa-whatsapp"></i> Chat with Us
+    </a>
+
+    <!-- BOOKING FORM MODAL -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-form-content">
+            <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+            <h3 style="color: #dfb160; margin-bottom: 15px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</h3>
+            
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <input type="hidden" id="modalRoomCategory">
+                <input type="hidden" id="modalRoomPriceNum">
+                <input type="hidden" id="modalPropertyName" value="LAKSHMI DIVYA Guest House & Home Food">
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="guestName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="guestMobile" required placeholder="Enter 10-digit mobile number">
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="width: 50%;">
+                        <label>Check-in Date & Time</label>
+                        <input type="date" id="checkInDate" required style="margin-bottom: 6px;">
+                        <input type="time" id="checkInTime" value="12:00" required>
+                    </div>
+                    <div class="form-group" style="width: 50%;">
+                        <label>Check-out Date & Time</label>
+                        <input type="date" id="checkOutDate" required style="margin-bottom: 6px;">
+                        <input type="time" id="checkOutTime" value="10:00" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="width: 50%;">
+                        <label>Number of Rooms</label>
+                        <input type="number" id="roomCount" min="1" max="10" value="1" required>
+                    </div>
+                    <div class="form-group" style="width: 50%;">
+                        <label>Number of Guests</label>
+                        <input type="number" id="guestCount" min="1" max="30" value="2" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit-booking">
+                    <i class="fa-solid fa-qrcode"></i> Proceed to Payment
+                </button>
+                
+                <!-- EXIT / BACK TO ROOMS SELECTION BUTTON -->
+                <button type="button" class="btn-exit-modal" onclick="closeBookingModal()">
+                    <i class="fa-solid fa-arrow-left"></i> Exit / Back to Rooms
+                </button>
+            </form>
+
+            <!-- PAYMENT QR & PHONEPE NUMBER SECTION -->
+            <div id="paymentSection" class="payment-container" style="display: none;">
+                <h4 id="paymentHeading">Complete Payment</h4>
+                <p id="fullAmountDisplay" style="color: #25d366; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
+                
+                <div style="background-color: #252525; padding: 12px; border-radius: 8px; margin: 10px 0; border: 1px dashed #dfb160; text-align: left;">
+                    <p style="font-size: 14px; color: #fff; font-weight: bold; margin-bottom: 4px;">
+                        PhonePe / GPay No: <span style="color: #25d366; font-size: 16px;">9553905464</span>
+                    </p>
+                    <p style="font-size: 13px; color: #fff;">
+                        UPI ID: <span id="upiIdText" style="color: #dfb160;">dhanunjayamadham@ybl</span>
+                    </p>
+                </div>
+
+                <img id="upiQrCode" src="" alt="Payment QR Code" class="qr-code-img">
+
+                <div class="payment-instructions">
+                    <i class="fa-solid fa-circle-info"></i> <strong>Note:</strong> After successful payment, click below to send details and screenshot to WhatsApp.
+                </div>
+
+                <button id="whatsappSendBtn" onclick="sendToWhatsApp()" class="btn-whatsapp-book" style="margin-top: 10px; padding: 12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Details & Screenshot to WhatsApp
+                </button>
+
+                <div class="dual-buttons-row">
+                    <button type="button" onclick="toggleInfoBox('nearByInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-map-location-dot"></i> Near by Places
+                    </button>
+                    <button type="button" onclick="toggleInfoBox('rentalCarsInfoBox')" class="btn-custom-action">
+                        <i class="fa-solid fa-car"></i> Rental Cars
+                    </button>
+                </div>
+
+                <div id="nearByInfoBox" class="info-dropdown-box">
+                    <strong>Tourist & Temple Places Around Ahobilam:</strong>
+                    <ul>
+                        <li>Ahobilam (9 Temples)</li>
+                        <li>Mahanandhi</li>
+                        <li>Yaganti</li>
+                        <li>Belum Caves</li>
+                        <li>Nandhavaram</li>
+                        <li>Devuni Kadapa</li>
+                        <li>Mantralayam</li>
+                    </ul>
+                </div>
+
+                <div id="rentalCarsInfoBox" class="info-dropdown-box">
+                    <strong>🚗 Reliable Car Rental Services in Ahobilam</strong><br>
+                    Plan your divine journey to the Nava Narasimha Kshetras and comfortable outstation trips with us.<br>
+                    <br>
+                    Comfort & Safety: AC/Non-AC vehicles with experienced, friendly drivers.<br><br>
+                    <span style="color: #dfb160; font-weight: bold; display: inline-block; margin-top: 5px;">
+                        <i class="fa-solid fa-phone"></i> Contact: +91 9553905464
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY LIGHTBOX MODAL -->
+    <div id="galleryModal" class="modal">
+        <span class="close-btn" onclick="closeGalleryModal()" style="right: 30px; top: 20px;">&times;</span>
+        <div class="modal-content-wrap">
+            <a class="prev-btn" onclick="changeSlide(-1)">&#10094;</a>
+            <img id="modalImage" src="" alt="Enlarged View">
+            <a class="next-btn" onclick="changeSlide(1)">&#10095;</a>
+            <div id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const MERCHANT_UPI = "dhanunjayamadham@ybl";
+        const MERCHANT_NAME = "VBS Guest House Ahobilam";
+        const WHATSAPP_NUMBER = "919553905464";
+
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkInInput = document.getElementById('checkInDate');
+            const checkOutInput = document.getElementById('checkOutDate');
+            const today = new Date().toISOString().split('T')[0];
+            
+            if(checkInInput) checkInInput.setAttribute('min', today);
+            if(checkOutInput) checkOutInput.setAttribute('min', today);
+
+            [checkInInput, checkOutInput].forEach(input => {
+                if(input) {
+                    input.addEventListener('click', function() {
+                        if (typeof this.showPicker === 'function') {
+                            this.showPicker();
+                        }
+                    });
+                }
+            });
+        });
+
+        const galleryData = {
+           hotelViews: [
+                { src: "VBC/vbc_mainview.jpeg", caption: "Main Building View" },
+                { src: "VBC/vbc_reception.jpeg", caption: "Reception Area" },
+                { src: "VBC/vbc_corridor.jpeg", caption: "Corridor" }
+            ],
+            room2bed: [
+                { src: "VBC/VBC_2bed.jpeg", caption: "2 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ],
+            room3bed: [
+                { src: "VBC/vbc_3bed.jpeg", caption: "3 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ],
+            room4bed: [
+                { src: "VBC/vbc_4bed.jpeg", caption: "4 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ],
+            room5bed: [
+                { src: "VBC/vbc_5bed.jpeg", caption: "5 Sharing Family Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
+            ]
+        };
+
+        let currentGalleryKey = '';
+        let currentIndex = 0;
+
+        function openGallery(key, index) {
+            currentGalleryKey = key;
+            currentIndex = index;
+            updateGalleryImage();
+            document.getElementById('galleryModal').style.display = "block";
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').style.display = "none";
+        }
+
+        function changeSlide(direction) {
+            const images = galleryData[currentGalleryKey];
+            currentIndex += direction;
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            updateGalleryImage();
+        }
+
+        function updateGalleryImage() {
+            const item = galleryData[currentGalleryKey][currentIndex];
+            document.getElementById('modalImage').src = item.src;
+            document.getElementById('modal-caption').innerText = item.caption;
+        }
+
+        function openBookingModal(category, type, priceNum) {
+            document.getElementById('modalRoomCategory').value = category + " (" + type + ")";
+            document.getElementById('modalRoomPriceNum').value = priceNum;
+            document.getElementById('roomCount').value = 1; // Default 1 room
+            
+            document.getElementById('bookingForm').style.display = 'block';
+            document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('nearByInfoBox').style.display = 'none';
+            document.getElementById('rentalCarsInfoBox').style.display = 'none';
+            
+            document.getElementById('bookingModal').style.display = "block";
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = "none";
+        }
+
+        function toggleInfoBox(boxId) {
+            const box = document.getElementById(boxId);
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
+        }
+
+        function formatTime12h(timeStr) {
+            if (!timeStr) return '';
+            let [hours, minutes] = timeStr.split(':');
+            let h = parseInt(hours, 10);
+            let ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12;
+            h = h ? h : 12; 
+            return `${h}:${minutes} ${ampm}`;
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+
+            const checkInDate = new Date(document.getElementById('checkInDate').value);
+            const checkOutDate = new Date(document.getElementById('checkOutDate').value);
+
+            let timeDiff = checkOutDate.getTime() - checkInDate.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1; 
+
+            const roomCount = parseInt(document.getElementById('roomCount').value) || 1;
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights * roomCount;
+
+            const upiLink = `upi://pay?pa=${MERCHANT_UPI}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${fullPrice}&cu=INR`;
+
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('paymentSection').style.display = 'block';
+
+            document.getElementById('paymentHeading').innerText = `Pay for ${roomCount} Room(s) & ${nights} Night(s)`;
+            document.getElementById('fullAmountDisplay').innerText = `Total Amount: ₹${fullPrice}`;
+
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(upiLink)}`;
+            document.getElementById('upiQrCode').src = qrApiUrl;
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('guestName').value;
+            const mobile = document.getElementById('guestMobile').value;
+            const checkIn = document.getElementById('checkInDate').value;
+            const checkInTimeRaw = document.getElementById('checkInTime').value;
+            const checkOut = document.getElementById('checkOutDate').value;
+            const checkOutTimeRaw = document.getElementById('checkOutTime').value;
+            const rooms = document.getElementById('roomCount').value;
+            const guests = document.getElementById('guestCount').value;
+            const room = document.getElementById('modalRoomCategory').value;
+            
+            const checkInTime = formatTime12h(checkInTimeRaw);
+            const checkOutTime = formatTime12h(checkOutTimeRaw);
+
+            const checkInDateObj = new Date(checkIn);
+            const checkOutDateObj = new Date(checkOut);
+            let timeDiff = checkOutDateObj.getTime() - checkInDateObj.getTime();
+            let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if (nights <= 0) nights = 1;
+
+            const roomCount = parseInt(rooms) || 1;
+            const perNightPrice = parseFloat(document.getElementById('modalRoomPriceNum').value);
+            const fullPrice = perNightPrice * nights * roomCount;
+
+            const property = document.getElementById('modalPropertyName').value;
+            
+            const message = `Om Namo Narasimhaya!\nNew Ahobilam Room Booking Payment\n----------------------------------\n- Guest Name: ${name}\n- Mobile: ${mobile}\n- Check-in: ${checkIn} (${checkInTime})\n- Check-out: ${checkOut} (${checkOutTime})\n- Number of Rooms: ${roomCount}\n- Number of Nights: ${nights}\n- Number of Guests: ${guests}\n- Room Category: ${room}\n- Total Amount: ₹${fullPrice}\n- Preferred Property: ${property}\n\n📸 *Note:* I have completed the payment. Attaching/sharing the payment screenshot here.\n\n📍 *Our Location Details for Customer:* Near Temple Arch, Lower Ahobilam, Allagadda Mandal, Nandyal District, Andhra Pradesh - 518543\n🌍 *Google Maps Link:* https://www.google.com/maps/place/LAKSHMI+DIVYA+Guest+House/@15.1325285,78.6736488,19.5z/data=!4m11!3m10!1s0x3bb4f546063d1a3f:0x8d3b8191275e33d6!5m4!1s2026-09-20!2i4!4m1!1i2!8m2!3d15.1326432!4d78.6742095!16s%2Fg%2F11ggsg2zhf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D`;
+
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        window.onclick = function(event) {
+            const bookingModal = document.getElementById('bookingModal');
+            if (event.target == bookingModal) closeBookingModal();
+            if (event.target == document.getElementById('galleryModal')) closeGalleryModal();
+        }
+    </script>
+</body>
+</html>
