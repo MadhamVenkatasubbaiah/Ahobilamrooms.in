@@ -175,29 +175,21 @@
 
     <!-- మెయిన్ కంటెంట్ -->
     <main class="property-section">
-        <h2 class="property-title">LDG Guest House & Home Food</h2>
+        <h2 class="property-title">VBS Guest House & Home Food</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-        <!-- హోటల్ వ్యూ ఫోటోలు -->
+        <!-- హోటల్ గ్యాలరీ -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
-                <img src="LDG/LDG_mainview.jpeg" alt="Hotel View 1">
+                <img src="VBC/vbc_mainview.jpeg" alt="Hotel View 1">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 1)">
-                <img src="LDG/LDG_reception.jpg" alt="Hotel View 2">
+                <img src="VBC/vbc_reception.jpeg" alt="Hotel View 2">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
             <div class="gallery-item" onclick="openGallery('hotelViews', 2)">
-                <img src="LDG/LDG_corridor.jpeg" alt="Hotel View 3">
-                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
-            </div>
-            <div class="gallery-item" onclick="openGallery('hotelViews', 3)">
-                <img src="LDG/LDG_corridor.1.jpeg" alt="Hotel View 4">
-                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
-            </div>
-            <div class="gallery-item" onclick="openGallery('hotelViews', 4)">
-                <img src="LDG/LDG_corridor.2.jpeg" alt="Hotel View 5">
+                <img src="VBC/vbc_corridor.jpeg" alt="Hotel View 3">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
         </div>
@@ -211,158 +203,115 @@
             <div class="amenity-item"><i class="fa-solid fa-snowflake"></i> AC & Non-AC Available</div>
         </div>
 
-        <!-- రూమ్స్ లిస్ట్ -->
+<!-- రూమ్స్ జాబితా -->
         <div class="rooms-list">
             
-            <!-- ROOM 1 -->
+            <!-- 2-Sharing Room -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room2bed', 0)">
-                    <img src="LDG/LDG_3bed.1.jpeg" alt="2 Sharing Room">
+                    <img src="VBC/VBC_2bed.jpeg" alt="2 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
                     <h3>2-Sharing Room</h3>
-                    <p class="room-desc">
-                        <i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Single Bed Cots</b><br><br>
-                        Perfect for two persons. This room is equipped with comfortable single beds and an attached bathroom with geyser.
-                    </p>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Single Bed Cots</b><br><br>Perfect for two persons with attached bathroom and geyser.</p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'Non-AC', '1000')">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', 1300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1400 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('2-Sharing Room', 'AC', '1400')">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <div class="price-amount">₹1650 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', 1650)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 2 -->
+            <!-- 3-Sharing Room -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room3bed', 0)">
-                    <img src="LDG/LDG_3bed.jpeg" alt="3 Sharing Room">
+                    <img src="VBC/vbc_3bed.jpeg" alt="3 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
                     <h3>3-Sharing Room</h3>
-                    <p class="room-desc">
-                        <i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>1 King Size Bed + 1 Single / 3 Singles</b><br><br>
-                        Ideal for families or groups of 3 visiting Ahobilam. Spacious room offering excellent comfort.
-                    </p>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>1 King Size Bed + 1 Single</b><br><br>Ideal for small families or group of 3 visiting Ahobilam.</p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'Non-AC', '1200')">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', 1500)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('3-Sharing Room', 'AC', '1500')">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 3 -->
+            <!-- 4-Sharing Room -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room4bed', 0)">
-                    <img src="LDG/LDG_4bed.jpeg" alt="4 Sharing Room">
+                    <img src="VBC/vbc_4bed.jpeg" alt="4 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
                     <h3>4-Sharing Room</h3>
-                    <p class="room-desc">
-                        <i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Double Beds / 4 Singles</b><br><br>
-                        Great for larger families. Ample space for 4 members with all basic amenities provided.
-                    </p>
-                    <div class="booking-options">
-                        <div class="price-box">
-                            <h4>Non-AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'Non-AC', '1500')">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
-                            </button>
-                        </div>
-                        <div class="price-box">
-                            <h4>With AC</h4>
-                            <div class="price-amount">₹2000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('4-Sharing Room', 'AC', '2000')">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ROOM 4 -->
-            <div class="room-card">
-                <div class="room-image-box" onclick="openGallery('room5bed', 0)">
-                    <img src="LDG/LDG_6bed.1.jpeg" alt="5 Sharing Room">
-                    <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
-                </div>
-                <div class="room-details-box">
-                    <h3>5-Sharing Family Room</h3>
-                    <p class="room-desc">
-                        <i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>
-                        Perfectly accommodates 5 people comfortably. Perfect for groups visiting the temple.
-                    </p>
+                    <p class="room-desc"><i class="fa-solid fa-bed" style="color: #dfb160;"></i> <b>2 Double Beds / 4 Singles</b><br><br>Spacious room designed for families or group travelers.</p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
                             <div class="price-amount">₹1800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'Non-AC', '1800')">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <button onclick="openBookingModal('Non-AC Room', '4-Sharing Room', 1800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
                             <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('5-Sharing Room', 'AC', '2200')">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <button onclick="openBookingModal('AC Room', '4-Sharing Room', 2200)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ROOM 5 -->
+            <!-- 5-Sharing Family Room -->
             <div class="room-card">
-                <div class="room-image-box" onclick="openGallery('room6bed', 0)">
-                    <img src="LDG/LDG_6bed.jpeg" alt="6 Sharing Room">
+                <div class="room-image-box" onclick="openGallery('room5bed', 0)">
+                    <img src="VBC/vbc_5bed.jpeg" alt="5 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
-                    <h3>6-Sharing Family Room</h3>
-                    <p class="room-desc">
-                        <i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>
-                        Our biggest room option! Perfectly accommodates 6 people comfortably.
-                    </p>
+                    <h3>5-Sharing Family Room</h3>
+                    <p class="room-desc"><i class="fa-solid fa-users" style="color: #dfb160;"></i> <b>Large Family Space</b><br><br>Our biggest room option! Perfectly accommodates 5 people comfortably.</p>
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹2200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'Non-AC', '2200')">
-                                <i class="fa-brands fa-whatsapp"></i> Book Non-AC
+                            <div class="price-amount">₹2300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '5-Sharing Family Room', 2300)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹2600 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button class="btn-whatsapp-book" onclick="openBookingModal('6-Sharing Room', 'AC', '2600')">
-                                <i class="fa-brands fa-whatsapp"></i> Book AC
+                            <div class="price-amount">₹2800 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '5-Sharing Family Room', 2800)" class="btn-whatsapp-book">
+                                <i class="fa-solid fa-check-circle"></i> Book Room
                             </button>
                         </div>
                     </div>
@@ -439,7 +388,7 @@
                     </li>
                     <li>
                         <i class="fa-solid fa-phone"></i>
-                        <span>+91 76759 62840</span>
+                        <span>+91 9553905464 /span>
                     </li>
                     <li>
                         <i class="fa-solid fa-envelope"></i>
@@ -562,7 +511,7 @@
                     <br>
                     Comfort & Safety: AC/Non-AC vehicles with experienced, friendly drivers.<br><br>
                     <span style="color: #dfb160; font-weight: bold; display: inline-block; margin-top: 5px;">
-                        <i class="fa-solid fa-phone"></i> Contact: 7675962840
+                        <i class="fa-solid fa-phone"></i> Contact: +91 9553905464
                     </span>
                 </div>
             </div>
@@ -615,37 +564,26 @@
         });
 
         const galleryData = {
-           'hotelViews': [
-                { src: 'LDG/LDG_mainview.jpeg', caption: 'Hotel Front View' },
-                { src: 'LDG/LDG_reception.jpg', caption: 'Reception Area' },
-                { src: 'LDG/LDG_corridor.jpeg', caption: 'Corridor / Exterior' },
-                { src: 'LDG/LDG_corridor.1.jpeg', caption: 'Corridor / Exterior' },
-                { src: 'LDG/LDG_corridor.2.jpeg', caption: 'Corridor / Exterior' }
+           hotelViews: [
+                { src: "VBC/vbc_mainview.jpeg", caption: "Main Building View" },
+                { src: "VBC/vbc_reception.jpeg", caption: "Reception Area" },
+                { src: "VBC/vbc_corridor.jpeg", caption: "Corridor" }
             ],
-            'room2bed': [
-                { src: 'LDG/LDG_3bed.1.jpeg', caption: '2 Sharing - Room' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '2 Sharing - Bathroom' } 
+            room2bed: [
+                { src: "VBC/VBC_2bed.jpeg", caption: "2 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ],
-            'room3bed': [
-                { src: 'LDG/LDG_3bed.jpeg', caption: '3 Sharing - Main View' },
-                { src: 'LDG/LDG_3bed.1.jpeg', caption: '3 Sharing - Inner View' }, 
-                { src: 'LDG/LDG_washroom.jpeg', caption: '3 Sharing - Bathroom' } 
+            room3bed: [
+                { src: "VBC/vbc_3bed.jpeg", caption: "3 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ],
-            'room4bed': [
-                { src: 'LDG/LDG_4bed.jpeg', caption: '4 Sharing - Main View' },
-                { src: 'LDG/LDG_4bed.1.jpeg', caption: '4 Sharing - Inner View' }, 
-                { src: 'LDG/LDG_4bed.2.jpeg', caption: '4 Sharing - Inner View' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '4 Sharing - Bathroom' } 
+            room4bed: [
+                { src: "VBC/vbc_4bed.jpeg", caption: "4 Sharing - Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ],
-            'room5bed': [
-                { src: 'LDG/LDG_6bed.1.jpeg', caption: '5 Sharing - Main View' },
-                { src: 'LDG/LDG_corridor.jpeg', caption: 'corridor - Inner View' },
-                { src: 'LDG/LDG_washroom.1.jpeg', caption: '5 Sharing - Bathroom' } 
-            ],
-           'room6bed': [
-                { src: 'LDG/LDG_6bed.jpeg', caption: '6 Sharing - Main View' },
-                { src: 'LDG/LDG_corridor.1.jpeg', caption: 'corridor - Inner View' },
-                { src: 'LDG/LDG_washroom.jpeg', caption: '6 Sharing - Bathroom' } 
+            room5bed: [
+                { src: "VBC/vbc_5bed.jpeg", caption: "5 Sharing Family Room" },
+                { src: "VBC/vbc_washroom.jpeg", caption: "Bathroom" }
             ]
         };
 
