@@ -178,15 +178,19 @@
         <h2 class="property-title">ABC Guest House</h2>
         <p class="property-subtitle">Comfortable and affordable stay for families and groups.</p>
 
-       <!-- హోటల్ గ్యాలరీ -->
+<!-- హోటల్ గ్యాలరీ -->
         <div class="hotel-gallery">
             <div class="gallery-item" onclick="openGallery('hotelViews', 0)">
                 <img src="bujji/ABC_Mainview.jpg" alt="Hotel View 1">
                 <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
             </div>
-            <div class="gallery-item" onclick="openGallery('hotelViews', 2)">
-                <img src="MRC/MR_corridor.jpeg" alt="Hotel View 3">
-                <div class="img-overlay"><i class="fa-solid fa-expand"></i><span>View Image</span></div>
+            
+            <!-- కారిడార్ ఇమేజ్ బదులుగా వీడియో జోడించబడింది -->
+            <div class="gallery-item">
+                <video controls width="100%" height="100%" style="object-fit: cover;">
+                    <source src="bujji/ABC_corridor_video.mp4" type="video/mp4">
+                    మీ బ్రౌజర్ వీడియో ట్యాగ్‌ను సపోర్ట్ చేయదు.
+                </video>
             </div>
         </div>
 
@@ -205,7 +209,7 @@
             <!-- 2-Sharing Room -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room1', 0)">
-                    <img src="MRC/MR_2bed.jpeg" alt="2 Sharing Room">
+                    <img src="bujji/ABC_2bed.jpg" alt="2 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -214,15 +218,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1100 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '1100')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1200 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '2-Sharing Room', '1200')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1300 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '1300')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1700 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '2-Sharing Room', '1700')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book AC
                             </button>
                         </div>
@@ -233,7 +237,7 @@
             <!-- 3-Sharing Room -->
             <div class="room-card">
                 <div class="room-image-box" onclick="openGallery('room2', 0)">
-                    <img src="MRC/MR_3bed.jpeg" alt="3 Sharing Room">
+                    <img src="bujji/ABC_3bed.jpg" alt="3 Sharing Room">
                     <div class="img-overlay"><i class="fa-solid fa-images"></i><span>View Room Gallery</span></div>
                 </div>
                 <div class="room-details-box">
@@ -242,15 +246,15 @@
                     <div class="booking-options">
                         <div class="price-box">
                             <h4>Non-AC</h4>
-                            <div class="price-amount">₹1400 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '1300')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('Non-AC Room', '3-Sharing Room', '1500')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book Non-AC
                             </button>
                         </div>
                         <div class="price-box">
                             <h4>With AC</h4>
-                            <div class="price-amount">₹1500 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
-                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '1700')" class="btn-whatsapp-book">
+                            <div class="price-amount">₹2000 <span style="font-size:12px; color:#b3b3b3;">/night</span></div>
+                            <button onclick="openBookingModal('AC Room', '3-Sharing Room', '2000')" class="btn-whatsapp-book">
                                 <i class="fa-solid fa-calendar-check"></i> Book AC
                             </button>
                         </div>
@@ -290,7 +294,7 @@
                 <h3><i class="fa-solid fa-shield-halved"></i> Return & Refund Policy </h3>
                 <p>Our cancellation and refund rules are as follows:</p>
                 <ul>
-                    <li><strong>Cancellation before 48 Hours:</strong> 90% of the advance amount will be refunded.</li>
+                    <li><strong>Cancellation before 48 Hours:</strong> 80% of the advance amount will be refunded.</li>
                     <li><strong>Cancellation before 24 Hours:</strong> 50% of the advance amount will be refunded.</li>
                     <li><strong>Cancellation within 24 Hours: </strong> No refund will be provided.</li>
                     <li><strong>Refund Processing: </strong> Refunds will be processed within 5-7 working days via UPI or Bank Transfer.</li>
@@ -505,18 +509,20 @@
 
         const galleryData = {
             'hotelViews': [
-                { src: 'MRC/MR_mainview.jpeg', caption: 'Hotel Front View' },
-                { src: 'MRC/MR_Parking.jpeg', caption: 'Parking Area' },
-                { src: 'MRC/MR_corridor.jpeg', caption: 'Entrance' }
+                { src: 'bujji/ABC_Mainview.jpg', caption: 'Hotel Front View' },
+                { src: 'bujji/ABC_corridor_video.mp4', caption: 'Parking Area' },
+                { src: 'bujji/ABC_washroom.jpg', caption: 'Entrance' }
             ],
             'room1': [
-                { src: 'MRC/MR_2bed.jpeg', caption: '2 Sharing - Room' },
-                { src: 'MRC/MR-washroom.jpeg', caption: '2 Sharing - Bathroom' },  
+                { src: 'bujji/ABC_2bed.jpg', caption: '2 Sharing - Room' },
+                { src: 'bujji/ABC_2bed.1.jpg', caption: '2 Sharing - Room' },
+                { src: 'bujji/ABC_washroom.jpg', caption: '2 Sharing - Bathroom' },  
             ],
             'room2': [
-                { src: 'MRC/MR_3bed.jpeg', caption: '3 Sharing - Room' },
-                { src: 'MRC/MR_3bed.1.jpeg', caption: '3 Sharing - Room' }, 
-                { src: 'MRC/MR_washroom.1.jpeg', caption: '3 Sharing - Bathroom' } 
+                { src: 'bujji/ABC_3bed.jpg', caption: '3 Sharing - Room' },
+                { src: 'bujji/ABC_3bed.1.jpg', caption: '3 Sharing - Room' }, 
+                { src: 'bujji/ABC_3bed.2.jpg', caption: '3 Sharing - Room' },
+                { src: 'bujji/ABC_washroom.jpg', caption: '3 Sharing - Bathroom' } 
             ]
         };
 
