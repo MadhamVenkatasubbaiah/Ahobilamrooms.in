@@ -31,23 +31,30 @@
 
   <!-- Madam Rajeswari Complex Page -->
   <url>
-    <loc>https://ahobilamrooms.in/MRC.html</loc>
+    <loc>https://ahobilamrooms.in/madam-rajeswari-complex.html</loc>
     <lastmod>2026-09-19</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- Veerabadhra / VBS Complex Page -->
   <url>
-    <loc>https://ahobilamrooms.in/veerabadhra-complex.html</loc>
+    <loc>https://ahobilamrooms.in/Ahobilam_Veerabadhra_Swamy_Guest_House.html</loc>
     <lastmod>2026-09-19</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- LDG Guest House Page -->
   <url>
-    <loc>https://ahobilamrooms.in/LDG-Complex.html</loc>
+    <loc>https://ahobilamrooms.in/Ahobilam_Lakshmi_Divya_Guest_House.html</loc>
     <lastmod>2026-09-19</lastmod>
     <priority>0.8</priority>
   </url>
-
+  
+   <!-- Bujji Guest House Page -->
+  <url>
+    <loc>https://ahobilamrooms.in/Ahobilam_bujjiguesthouse.htmll</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>
