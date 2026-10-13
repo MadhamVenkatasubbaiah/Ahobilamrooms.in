@@ -83,8 +83,160 @@
         });
     </script>
 
+    <!-- ================= TEMPLE HISTORY & TIMINGS SECTION ================= -->
+    <style>
+        .history-section {
+            padding: 90px 5%;
+            background-color: #1e1e1e;
+            border-top: 1px solid #333;
+        }
 
-    <!-- ================= UNIQUE AHOBILAM TOUR PACKAGES SECTION ================= -->
+        .history-title {
+            text-align: center; 
+            color: #dfb160; 
+            font-size: 38px; 
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        .history-desc {
+            max-width: 900px; 
+            margin: 0 auto 50px auto; 
+            color: #b3b3b3; 
+            font-size: 16px; 
+            line-height: 1.8; 
+            text-align: center;
+        }
+        .history-desc strong {
+            color: #ffffff;
+        }
+
+        .timings-container {
+            display: flex; 
+            gap: 30px; 
+            max-width: 1000px; 
+            margin: 0 auto;
+        }
+
+        .timing-card {
+            flex: 1; 
+            background-color: #2a2a2a; 
+            border-radius: 12px; 
+            border: 1px solid #444; 
+            padding: 35px 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .timing-card:hover { 
+            border-color: #dfb160; 
+            transform: translateY(-5px); 
+        }
+        
+        .timing-card h3 {
+            color: #dfb160; 
+            font-size: 24px; 
+            margin-bottom: 25px; 
+            text-align: center; 
+            font-family: 'Playfair Display', serif; 
+            border-bottom: 1px dashed #444; 
+            padding-bottom: 15px;
+        }
+
+        .time-slot {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 20px; 
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .session { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            color: #ffffff; 
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .session i { 
+            color: #dfb160; 
+            font-size: 22px; 
+        }
+        .time {
+            color: #dfb160;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .forest-alert {
+            text-align: center;
+            color: #ff4d4d;
+            font-size: 13px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        @media screen and (max-width: 800px) {
+            .timings-container { flex-direction: column; }
+            .history-title { font-size: 32px; }
+        }
+    </style>
+
+    <section id="history" class="history-section">
+        <h2 class="history-title">The Sacred Land of Nava Narasimha</h2>
+        <p class="history-desc">
+            Ahobilam is the only place where all <strong>nine forms of Lord Narasimha</strong> (Nava Narasimha) are worshipped. It is the holy abode where the Lord emerged from the pillar to bless His devotee Prahlada and slay the demon Hiranyakashipu. The temple complex is naturally divided into two parts: <strong>Lower Ahobilam</strong> (Diguva Ahobilam), which is at the foot of the hills, and <strong>Upper Ahobilam</strong> (Eguva Ahobilam), which is located amidst the dense Nallamala forests.
+        </p>
+
+        <div class="timings-container">
+            <div class="timing-card">
+                <h3>Lower Ahobilam (Diguva)</h3>
+                <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Prahlada Varada Swamy Temple</p>
+                
+                <div class="time-slot">
+                    <div class="session">
+                        <i class="fa-solid fa-sun"></i> Morning Darshan
+                    </div>
+                    <div class="time">6:30 AM - 1:00 PM</div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="session">
+                        <i class="fa-solid fa-moon"></i> Evening Darshan
+                    </div>
+                    <div class="time">3:00 PM - 8:00 PM</div>
+                </div>
+            </div>
+
+            <div class="timing-card">
+                <h3>Upper Ahobilam (Eguva)</h3>
+                <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Ahobila Ugra Narasimha Swamy Temple</p>
+                
+                <div class="time-slot">
+                    <div class="session">
+                        <i class="fa-solid fa-sun"></i> Morning Darshan
+                    </div>
+                    <div class="time">7:00 AM - 1:00 PM</div>
+                </div>
+                
+                <div class="time-slot">
+                    <div class="session">
+                        <i class="fa-solid fa-cloud-sun"></i> Evening Darshan
+                    </div>
+                    <div class="time">2:00 PM - 7:00 PM</div>
+                </div>
+
+                <div class="forest-alert">
+                    <i class="fa-solid fa-circle-info"></i> Upper Ahobilam closes early as it is located in a dense forest area. Visitors are advised to return before dark.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ================= UNIQUE AHOBILAM TOUR PACKAGES SECTION (PLACED AT MARKED LOCATION) ================= -->
     <style>
         .tour-packages-section {
             padding: 90px 5%;
@@ -222,7 +374,6 @@
             font-size: 13px;
         }
 
-        /* Pricing Box Style */
         .pricing-section-box {
             max-width: 1200px;
             margin: 0 auto;
@@ -419,108 +570,6 @@
 
 
 
-    <!-- ================= TEMPLE HISTORY & TIMINGS SECTION ================= -->
-    <style>
-        .history-section {
-            padding: 90px 5%;
-            background-color: #1e1e1e;
-            border-top: 1px solid #333;
-        }
-
-        .history-title {
-            text-align: center; 
-            color: #dfb160; 
-            font-size: 38px; 
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-        .history-desc {
-            max-width: 900px; 
-            margin: 0 auto 50px auto; 
-            color: #b3b3b3; 
-            font-size: 16px; 
-            line-height: 1.8; 
-            text-align: center;
-        }
-        .history-desc strong {
-            color: #ffffff;
-        }
-
-        .timings-container {
-            display: flex; 
-            gap: 30px; 
-            max-width: 1000px; 
-            margin: 0 auto;
-        }
-
-        .timing-card {
-            flex: 1; 
-            background-color: #2a2a2a; 
-            border-radius: 12px; 
-            border: 1px solid #444; 
-            padding: 35px 30px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .timing-card:hover { 
-            border-color: #dfb160; 
-            transform: translateY(-5px); 
-        }
-        
-        .timing-card h3 {
-            color: #dfb160; 
-            font-size: 24px; 
-            margin-bottom: 25px; 
-            text-align: center; 
-            font-family: 'Playfair Display', serif; 
-            border-bottom: 1px dashed #444; 
-            padding-bottom: 15px;
-        }
-
-        .time-slot {
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            margin-bottom: 20px; 
-            background-color: #1e1e1e;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-        .session { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            color: #ffffff; 
-            font-weight: 500;
-            font-size: 16px;
-        }
-        .session i { 
-            color: #dfb160; 
-            font-size: 22px; 
-        }
-        .time {
-            color: #dfb160;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .forest-alert {
-            text-align: center;
-            color: #ff4d4d;
-            font-size: 13px;
-            margin-top: 20px;
-            font-style: italic;
-        }
-
-        @media screen and (max-width: 800px) {
-            .timings-container { flex-direction: column; }
-            .history-title { font-size: 32px; }
-        }
-    </style>
-
-
-
     <!-- ================= NAVA NARASIMHA SECTION ================= -->
     <style>
         .nava-section {
@@ -699,60 +748,6 @@
             </div>
         </div>
     </section>
-
-
-<!-- Temple timings -->
-    <section id="history" class="history-section">
-        <h2 class="history-title">The Sacred Land of Nava Narasimha</h2>
-        <p class="history-desc">
-            Ahobilam is the only place where all <strong>nine forms of Lord Narasimha</strong> (Nava Narasimha) are worshipped. It is the holy abode where the Lord emerged from the pillar to bless His devotee Prahlada and slay the demon Hiranyakashipu. The temple complex is naturally divided into two parts: <strong>Lower Ahobilam</strong> (Diguva Ahobilam), which is at the foot of the hills, and <strong>Upper Ahobilam</strong> (Eguva Ahobilam), which is located amidst the dense Nallamala forests.
-        </p>
-
-        <div class="timings-container">
-            <div class="timing-card">
-                <h3>Lower Ahobilam (Diguva)</h3>
-                <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Prahlada Varada Swamy Temple</p>
-                
-                <div class="time-slot">
-                    <div class="session">
-                        <i class="fa-solid fa-sun"></i> Morning Darshan
-                    </div>
-                    <div class="time">6:30 AM - 1:00 PM</div>
-                </div>
-                
-                <div class="time-slot">
-                    <div class="session">
-                        <i class="fa-solid fa-moon"></i> Evening Darshan
-                    </div>
-                    <div class="time">3:00 PM - 8:00 PM</div>
-                </div>
-            </div>
-
-            <div class="timing-card">
-                <h3>Upper Ahobilam (Eguva)</h3>
-                <p style="text-align:center; color:#b3b3b3; font-size:14px; margin-top:-15px; margin-bottom:25px;">Ahobila Ugra Narasimha Swamy Temple</p>
-                
-                <div class="time-slot">
-                    <div class="session">
-                        <i class="fa-solid fa-sun"></i> Morning Darshan
-                    </div>
-                    <div class="time">7:00 AM - 1:00 PM</div>
-                </div>
-                
-                <div class="time-slot">
-                    <div class="session">
-                        <i class="fa-solid fa-cloud-sun"></i> Evening Darshan
-                    </div>
-                    <div class="time">2:00 PM - 7:00 PM</div>
-                </div>
-
-                <div class="forest-alert">
-                    <i class="fa-solid fa-circle-info"></i> Upper Ahobilam closes early as it is located in a dense forest area. Visitors are advised to return before dark.
-                </div>
-            </div>
-        </div>
-    </section>
-
     
     <!-- ================= FESTIVALS & NEARBY PLACES SECTION ================= -->
     <style>
@@ -1046,104 +1041,4 @@
             
             <form class="modal-form" id="whatsappBookingForm" onsubmit="sendWhatsAppBooking(event)">
                 <div class="form-group">
-                    <label for="guestName"><i class="fa-solid fa-user"></i> Full Name</label>
-                    <input type="text" id="guestName" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="checkInDate"><i class="fa-solid fa-calendar"></i> Check-in Date</label>
-                    <input type="date" id="checkInDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="roomType"><i class="fa-solid fa-bed"></i> Room Type</label>
-                    <select id="roomType" required>
-                        <option value="AC Room">AC Room</option>
-                        <option value="Non-AC Room">Non-AC Room</option>
-                        <option value="Deluxe Family Room">Deluxe Family Room</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="guestsCount"><i class="fa-solid fa-users"></i> No. of Guests</label>
-                    <input type="number" id="guestsCount" min="1" max="20" placeholder="Number of guests" required>
-                </div>
-                <button type="submit" class="modal-submit-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Send Booking Request
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal JavaScript -->
-    <script>
-        function openBookingModal() {
-            document.getElementById('bookingModal').classList.add('active');
-        }
-
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside box
-        window.addEventListener('click', function(e) {
-            const modal = document.getElementById('bookingModal');
-            if (e.target === modal) {
-                closeBookingModal();
-            }
-        });
-
-        function sendWhatsAppBooking(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('guestName').value;
-            const date = document.getElementById('checkInDate').value;
-            const room = document.getElementById('roomType').value;
-            const guests = document.getElementById('guestsCount').value;
-
-            const phone = "919553905464";
-            const text = `Om Namo Narasimhaya!%0A%0A*New Room Booking Enquiry*%0A*Name:* ${encodeURIComponent(name)}%0A*Check-in Date:* ${encodeURIComponent(date)}%0A*Room Type:* ${encodeURIComponent(room)}%0A*Guests:* ${encodeURIComponent(guests)}%0A%0APlease confirm availability.`;
-
-            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-            closeBookingModal();
-        }
-    </script>
-
-    <!-- ================= FLOATING CUSTOMER SUPPORT CHAT BUTTON ================= -->
-    <style>
-        .float-support-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: #ffffff;
-            border-radius: 50px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-            z-index: 9999;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .float-support-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-            color: #ffffff;
-        }
-
-        .float-support-btn i {
-            font-size: 22px;
-        }
-    </style>
-
-    <a href="https://wa.me/919553905464?text=Om%20Namo%20Narasimhaya!%20I%20have%20a%20query%20regarding%20room%20booking%20and%20Ahobilam%20stay." 
-       class="float-support-btn" 
-       target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>Need Help? Chat with Us</span>
-    </a>
-</body>
-</html>
+                    <label for="guestName"><i class="fa-solid fa-user"></i> Full
